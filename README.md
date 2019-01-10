@@ -1,4 +1,4 @@
-# cytrus
+# Cytrus
 A multipurpose bot to cover all your needs.
 
 # How To Use
