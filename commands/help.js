@@ -1,31 +1,13 @@
-exports.run = (client, message, [command]) => {
-  const Discord = require('discord.js');
-  if (!command) {
-    let fullHelp = new Discord.RichEmbed()
-    .setColor('010310')
-    .setTitle('Cytrus Commands')
-    .setDescription('Do ' + client.config.prefix + '<command> to see what each command does.\n\nHelp\nPing\nIp\nReload\nSpotify');
-    message.channel.send(fullHelp);
-  }
+exports.run = async (client, message) => {
+  client.help.forEach(function(command) {
+    message.author.send('**' + command.title + '**');
+    message.author.send(command.description);
+  });
   
-  switch(command) {
-    case 'ip':
-      message.channel.send('Gets the Cytrus public IP adress.');
-      break;
-    case 'ping':
-      message.channel.send('Gets the bot\'s ping.');
-      break;
-    case 'spotify':
-      message.channel.send('Gets a spotify playlist of the song type you choose.');
-      break;
-    case 'reload':
-      message.channel.send('Reloads a command.');
-      break;
-    case 'help':
-      message.channel.send('Sends the help message');
-      break;
-    case 'reboot':
-      message.channel.send('Reboots the bot');
-      break;
-  }
+  message.channel.send('The help is in your DM\'s!');
+};
+
+exports.help = {
+  title: 'Help',
+  description: 'Returns the help message'
 };

@@ -22,6 +22,17 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.commands = new Enmap();
+client.help = new Enmap();
+
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`).help;
+    let commandName = file.split(".")[0];
+    client.help.set(commandName, props);
+  });
+});
 
 fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
@@ -29,10 +40,9 @@ fs.readdir("./commands/", (err, files) => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/${file}`);
     let commandName = file.split(".")[0];
-    console.log(`Loading command:  ${commandName}`);
+    console.log(`Loading ${commandName} command`);
     client.commands.set(commandName, props);
   });
-  console.log('');
 });
 
 //Logs into discord

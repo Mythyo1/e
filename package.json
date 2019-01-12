@@ -10,15 +10,16 @@
     "discord.js": "^11.4.2",
     "enmap": "^4.6.5",
     "express": "^4.16.4",
-    "node-opus": "^0.3.0",
+    "ffmpeg-binaries": "^4.0.0",
     "opusscript": "^0.0.6",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "ytdl-core": "^0.29.0"
   },
   "engines": {
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/CelestialCrafter/cytrus"
   },
   "license": "MIT",
   "keywords": [
