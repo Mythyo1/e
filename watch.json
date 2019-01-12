@@ -8,10 +8,10 @@
   "restart": {
     "exclude": [
       "^public/",
-      "^dist/"
+      "^dist/",
+      "\\.js$"
     ],
     "include": [
-      "\\.js$",
       "\\.json"
     ]
   },

@@ -1,9 +1,9 @@
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, level) => {
   const user = message.mentions.users.first();
   if (user) {
     const member = message.guild.member(user);
     if (member) {
-      member.kick(args.join(' ')).then(() => {
+      member.ban(args.join(' ')).then(() => {
         message.reply(`Successfully banned ${user.tag}`);
       }).catch(err => {
         message.reply('I was unable to ban the member');
@@ -16,7 +16,16 @@ exports.run = async (client, message, args) => {
   }
 };
 
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 'Moderator'
+};
+
 exports.help = {
-  title: 'Ban',
-  description: 'Bans a member from the server.'
+  name: 'ban',
+  category: 'Moderation',
+  description: 'Bans a member for an optional reason',
+  usage: 'ban @<user> [reason]'
 };

@@ -1,6 +1,7 @@
-module.exports = (client) => {
-  client.user.setActivity('with linux!');
-  
- 	const statusStartup = 'Memory Usage: ' + (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB\nUsers: ' + client.users.size.toLocaleString() + '\nServers: ' + client.guilds.size.toLocaleString();
-  console.log("Logged into discord!\n\nName: " + client.user.tag + "\n" + statusStartup + '\nUptime: ' + client.uptime + 'ms\nPrefix: ' + client.config.prefix + '\n\n');
+module.exports = async client => {
+  // Log that the bot is online.
+  client.logger.log(`${client.user.tag}, ready to serve ${client.users.size} users in ${client.guilds.size} servers.`, "ready");
+
+  // Make the bot "play the game" which is the help command with default prefix.
+  client.user.setActivity(`${client.config.defaultSettings.prefix}help`, {type: "PLAYING"});
 };

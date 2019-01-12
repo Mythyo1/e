@@ -1,27 +1,25 @@
-exports.run = async (client, message, args) => {
-	if (message.author.id !== client.config.owner) message.channel.send('You do not have the permissions to do this.');
-  
-  if (message.author.id == client.config.owner || message.author.id == client.config.coowner || message.author.id == client.config.hazel) {
-    if(!args || args.length <= 0) return message.reply("Must provide a command name to reload.");
-    const commandName = args[0];
+exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
+  if (!args || args.length < 1) return message.reply("Must provide a command to reload. Derp.");
 
-    // Check if the command exists and is valid
-    if(!client.commands.has(commandName)) {
-      return message.reply("That command does not exist");
-    }
+  let response = await client.unloadCommand(args[0]);
+  if (response) return message.reply(`Error Unloading: ${response}`);
 
-    // the path is relative to the *current folder*, so just ./filename.js
-    delete require.cache[require.resolve(`./${commandName}.js`)];
+  response = client.loadCommand(args[0]);
+  if (response) return message.reply(`Error Loading: ${response}`);
 
-    // We also need to delete and reload the command from the client.commands Enmap
-    client.commands.delete(commandName);
-    const props = require(`./${commandName}.js`);
-    client.commands.set(commandName, props);
-    message.reply(`The command ${commandName} has been reloaded`);
-  }
+  message.reply(`The command \`${args[0]}\` has been reloaded`);
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: "Bot Admin"
 };
 
 exports.help = {
-  title: 'Reload',
-  description: 'Reloads a command.'
+  name: "reload",
+  category: "System",
+  description: "Reloads a command that\"s been modified.",
+  usage: "reload [command]"
 };

@@ -1,5 +1,6 @@
 const Enmap = require('enmap');
-exports.run = async (client, message, [playlist]) => {
+exports.run = async (client, message, args, level) => {
+  const playlist = args.join().toLowerCase();
   const registry = new Enmap();
   const registryType = ['rap', 'games', 'memes', 'dubstep', 'catchy', 'nightcore'];
   
@@ -10,9 +11,9 @@ exports.run = async (client, message, [playlist]) => {
   registry.set("catchy", "https://open.spotify.com/playlist/0u82M1UonGIU8QuCOXDJYu");
   registry.set("nightcore", "https://open.spotify.com/playlist/37i9dQZF1DZ06evO4d9PxK");
   
-  if (!playlist) {
+  if (!playlist || playlist <= 0) {
     registryType.forEach(function(type) {
-      message.author.send(type);
+    message.author.send(type);
     });
     
     message.channel.send('All music types In your DM\'s!');
@@ -54,9 +55,18 @@ exports.run = async (client, message, [playlist]) => {
       message.author.send(`Nightcore: ${registry.get('nightcore')}`);
       message.channel.send('Nightcore music In your DM\'s!');
   }
-}
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ['s'],
+  permLevel: 'User'
+};
 
 exports.help = {
-  title: 'Spotify',
-  description: 'Gives you a playlist of the type of music you choose.'
+  name: 'spotify',
+  category: 'Music',
+  description: 'Returns a spotify playlist based on the type you choose',
+  usage: 'spotify <type>'
 };

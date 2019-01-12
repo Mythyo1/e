@@ -1,4 +1,4 @@
-exports.run = async (client, message) => {
+exports.run = async (client, message, args, level) => {
   const http = require('http');
   
   if(message.author.id == client.config.owner || !message.author.id == client.config.coowner) {
@@ -10,7 +10,16 @@ exports.run = async (client, message) => {
   }
 };
 
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 'Bot Admin'
+};
+
 exports.help = {
-  title: 'IP',
-  description: 'Returns the IP the bot is being hosted on.'
+  name: 'ip',
+  category: 'System',
+  description: 'Returns the Cytrus public IP',
+  usage: 'ip'
 };

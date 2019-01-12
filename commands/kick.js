@@ -1,4 +1,4 @@
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, level) => {
   const user = message.mentions.users.first();
   if (user) {
     const member = message.guild.member(user);
@@ -16,7 +16,16 @@ exports.run = async (client, message, args) => {
   }
 };
 
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 'Moderator'
+};
+
 exports.help = {
-  title: 'Kick',
-  description: 'Kicks a member from the server.'
+  name: 'kick',
+  category: 'Moderation',
+  description: 'Kicks a member for an optional reason',
+  usage: 'kick @<user> [reason]'
 };
