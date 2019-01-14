@@ -1,35 +1,27 @@
 {
-  "name": "guidebot",
-  "version": "2.3.5",
-  "description": "A boilerplate example bot with command handler and reloadable commands. Updated and Maintained by the Idiot's Guide Community",
-  "main": "appjs",
+  "name": "cytrus",
+  "version": "2.0.1",
+  "description": "A multipurpose bot to handle all your needs.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
   "engines": {
-    "node": ">=8"
+    "node": "8.x"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/An-Idiots-Guide/guidebot.git"
+    "url": "https://github.com/CelestialCrafter/cytrus"
   },
-  "author": "Evelyne Lachance <eslachance@gmail.com> (http://evie.codes)",
-  "contributors": [
-    "York (http://anidiots.guide)"
-  ],
+  "author": "CelestialCrafter#0001, EnderGirlGamer#5370",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/An-Idiots-Guide/guidebot/issues"
-  },
-  "homepage": "https://github.com/An-Idiots-Guide/guidebot#readme",
   "dependencies": {
-    "better-sqlite-pool": "^0.1.2",
-    "chalk": "^2.3.0",
+    "better-sqlite-pool": "^0.2.0",
+    "chalk": "^2.4.1",
     "discord.js": "^11.4.2",
-    "enmap": "^4.2.1",
+    "enmap": "^4.6.5",
     "express": "^4.16.4",
-    "moment": "^2.20.1",
-    "moment-duration-format": "^2.2.0"
+    "moment": "^2.23.0",
+    "moment-duration-format": "^2.2.2",
+    "discord-rich-presence": "^0.0.7"
   }
 }
