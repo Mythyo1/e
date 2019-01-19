@@ -32,6 +32,9 @@ fs.readdir("./commands/", (err, files) => {
     let commandName = file.split(".")[0];
     client.logger.log(`Loading command: ${commandName}`);
     client.commands.set(commandName, props);
+    props.conf.aliases.forEach((al) => {
+      client.aliases.set(al, props);
+    });
   });
   console.log();
 });

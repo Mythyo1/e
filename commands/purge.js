@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => {
   if (!isNaN(args)) {
     num = parseInt(args[0]);
     
-    if (num >= 100) {
+    if (num >= 100 && num && num !== 0) {
       message.reply('You must enter a number under 100 for me to clear!');
     } else {
       message.channel.bulkDelete(num + 1);

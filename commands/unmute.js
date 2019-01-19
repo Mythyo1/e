@@ -11,13 +11,14 @@ exports.run = async (client, message, args, level) => {
         message.reply(`Successfully unmuted ${user.tag}`);
         
         const modLogChannel = settings.modLogChannel;
-        
-        let embed = new Discord.RichEmbed()
-        .setTitle('User Unmute')
-        .setColor('#eeeeee')
-        .setDescription(`Name: ${user.username}\nID: ${user.id}`);
-        
-        message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error);
+        if (modLogChannel) {
+          let embed = new Discord.RichEmbed()
+          .setTitle('User Unmute')
+          .setColor('#eeeeee')
+          .setDescription(`Name: ${user.username}\nID: ${user.id}`);
+
+          message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error);
+        }
       }).catch(err => {
        message.reply('I was unable to unmute the member');
       });

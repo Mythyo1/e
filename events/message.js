@@ -1,47 +1,50 @@
 module.exports = async (client, message) => {
-if (message.author.bot) return;
 
-if (message.channel.type !== 'guild') {} else {
-  let lvltmp = client.levels.get(message.guild.id+message.author.id);
-  client.levels.set(message.guild.id+message.author.id, lvltmp+0.5);
-}
+  if (message.author.bot) return;
 
-const settings = message.settings = client.getSettings(message.guild.id);
+  if (message.channel.type !== 'guild') {} else {
+    client.levels.set(message.guild.id+message.author.id, client.levels.get(message.guild.id+message.author.id)+0.5);
+  }
 
-const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-if (message.content.match(prefixMention)) {
-  return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
-}
+  const settings = message.settings = client.getSettings(message.guild.id);
 
-if (message.content.indexOf(settings.prefix) !== 0) return;
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  if (message.content.match(prefixMention)) {
+    return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
+  }
 
-const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+  if (message.content.indexOf(settings.prefix) !== 0) return;
+
+  const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-if (message.guild && !message.member) await message.guild.fetchMember(message.author);
+  if (message.guild && !message.member) await message.guild.fetchMember(message.author);
 
- const level = client.permlevel(message);
+  const level = client.permlevel(message);
 
- const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
- if (!cmd) return;
+  const cmd = client.commands.get(command) || client.aliases.get(command);
 
- if (cmd && !message.guild && cmd.conf.guildOnly)
-    return message.channel.send('This command is unavailable via private message. Please run this command in a guild.');
+  if (!cmd) return;
+
+  if (cmd && !message.guild && cmd.conf.guildOnly)
+    return message.channel.send("This command is unavailable via private message. Please run this command in a guild.");
 
   if (level < client.levelCache[cmd.conf.permLevel]) {
-    if (settings.systemNotice === 'true') {
-      return message.channel.send(`You do not have permission to use this command.\nYour permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})\nThis command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
+    if (settings.systemNotice === "true") {
+      return message.channel.send(`You do not have permission to use this command.
+Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
+This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
     } else {
       return;
     }
   }
 
- message.author.permLevel = level;
+  message.author.permLevel = level;
   
   message.flags = [];
-  while (args[0] && args[0][0] === '-') {
+  while (args[0] && args[0][0] === "-") {
     message.flags.push(args.shift().slice(1));
   }
-  cmd.run(client, message, args, level);
   
+  cmd.run(client, message, args, level);
 };
