@@ -4,6 +4,7 @@ exports.run = async (client, message, args, level) => {
   http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
     resp.on('data', function(ip) {
       message.author.send('Cytrus public IP: ' + ip);
+      message.channel.send('The Cytrus IP is in your DM\'s!');
     });
   })
 };

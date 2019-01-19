@@ -1,10 +1,10 @@
-const { version } = require("discord.js");
-const moment = require("moment");
+const { version } = require('discord.js');
+const moment = require('moment');
 const Discord = require('discord.js');
-require("moment-duration-format");
+require('moment-duration-format');
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
+  const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
   const embed = new Discord.RichEmbed()
   .setTitle('Cytrus Status')
   .setDescription(`
@@ -23,12 +23,12 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['status'],
-  permLevel: "User"
+  permLevel: 'User'
 };
 
 exports.help = {
-  name: "stats",
-  category: "System",
-  description: "Gives some useful bot statistics",
-  usage: "stats"
+  name: 'stats',
+  category: 'System',
+  description: 'Gives some useful bot statistics',
+  usage: 'stats'
 };

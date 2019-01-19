@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => {
       message.channel.bulkDelete(num + 1);
     }
   } else {
-    message.reply('You must provide a number under 100 for me to clear!');
+    message.reply('You must enter a number under 100 for me to clear!');
   }
 };
 
@@ -26,5 +26,5 @@ exports.help = {
   name: 'purge',
   category: 'Moderation',
   description: 'Purges the amount of messages you specify',
-  usage: 'purge <1-100>'
+  usage: 'purge <1-99>'
 };

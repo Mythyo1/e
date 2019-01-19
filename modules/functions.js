@@ -30,7 +30,7 @@ module.exports = (client) => {
     const filter = m => m.author.id === msg.author.id;
     await msg.channel.send(question);
     try {
-      const collected = await msg.channel.awaitMessages(filter, { max: 1, time: limit, errors: ["time"] });
+      const collected = await msg.channel.awaitMessages(filter, { max: 1, time: limit, errors: ['time'] });
       return collected.first().content;
     } catch (e) {
       return false;
@@ -38,15 +38,15 @@ module.exports = (client) => {
   };
 
   client.clean = async (client, text) => {
-    if (text && text.constructor.name == "Promise")
+    if (text && text.constructor.name == 'Promise')
       text = await text;
-    if (typeof evaled !== "string")
-      text = require("util").inspect(text, {depth: 1});
+    if (typeof evaled !== 'string')
+      text = require('util').inspect(text, {depth: 1});
 
     text = text
-      .replace(/`/g, "`" + String.fromCharCode(8203))
-      .replace(/@/g, "@" + String.fromCharCode(8203))
-      .replace(client.token, "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
+      .replace(/`/g, '`' + String.fromCharCode(8203))
+      .replace(/@/g, '@' + String.fromCharCode(8203))
+      .replace(client.token, 'mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0');
 
     return text;
   };
@@ -75,7 +75,7 @@ module.exports = (client) => {
     } else if (client.aliases.has(commandName)) {
       command = client.commands.get(client.aliases.get(commandName));
     }
-    if (!command) return `The command \`${commandName}\` doesn"t seem to exist, nor is it an alias. Try again!`;
+    if (!command) return `The command \`${commandName}\` doesn't seem to exist, nor is it an alias. Try again!`;
   
     if (command.shutdown) {
       await command.shutdown(client);
@@ -91,27 +91,27 @@ module.exports = (client) => {
     return false;
   };
 
-  Object.defineProperty(String.prototype, "toProperCase", {
+  Object.defineProperty(String.prototype, 'toProperCase', {
     value: function() {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
     }
   });
 
-  Object.defineProperty(Array.prototype, "random", {
+  Object.defineProperty(Array.prototype, 'random', {
     value: function() {
       return this[Math.floor(Math.random() * this.length)];
     }
   });
 
-  client.wait = require("util").promisify(setTimeout);
+  client.wait = require('util').promisify(setTimeout);
 
-  process.on("uncaughtException", (err) => {
-    const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
+  process.on('uncaughtException', (err) => {
+    const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
     client.logger.error(`Uncaught Exception: ${errorMsg}`);
     process.exit(1);
   });
 
-  process.on("unhandledRejection", err => {
+  process.on('unhandledRejection', err => {
     client.logger.error(`Unhandled rejection: ${err}`);
   });
 };

@@ -1,12 +1,17 @@
 module.exports = async (client, message) => {
 if (message.author.bot) return;
 
+if (message.channel.type !== 'guild') {} else {
+  let lvltmp = client.levels.get(message.guild.id+message.author.id);
+  client.levels.set(message.guild.id+message.author.id, lvltmp+0.5);
+}
+
 const settings = message.settings = client.getSettings(message.guild.id);
 
-  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-  if (message.content.match(prefixMention)) {
-    return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
-  }
+const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+if (message.content.match(prefixMention)) {
+  return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
+}
 
 if (message.content.indexOf(settings.prefix) !== 0) return;
 
@@ -21,10 +26,10 @@ if (message.guild && !message.member) await message.guild.fetchMember(message.au
  if (!cmd) return;
 
  if (cmd && !message.guild && cmd.conf.guildOnly)
-    return message.channel.send("This command is unavailable via private message. Please run this command in a guild.");
+    return message.channel.send('This command is unavailable via private message. Please run this command in a guild.');
 
   if (level < client.levelCache[cmd.conf.permLevel]) {
-    if (settings.systemNotice === "true") {
+    if (settings.systemNotice === 'true') {
       return message.channel.send(`You do not have permission to use this command.\nYour permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})\nThis command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
     } else {
       return;
@@ -34,8 +39,9 @@ if (message.guild && !message.member) await message.guild.fetchMember(message.au
  message.author.permLevel = level;
   
   message.flags = [];
-  while (args[0] && args[0][0] === "-") {
+  while (args[0] && args[0][0] === '-') {
     message.flags.push(args.shift().slice(1));
   }
   cmd.run(client, message, args, level);
+  
 };

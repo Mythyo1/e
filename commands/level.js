@@ -7,12 +7,12 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
-  permLevel: "User"
+  permLevel: 'User'
 };
 
 exports.help = {
-  name: "level",
-  category: "General",
-  description: "Tells you your permission level.",
-  usage: "level"
+  name: 'level',
+  category: 'General',
+  description: 'Tells you your permission level.',
+  usage: 'level'
 };

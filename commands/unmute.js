@@ -7,38 +7,38 @@ exports.run = async (client, message, args, level) => {
   if (user) {
     const member = message.guild.member(user);
     if (member) {
-      member.ban(args.slice(1).join(' ')).then(() => {
-        message.reply(`Successfully banned ${user.tag}`);
+      member.removeRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(() => {
+        message.reply(`Successfully unmuted ${user.tag}`);
         
         const modLogChannel = settings.modLogChannel;
         
         let embed = new Discord.RichEmbed()
-        .setTitle('User Ban')
+        .setTitle('User Unmute')
         .setColor('#eeeeee')
-        .setDescription(`Name: ${user.username}\nID: ${user.id}\nReason: ${args.slice(1).join(' ')}`);
+        .setDescription(`Name: ${user.username}\nID: ${user.id}`);
         
         message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error);
       }).catch(err => {
-       message.reply('I was unable to ban the member');
+       message.reply('I was unable to unmute the member');
       });
     } else {
       message.reply('That user isn\'t in this guild!');
     }
   } else {
-    message.reply('You didn\'t mention the user to ban!');
+    message.reply('You didn\'t mention the user to unmute!');
   }
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['b'],
+  aliases: ['um'],
   permLevel: 'Moderator'
 };
 
 exports.help = {
-  name: 'ban',
+  name: 'unmute',
   category: 'Moderation',
-  description: 'Bans a member for an optional reason',
-  usage: 'ban @<user> [reason]'
+  description: 'Unmutes a member.',
+  usage: 'unmute @<user>'
 };
