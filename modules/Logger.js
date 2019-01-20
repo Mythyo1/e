@@ -4,25 +4,27 @@ const moment = require('moment');
 exports.log = (content, type = 'log') => {
   const timestamp = `[${moment().format('YYYY-MM-DD HH:mm:ss')}]:`;
   switch (type) {
-    case 'log': {
+    case 'log':
       return console.log(`${timestamp} ${chalk.green.bgBlue(type.toUpperCase())} ${content} `);
-    }
-    case 'warn': {
+      break;
+    case 'warn':
       return console.log(`${timestamp} ${chalk.black.bgYellow(type.toUpperCase())} ${content} `);
-    }
-    case 'error': {
+      break;
+    case 'error':
       return console.log(`${timestamp} ${chalk.bgRed(type.toUpperCase())} ${content} `);
-    }
-    case 'debug': {
+      break;
+    case 'debug':
       return console.log(`${timestamp} ${chalk.green(type.toUpperCase())} ${content} `);
-    }
-    case 'cmd': {
+      break;
+    case 'cmd':
       return console.log(`${timestamp} ${chalk.black.bgWhite(type.toUpperCase())} ${content}`);
-    }
-    case 'ready': {
+      break;
+    case 'ready':
       return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
-    }
-    default: throw new TypeError('Logger type must be either warn, debug, log, ready, cmd or error.');
+      break;
+    
+    default:
+      throw new TypeError('Logger type must be either warn, debug, log, ready, cmd or error.');
   }
 }; 
 

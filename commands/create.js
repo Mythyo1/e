@@ -1,6 +1,8 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  message.guild.createChannel(args[0], args[1], []).catch((err) => {
-    message.channel.send('Their was an error!')
+  message.channel.send('Ive created the channel!').then(() => {
+    message.guild.createChannel(args[0], args[1], []).catch((err) => {
+      message.channel.send('Their was an error!')
+    });
   });
 };
 

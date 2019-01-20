@@ -1,11 +1,12 @@
 const request = require('request');
+const { Attachment } = require('discord.js');
 
 exports.run = async (client, message, args, level) => {
   request({json: true, url: 'http://aws.random.cat/meow'}, (err, res, json) => {
     if (err) {
       message.reply('There was an error!');
     } else {
-      message.reply(json.file);
+      message.reply(new Attachment(json.file));
     }
   });
 };
@@ -13,7 +14,7 @@ exports.run = async (client, message, args, level) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['c'],
+  aliases: [],
   permLevel: 'User'
 };
 

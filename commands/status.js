@@ -13,7 +13,9 @@ Uptime: ${duration}
 Users: ${client.users.size.toLocaleString()}
 Servers: ${client.guilds.size.toLocaleString()}
 Channels: ${client.channels.size.toLocaleString()}
-Discord.js: v${version}\nNode: ${process.version}`)
+Debugging: ${process.env.DEBUG}
+Discord.js: v${version}
+Node.js: ${process.version}`)
   .setColor('#eeeeee');
   
   message.channel.send(embed);
@@ -22,13 +24,13 @@ Discord.js: v${version}\nNode: ${process.version}`)
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['status'],
+  aliases: ['stats'],
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'stats',
+  name: 'status',
   category: 'System',
-  description: 'Gives some useful bot statistics',
-  usage: 'stats'
+  description: 'Reuturns the bots status',
+  usage: 'status'
 };

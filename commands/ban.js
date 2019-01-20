@@ -17,7 +17,7 @@ exports.run = async (client, message, args, level) => {
           .setColor('#eeeeee')
           .setDescription(`Name: ${user.username}\nID: ${user.id}\nReason: ${args.slice(1).join(' ')}`);
 
-          message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error);
+          message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed);
         }
       }).catch(err => {
        message.reply('I was unable to ban the member');

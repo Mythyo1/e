@@ -9,30 +9,46 @@ const util = require('util');
 
 //Define variubles
 const client = new Discord.Client();
-require('./modules/web');
+const promisify = util.promisify;
+const readdir = (fs.readdir);
+process.env.DEBUG = true;
+
+//Define databases
+client.commands = new Enmap();
+client.aliases = new Enmap();
+client.levels = new Enmap({name: 'levels'});
+client.spotify = new Enmap({name: 'spotify'});
+client.settings = new Enmap({name: 'settings'});
+
+//Import files
+const initWeb = require('./modules/web');
 require('./modules/functions')(client);
 client.config = require('./cnf');
 client.logger = require('./modules/Logger');
-const promisify = util.promisify;
-const readdir = fs.readdir;
-
-//Define databases
-client.levels = new Enmap({name: 'levels'});
-client.commands = new Enmap();
-client.aliases = new Enmap();
-client.spotify = new Enmap();
-client.settings = new Enmap({name: 'settings'});
 
 //Get command files
-fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
+readdir("./commands/", (err, files) => {
+  //If their is an error, Return the error
+  if (err) return client.logger.error(err);
+  
+  //For each file in the file array run this function
+  files.forEach((file) => {
+    //If the file extention (.py, .js, .md) is not js, Ignore it
     if (!file.endsWith(".js")) return;
+    
+    //Make the "props" variuble the file object
     let props = require(`./commands/${file}`);
+    
+    //Split the file name from the file extention
     let commandName = file.split(".")[0];
+    
+    //Log that the command is loading
     client.logger.log(`Loading command: ${commandName}`);
+    
+    //Set the command name the file objects
     client.commands.set(commandName, props);
     props.conf.aliases.forEach((al) => {
+      //Set the aliases of the command the file objects
       client.aliases.set(al, props);
     });
   });
@@ -40,14 +56,28 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 //Get event files
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
+readdir("./events/", (err, files) => {
+  //If their is an error, Return the error
+  if (err) return client.logger.error(err);
+  
+  //For each file in the file array run this function
   files.forEach(file => {
+    //If the file extention (.py, .js, .md) is not js, Ignore it
     if (!file.endsWith(".js")) return;
+    
+    //Make the "event" variuble the file object
     const event = require(`./events/${file}`);
+    
+    //Split the file name from the file extention
     let eventName = file.split(".")[0];
+    
+    //When the event name is ran, Run the event files objects
     client.on(eventName, event.bind(null, client));
+    
+    //Delete the event cache
     delete require.cache[require.resolve(`./events/${file}`)];
+    
+    //Log that the event is loading
     client.logger.log(`Loading event: ${eventName}`)
   });
   console.log();
@@ -61,13 +91,4 @@ for (let i = 0; i < client.config.permLevels.length; i++) {
 }
   
 //Login to discord
-client.login(process.env.BOT_TOKEN);
-
-setTimeout(() => {
-  client.spotify.set('rap', 'https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd');
-  client.spotify.set('games', 'https://open.spotify.com/playlist/5bzUd5ygYq9iiGvSUfxmDN');
-  client.spotify.set('memes', 'https://open.spotify.com/playlist/6dexJqtAIi8A2Mi35g6GfT');
-  client.spotify.set('dubstep', 'https://open.spotify.com/playlist/1A7pY65wgTarJ85of9M981');
-  client.spotify.set('catchy', 'https://open.spotify.com/playlist/0u82M1UonGIU8QuCOXDJYu');
-  client.spotify.set('nightcore', 'https://open.spotify.com/playlist/37i9dQZF1DZ06evO4d9PxK');
-}, 3000);
+client.login(process.env.BOT_TOKEN).then(initWeb());

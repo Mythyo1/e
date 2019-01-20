@@ -1,24 +1,14 @@
 const config = {
-  // Bot Owner, level 10 by default. A User ID. Should never be anything else than the bot owner's ID.
   'owners': ['493922020783030282', '314165962100310017'],
-
-  // Bot Admins, level 9 by default. Array of user ID strings.
+  'managers': [],
   'admins': ['463051744071516201'],
-  
+  'developers': [],
   'mods': [],
-
-  // Bot Support, level 8 by default. Array of user ID strings
   'support': [],
+  'helpers': [],
   
   'globalBan': [],
-
-  // Your Bot's Token. Available on https://discordapp.com/developers/applications/me
-  'token': 'mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0',
-
-  // Default per-server settings. New guilds have these settings. 
-
-  // DO NOT LEAVE ANY OF THESE BLANK, AS YOU WILL NOT BE ABLE TO UPDATE THEM
-  // VIA COMMANDS IN THE GUILD.
+  'token': 'mfa.n0-t.r_e-a1-t0-k_e.n',
   
   'defaultSettings' : {
     'prefix': 'cy.',
@@ -58,7 +48,7 @@ const config = {
       check: (message) => {
         try {
           const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase());
-          return (adminRole && message.member.roles.has(adminRole.id));
+          return (adminRole && message.member.roles.has(adminRole.id) || message.author.hasPermission('ADMINISTRATOR'));
         } catch (e) {
           return false;
         }
@@ -73,25 +63,47 @@ const config = {
     
     { 
       level: 4,
+      name: 'Bot Helper',
+      
+      check: (message) => config.helpers.includes(message.author.id)
+    },
+    
+    { 
+      level: 5,
       name: 'Bot Support',
       
       check: (message) => config.support.includes(message.author.id)
     },
 
     { 
-      level: 5,
+      level: 6,
       name: 'Bot Mod',
       
       check: (message) => config.mods.includes(message.author.id)
     },
     
-    { level: 6,
+    { 
+      level: 7,
+      name: 'Bot Dev',
+      
+      check: (message) => config.developers.includes(message.author.id)
+    },
+    
+    {
+      level: 8,
       name: 'Bot Admin',
      
       check: (message) => config.admins.includes(message.author.id)
     },
+    
+    {
+      level: 9,
+      name: 'Bot Manager',
+     
+      check: (message) => config.admins.includes(message.author.id)
+    },
 
-    { level: 7,
+    { level: 10,
       name: 'Bot Owner',
      
       check: (message) => config.owners.includes(message.author.id)

@@ -1,5 +1,4 @@
 exports.run = async (client, message, args, level) => {
-  
   let num;
   
   if (!isNaN(args)) {

@@ -1,11 +1,16 @@
 module.exports = (client) => {
+  //Return the permission level
   client.permlevel = message => {
     let permlvl = 0;
 
+    //Sort the permission levels
     const permOrder = client.config.permLevels.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
 
     while (permOrder.length) {
+      //Make the current level the first level in the array
       const currentLevel = permOrder.shift();
+      
+      //If the message is sent in a guild, Continue
       if (message.guild && currentLevel.guildOnly) continue;
       if (currentLevel.check(message)) {
         permlvl = currentLevel.level;
@@ -104,14 +109,14 @@ module.exports = (client) => {
   });
 
   client.wait = require('util').promisify(setTimeout);
-
+  
   process.on('uncaughtException', (err) => {
     const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
     client.logger.error(`Uncaught Exception: ${errorMsg}`);
     process.exit(1);
   });
 
-  process.on('unhandledRejection', err => {
+  process.on('unhandledRejection', (err) => {
     client.logger.error(`Unhandled rejection: ${err}`);
   });
 };
