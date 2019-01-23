@@ -13,7 +13,6 @@ Uptime: ${duration}
 Users: ${client.users.size.toLocaleString()}
 Servers: ${client.guilds.size.toLocaleString()}
 Channels: ${client.channels.size.toLocaleString()}
-Debugging: ${process.env.DEBUG}
 Discord.js: v${version}
 Node.js: ${process.version}`)
   .setColor('#eeeeee');

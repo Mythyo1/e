@@ -1,6 +1,6 @@
 {
   "name": "cytrus",
-  "version": "2.0.1",
+  "version": "2.3.5",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {
@@ -17,14 +17,15 @@
   "dependencies": {
     "better-sqlite-pool": "^0.2.0",
     "chalk": "^2.4.1",
-    "discord-anti-spam": "^1.1.6",
-    "discord-rich-presence": "^0.0.7",
     "discord.js": "^11.4.2",
-    "enmap": "^4.6.5",
+    "enmap": "^4.6.6",
     "express": "^4.16.4",
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
-    "pm2": "^3.2.8",
-    "request": "^2.88.0"
+    "pm2": "^3.2.9",
+    "request": "^2.88.0",
+    "urban-dictionary": "^2.2.1",
+    "ejs": "^2.6.1",
+    "socket.io": "^2.2.0"
   }
 }

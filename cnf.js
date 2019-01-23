@@ -16,7 +16,7 @@ const config = {
     'modRole': 'Moderator',
     'adminRole': 'Administrator',
     'muteRole': 'muted',
-    'systemNotice': 'true',
+    'noPermissionNotice': 'true',
     'welcomeChannel': 'general',
     'welcomeMessage': 'Welcome to the server {{user}}!',
     'welcomeEnabled': 'true',
@@ -77,14 +77,14 @@ const config = {
 
     { 
       level: 6,
-      name: 'Bot Mod',
+      name: 'Bot Moderator',
       
       check: (message) => config.mods.includes(message.author.id)
     },
     
     { 
       level: 7,
-      name: 'Bot Dev',
+      name: 'Bot Developer',
       
       check: (message) => config.developers.includes(message.author.id)
     },

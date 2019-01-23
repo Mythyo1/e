@@ -11,17 +11,14 @@ const util = require('util');
 const client = new Discord.Client();
 const promisify = util.promisify;
 const readdir = (fs.readdir);
-process.env.DEBUG = true;
 
 //Define databases
 client.commands = new Enmap();
 client.aliases = new Enmap();
-client.levels = new Enmap({name: 'levels'});
 client.spotify = new Enmap({name: 'spotify'});
 client.settings = new Enmap({name: 'settings'});
 
 //Import files
-const initWeb = require('./modules/web');
 require('./modules/functions')(client);
 client.config = require('./cnf');
 client.logger = require('./modules/Logger');
@@ -51,6 +48,7 @@ readdir("./commands/", (err, files) => {
       //Set the aliases of the command the file objects
       client.aliases.set(al, props);
     });
+    
   });
   console.log();
 });
@@ -91,4 +89,4 @@ for (let i = 0; i < client.config.permLevels.length; i++) {
 }
   
 //Login to discord
-client.login(process.env.BOT_TOKEN).then(initWeb());
+client.login(process.env.BOT_TOKEN);

@@ -44,7 +44,7 @@ exports.run = async (client, message, [action, key, value], level) => { // eslin
   } else {
     const array = [];
     Object.entries(settings).forEach(([key, value]) => {
-      array.push(`${key}: ${value}`); 
+      array.push(`${key}: \`${value}\``); 
     });
     
     const embed = new Discord.RichEmbed()
@@ -58,7 +58,7 @@ exports.run = async (client, message, [action, key, value], level) => { // eslin
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['setting', 'settings', 'conf', 'set'],
+  aliases: ['setting', 'settings', 'conf', 'set', 'config'],
   permLevel: 'Administrator'
 };
 
