@@ -8,6 +8,12 @@ module.exports = async (client, message) => {
     // If there is no guild, get default conf (DMs)
     const settings = message.settings = client.getSettings(message.guild.id);
 
+    if (settings.deleteInvites == 'true') {
+      if (message.content.match(new RegExp(/(?:discordapp\.com\/invite\/|discord\.gg\/).+/gi))) {
+        message.delete();
+      }
+    }
+    
     // Checks if the bot was mentioned, with no message after it, returns the prefix.
     const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (message.content.match(prefixMention)) {
@@ -50,6 +56,7 @@ module.exports = async (client, message) => {
     // The "level" command module argument will be deprecated in the future.
     message.author.permLevel = level;
 
+    
     message.flags = [];
     while (args[0] && args[0][0] === "-") {
       message.flags.push(args.shift().slice(1));
