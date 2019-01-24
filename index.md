@@ -1,7 +1,7 @@
 # Cytrus
 A multipurpose bot to cover all your needs.
 
-How to set up
+## How to set up
 Create a .env file in the directory Cytrus is installed in.  
 Paste the text below into the .env file:  
 ```js
@@ -10,26 +10,27 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 ```
 > Start the app.js file  
 
-# API
+## Links
+### API
 [API](https://cytrusbot.glitch.me/api/)
 ​
-# Bot List
+### Bot List
 [Discord Bot List](https://discordbotlist.com/bots/526593597118873620/)
 ​
-# Upvote
+### Upvote
 [Upvote](https://discordbotlist.com/bots/526593597118873620/upvote)
 ​
-# Invite
+### Invite
 [Invite To Server](https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8)
 ​
-# Client Id
+### Client Id
 526593597118873620
 ​
-# Server
+### Server
 [Support Server](https://discord.gg/VfTE9GH)
 
 ---
-# Commands
+## Commands
 ​
 ### Fun Commands
 ```markdown
@@ -72,4 +73,5 @@ cy.eval: Evaluates arbitrary javascript.
 cy.help: Displays all the available commands for your permission level.
 cy.publicip: Returns the Cytrus public IP
 cy.reload: Reloads a command.
-cy.status: Reuturns the bots status```
+cy.status: Reuturns the bots status
+```
