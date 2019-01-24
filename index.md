@@ -31,7 +31,6 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 
 ---
 ## Commands
-​
 ### Fun Commands
 ```markdown
 cy.cat: Returns a random cat
