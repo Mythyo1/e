@@ -12,27 +12,32 @@ Start the app.js file
  ```
 API
 ```markdown
-https://cytrusbot.glitch.me/api/```
+https://cytrusbot.glitch.me/api/
+```
 ​
 Bot List
 ```markdown
-https://discordbotlist.com/bots/526593597118873620/```
+https://discordbotlist.com/bots/526593597118873620/
+```
 ​
 Upvote
 ```markdown
-https://discordbotlist.com/bots/526593597118873620/upvote```
+https://discordbotlist.com/bots/526593597118873620/upvote
+```
 ​
 Invite
 ```markdown
-https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8```
+https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8
+```
 ​
 Client Id
 ```markdown
-526593597118873620```
+526593597118873620
+```
 ​
 Server
 ```markdown
-https://discord.gg/VfTE9GH```
+https://discord.gg/VfTE9GH
 ```
 
 
