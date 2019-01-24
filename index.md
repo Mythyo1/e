@@ -1,35 +1,30 @@
-## Cytrus
+# Cytrus
+A multipurpose bot to cover all your needs.
 
-A multipurpose bot that can handle Moderation, Fun, And more.
-
-### 
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+# How to set up
+>Create a .env file in the directory Cytrus is installed in.  
+>Paste the text below into the .env file:  
+  
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+BOT_TOKEN='`YourBotToken`'  
+LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'  
 ```
+>Start the app.js file  
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## API
+>https://cytrusbot.glitch.me/api/
 
-### Jekyll Themes
+## Bot List
+>https://discordbotlist.com/bots/526593597118873620/
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CelestialCrafter/cytrus/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Upvote
+>https://discordbotlist.com/bots/526593597118873620/upvote
 
-### Support or Contact
+## Invite
+>https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Client Id
+>526593597118873620
+
+## Server
+>https://discord.gg/VfTE9GH
