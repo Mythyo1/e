@@ -11,14 +11,10 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 > Start the app.js file  
 
 # API
-`
 [API](https://cytrusbot.glitch.me/api/)
-`
 ​
 # Bot List
-`
 [Discord Bot List](https://discordbotlist.com/bots/526593597118873620/)
-`
 ​
 # Upvote
 [Upvote](https://discordbotlist.com/bots/526593597118873620/upvote)
