@@ -16,29 +16,29 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 `
 ​
 # Bot List
-```markdown
+`
 [Discord Bot List] (https://discordbotlist.com/bots/526593597118873620/)
-```
+`
 ​
 # Upvote
-```markdown
+`
 [Upvote] (https://discordbotlist.com/bots/526593597118873620/upvote)
-```
+`
 ​
 # Invite
-```markdown
+`
 [Invite To Server] (https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8)
-```
+`
 ​
 # Client Id
-```markdown
+`
 526593597118873620
-```
+`
 ​
 # Server
-```markdown
+`
 [Support Server] (https://discord.gg/VfTE9GH)
-```
+`
 ---
 # Commands
 ​
