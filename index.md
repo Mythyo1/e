@@ -27,6 +27,7 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 ​
 # Server
 [Support Server](https://discord.gg/VfTE9GH)
+
 ---
 # Commands
 ​
