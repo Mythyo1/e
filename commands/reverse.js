@@ -1,7 +1,8 @@
 
 exports.run = async (client, message, args, level) => {
   const str = args.join(' ');
-  message.reply('🔁'+str.split('').reverse().join(''));
+  let msg = message.reply(str.split('').reverse().join(''));
+  message.react('🔁');
 };
 
 exports.conf = {
