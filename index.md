@@ -1,7 +1,7 @@
 # Cytrus
 A multipurpose bot to cover all your needs.
 ```markdown
-## How to set up
+How to set up
 Create a .env file in the directory Cytrus is installed in.  
 Paste the text below into the .env file:  
   
@@ -10,27 +10,27 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
   
 Start the app.js file  
  ```
-### API
+API
 ```markdown
 https://cytrusbot.glitch.me/api/```
 ​
-### Bot List
+Bot List
 ```markdown
 https://discordbotlist.com/bots/526593597118873620/```
 ​
-### Upvote
+Upvote
 ```markdown
 https://discordbotlist.com/bots/526593597118873620/upvote```
 ​
-### Invite
+Invite
 ```markdown
 https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8```
 ​
-### Client Id
+Client Id
 ```markdown
 526593597118873620```
 ​
-### Server
+Server
 ```markdown
 https://discord.gg/VfTE9GH```
 ```
