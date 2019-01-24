@@ -11,23 +11,23 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 > Start the app.js file  
 
 # API
-```markdown
-https://cytrusbot.glitch.me/api/
-```
+`
+[API] (https://cytrusbot.glitch.me/api/)
+`
 ​
 # Bot List
 ```markdown
-https://discordbotlist.com/bots/526593597118873620/
+[Discord Bot List] (https://discordbotlist.com/bots/526593597118873620/)
 ```
 ​
 # Upvote
 ```markdown
-https://discordbotlist.com/bots/526593597118873620/upvote
+[Upvote] (https://discordbotlist.com/bots/526593597118873620/upvote)
 ```
 ​
 # Invite
 ```markdown
-https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8
+[Invite To Server] (https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8)
 ```
 ​
 # Client Id
@@ -37,7 +37,7 @@ https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&p
 ​
 # Server
 ```markdown
-https://discord.gg/VfTE9GH
+[Support Server] (https://discord.gg/VfTE9GH)
 ```
 ---
 # Commands
