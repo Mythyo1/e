@@ -9,7 +9,7 @@ BOT_TOKEN='`YourBotToken`'
 LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'  
 LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
   
->Run `npm i`
+>Run `npm i`  
 >Start the `app.js` file  
 
 ## API
