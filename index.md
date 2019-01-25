@@ -74,3 +74,6 @@ cy.publicip: Returns the Cytrus public IP
 cy.reload: Reloads a command.
 cy.status: Reuturns the bots status
 ```
+  
+  
+![Cytrus](https://cytrus.ga/pikaOh.png)  
