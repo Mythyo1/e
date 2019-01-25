@@ -2,13 +2,15 @@
 A multipurpose bot to cover all your needs.
 
 # How to set up
->Create a .env file in the directory Cytrus is installed in.  
->Paste the text below into the .env file:  
+>Create a `.env` file in the directory Cytrus is installed in.  
+>Paste the text below into the `.env` file:  
   
 BOT_TOKEN='`YourBotToken`'  
 LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'  
+LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
   
->Start the app.js file  
+>Run `npm i`
+>Start the `app.js` file  
 
 ## API
 >https://cytrusbot.glitch.me/api/
