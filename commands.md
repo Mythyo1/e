@@ -1,4 +1,4 @@
-[**Links**](links.md) | [**Commands**](commands.md) | [**Home**](index.md)
+[**Home**](index.md) | [**Links**](links.md) | [**Commands**](commands.md)
 
   
   
