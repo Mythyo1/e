@@ -1,5 +1,5 @@
 <head>
-  <link rel='icon' type='image/png' href='./pikaOh.png' />
+  <link rel='icon' href='./pikaOh.png' />
 </head>
 
 # Cytrus
