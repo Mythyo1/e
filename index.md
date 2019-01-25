@@ -1,9 +1,7 @@
-<head>
-  <link rel='icon' href='./pikaOh.png' />
-</head>
-
 # Cytrus
 A multipurpose bot to cover all your needs.
+
+![](https://cytrus.ga/pikaOh.png)
 
 ## How to set up
 Create a .env file in the directory Cytrus is installed in.  
