@@ -1,3 +1,7 @@
+<head>
+  <link rel='icon' type='image/png' href='./pikaOh.png' />
+</head>
+
 # Cytrus
 A multipurpose bot to cover all your needs.
 
