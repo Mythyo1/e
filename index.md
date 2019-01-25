@@ -1,3 +1,8 @@
+**[Links](links.md)** **[Commands](commands.md)**
+
+  
+  
+  
 # Cytrus
 A multipurpose bot to cover all your needs.
 
@@ -12,22 +17,22 @@ LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'
 
 ## Links
 ### API
-[API](https://cytrusbot.glitch.me/api/)
+[Visit](https://cytrusbot.glitch.me/api/)
 ​
 ### Bot List
-[Discord Bot List](https://discordbotlist.com/bots/526593597118873620/)
+[Visit](https://discordbotlist.com/bots/526593597118873620/)
 ​
 ### Upvote
-[Upvote](https://discordbotlist.com/bots/526593597118873620/upvote)
+[Visit](https://discordbotlist.com/bots/526593597118873620/upvote)
 ​
 ### Invite
-[Invite To Server](https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8)
+[Visit](https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8)
 ​
 ### Client Id
 526593597118873620
 ​
 ### Server
-[Support Server](https://discord.gg/VfTE9GH)
+[Visit](https://discord.gg/VfTE9GH)
 
 ---
 ## Commands
@@ -76,4 +81,4 @@ cy.status: Reuturns the bots status
 ```
   
   
-![Cytrus](https://cytrus.ga/pikaOh.png)  
+![Cytrus](pikaOh.png)  
