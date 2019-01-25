@@ -1,4 +1,6 @@
-**[Links](links.md)** **[Commands](commands.md)**
+```markdown
+**[Links](links.md)** | **[Commands](commands.md)** | **[Home](index.md)**
+```
 
   
   
@@ -79,6 +81,3 @@ cy.publicip: Returns the Cytrus public IP
 cy.reload: Reloads a command.
 cy.status: Reuturns the bots status
 ```
-  
-  
-![Cytrus](pikaOh.png)  
