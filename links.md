@@ -1,3 +1,8 @@
+[**Links**](links.md) | [**Commands**](commands.md) | [**Home**](index.md)
+
+  
+  
+  
 # API
 [Visit](https://cytrusbot.glitch.me/api/)
 ​
