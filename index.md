@@ -1,4 +1,3 @@
-![](https://cytrus.ga/pikaOh.png)  
 # Cytrus
 A multipurpose bot to cover all your needs.
 
