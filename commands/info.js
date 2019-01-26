@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   .setColor('#eeeeee')
   .setTitle('Cytrus Github')
   .setFooter('Made by CelestialCrafter#0001 and EnderGirlGamer#5370')
-  .setDescription('Production: [Production Github](https://github.com/CelestialCrafter/cytrus) \n Development: [Development Github](https://github.com/CelestialCrafter/cytrus-dev)');
+  .setDescription('Production: [Production Github](https://github.com/CelestialCrafter/cytrus) \n Website: [Website](https://cytrus.ga) \n API: [API](https://cytrusbot.glitch.me)');
 
   message.channel.send(embed);
 };
@@ -13,13 +13,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['git'],
+  aliases: ['i'],
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'github',
+  name: 'info',
   category: 'General',
-  description: 'Returns the Cytrus Github',
-  usage: 'github'
+  description: 'Returns info about Cytrus',
+  usage: 'info'
 };
