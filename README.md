@@ -65,6 +65,9 @@ cy.unmute: Unmutes a member.
 ### Music Commands
 ```markdown
 cy.spotify: Returns a spotify playlist based on the type you choose
+cy.leave: Leaves your voice channel
+cy.play: Plays music in your voice channel
+cy.spotify: Returns a spotify playlist based on the type you choose
 ```
 ​
 ### System Commands
