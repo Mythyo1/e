@@ -12,6 +12,7 @@ Paste the text below into the .env file:
 ```js
 BOT_TOKEN='`YourBotToken`'  
 LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'  
+LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 ```
 > Start the app.js file  
 
