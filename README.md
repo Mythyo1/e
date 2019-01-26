@@ -38,6 +38,8 @@ cy.cat: Returns a random cat
 cy.dog: Returns a random Dog
 cy.duck: Returns a random duck
 cy.reverse: Returns the string you input reversed
+cy.oofception: Returns "Oofception"
+cy.ree: Returns "REEEEE"
 ```
 ​
 ### General Commands
