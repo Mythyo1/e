@@ -38,8 +38,6 @@ cy.cat: Returns a random cat
 cy.dog: Returns a random Dog
 cy.duck: Returns a random duck
 cy.reverse: Returns the string you input reversed
-cy.oofception: Returns "Oofception"
-cy.ree: Returns "REEEEE"
 ```
 ​
 ### General Commands
@@ -66,9 +64,6 @@ cy.unmute: Unmutes a member.
 ​
 ### Music Commands
 ```markdown
-cy.spotify: Returns a spotify playlist based on the type you choose
-cy.leave: Leaves your voice channel
-cy.play: Plays music in your voice channel
 cy.spotify: Returns a spotify playlist based on the type you choose
 ```
 ​

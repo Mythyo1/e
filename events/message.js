@@ -16,7 +16,8 @@ module.exports = async (client, message) => {
     
     // Checks if the bot was mentioned, with no message after it, returns the prefix.
     const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-    if (message.content.match(prefixMention)) {
+    
+    if (message.content.match(prefixMention) || message.content == 'cy.') {
       return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
     }
 
@@ -40,7 +41,7 @@ module.exports = async (client, message) => {
     // Check whether the command, or alias, exist in the collections defined
     // in app.js.
     const cmd = client.commands.get(command) || client.aliases.get(command);
-    if (!cmd) return;
+    if (!cmd) return message.channel.send(message.content.slice(settings.prefix.length) + ' isint a command! Use ' + settings.prefix + 'help for help.');
 
     if (level < client.levelCache[cmd.conf.permLevel]) {
       if (settings.noPermissionNotice === "true") {

@@ -22,7 +22,6 @@ Node.js: ${process.version}`)
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
   aliases: ['stats'],
   permLevel: 'User'
 };

@@ -12,6 +12,7 @@ const client = new Discord.Client();
 const promisify = util.promisify;
 const readdir = (fs.readdir);
 client.levelCache = {};
+client.music = {};
 
 //Define databases
 client.commands = new Enmap();
@@ -47,7 +48,7 @@ readdir("./commands/", (err, files) => {
     client.commands.set(commandName, props);
     props.conf.aliases.forEach((al) => {
       //Set the aliases of the command the file objects
-      client.aliases.set(al, props);
+      client.aliases.set(al, client.commands.get(commandName));
     });
     
   });

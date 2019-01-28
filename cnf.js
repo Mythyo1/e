@@ -5,7 +5,7 @@ const config = {
   'developers': [],
   'mods': [],
   'support': [],
-  'helpers': [],
+  'helpers': ['339903300994596884', '277872422760349696'],
   
   'globalBan': [],
   'token': 'mfa.n0-t.r_e-a1-t0-k_e.n',

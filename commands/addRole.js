@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => {
         message.reply(`Successfully banned ${user.tag}`);
         
         const modLogChannel = settings.modLogChannel;
-        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
+        if (modLogChannel) {
           let embed = new Discord.RichEmbed()
           .setTitle('User Ban')
           .setColor('#eeeeee')
@@ -32,13 +32,13 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['b'],
-  permLevel: 'Moderator'
+  aliases: [],
+  permLevel: 'Administrator'
 };
 
 exports.help = {
-  name: 'ban',
+  name: 'addrole',
   category: 'Moderation',
-  description: 'Bans a member for an optional reason',
-  usage: 'ban @<user> [reason]'
+  description: 'Adds the specifyed role to your role list',
+  usage: 'addrole <name/id> <role name/id>'
 };

@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => {
         message.reply(`Successfully kicked ${user.tag}`);
       
         const modLogChannel = settings.modLogChannel;
-        if (modLogChannel) {
+        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
           let embed = new Discord.RichEmbed()
           .setTitle('User Ban')
           .setColor('#eeeeee')
@@ -32,7 +32,6 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
   aliases: [],
   permLevel: 'Moderator'
 };

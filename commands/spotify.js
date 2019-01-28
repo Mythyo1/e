@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => {
     message.channel.send('Please supply the type of music to send.');
     const embed = new Discord.RichEmbed()
     .setColor('#eeeeee')
-    .setDescription('Rap\nGames\Dubstep\nCatchy\nNightcore\nMemes')
+    .setDescription('Rap\nGames\nDubstep\nCatchy\nNightcore\nMemes')
     .setTitle('Cytrus Music Types');
     
     message.channel.send(embed);
@@ -16,7 +16,6 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
   aliases: ['s'],
   permLevel: 'User'
 };

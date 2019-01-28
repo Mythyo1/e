@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => {
         message.reply(`Successfully unmuted ${user.tag}`);
         
         const modLogChannel = settings.modLogChannel;
-        if (modLogChannel) {
+        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
           let embed = new Discord.RichEmbed()
           .setTitle('User Unmute')
           .setColor('#eeeeee')
@@ -32,7 +32,6 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
   aliases: ['um'],
   permLevel: 'Moderator'
 };

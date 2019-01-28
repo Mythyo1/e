@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => {
         message.reply(`Successfully muted ${user.tag}`);
         
         const modLogChannel = settings.modLogChannel;
-        if (modLogChannel) {
+        if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
           let embed = new Discord.RichEmbed()
           .setTitle('User Mute')
           .setColor('#eeeeee')
@@ -21,7 +21,6 @@ exports.run = async (client, message, args, level) => {
         }
       }).catch(err => {
         message.reply('I was unable to mute the member');
-        client.logger.log(err);
       });
     } else {
       message.reply('That user isn\'t in this guild!');
@@ -33,7 +32,6 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
   aliases: ['m'],
   permLevel: 'Moderator'
 };

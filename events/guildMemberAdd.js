@@ -7,7 +7,7 @@ module.exports = (client, member) => {
 
   let welcomeMessage = settings.welcomeMessage.replace('{{user}}', member.user.tag);
   
-  if (welcomeMessage && settings.welcomeChannel) {
+  if (settings.welcomeMessage && member.guild.channels.find(c => c.name == settings.welcomeChannel)) {
     member.guild.channels.find(c => c.name == settings.welcomeChannel).send(welcomeMessage).catch();
   }
 

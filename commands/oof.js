@@ -1,5 +1,5 @@
 exports.run = async (client, message, args, level) => {
-  message.channel.send('REEEEE');
+  message.channel.send('Oof');
 };
 
 exports.conf = {
@@ -9,8 +9,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'ree',
+  name: 'oof',
   category: 'Fun',
-  description: 'Returns "REEEEE"',
-  usage: 'ree'
+  description: 'Returns "oof"',
+  usage: 'oof'
 };

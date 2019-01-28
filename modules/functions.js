@@ -77,14 +77,18 @@ module.exports = (client) => {
     let command;
     if (client.commands.has(commandName)) {
       command = client.commands.get(commandName);
-    } else if (client.aliases.has(commandName)) {
-      command = client.commands.get(client.aliases.get(commandName));
+    } else {
+      if (client.aliases.has(commandName)) {
+        command = client.aliases.get(commandName);
+      }
     }
+    
     if (!command) return `The command \`${commandName}\` doesn't seem to exist, nor is it an alias. Try again!`;
   
     if (command.shutdown) {
       await command.shutdown(client);
     }
+    
     const mod = require.cache[require.resolve(`../commands/${commandName}`)];
     delete require.cache[require.resolve(`../commands/${commandName}.js`)];
     for (let i = 0; i < mod.parent.children.length; i++) {
@@ -93,6 +97,7 @@ module.exports = (client) => {
         break;
       }
     }
+    
     return false;
   };
 
@@ -115,8 +120,8 @@ module.exports = (client) => {
     client.logger.error(`Uncaught Exception: ${errorMsg}`);
     process.exit(1);
   });
-
+  
   process.on('unhandledRejection', (err) => {
-    client.logger.error(`Unhandled rejection: ${err}`);
+    client.logger.error(`Unhandled rejection: ${err.stack}`);
   });
 };
