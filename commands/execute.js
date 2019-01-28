@@ -6,7 +6,19 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     const exec = require('child_process').exec
 
     exec(command, (err, stdout, stderr) => {
-      message.author.send(stdout)
+      message.author.send(stdout);
+      message.channel.send('Command Executed In Shell.');
+      if (err || stderr) {
+        if (err) {
+          message.author.send('```'+err+'```');
+        }
+        
+        if (stderr) {
+          message.author.send('```'+stderr+'```');
+        }
+        
+        message.channel.send('Shell Error.');
+      }
     })
   }
 
