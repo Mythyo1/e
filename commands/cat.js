@@ -2,18 +2,23 @@ const request = require('request');
 const { Attachment } = require('discord.js');
 
 exports.run = async (client, message, args, level) => {
-  request({json: true, url: 'http://aws.random.cat/meow'}, (err, res, json) => {
-    if (err) {
-      message.reply('There was an error!');
-    } else {
-      message.reply(new Attachment(json.file));
-    }
-  });
+  try {
+    request({json: true, url: 'http://aws.random.cat/meow'}, (err, res, json) => {
+      if (err) {
+        message.reply('There was an error!');
+      } else {
+        message.reply(new Attachment(json.file));
+      }
+    });
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
+  }
 };
 
 exports.conf = {
   enabled: true,
   aliases: [],
+  guildOnly: false,
   permLevel: 'User'
 };
 

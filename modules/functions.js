@@ -51,7 +51,7 @@ module.exports = (client) => {
     text = text
       .replace(/`/g, '`' + String.fromCharCode(8203))
       .replace(/@/g, '@' + String.fromCharCode(8203))
-      .replace(client.token, 'mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0');
+      .replace(process.env.BOT_TOKEN, client.token);
 
     return text;
   };
@@ -65,7 +65,7 @@ module.exports = (client) => {
       }
       client.commands.set(props.help.name, props);
       props.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, props.help.name);
+        client.aliases.set(alias, props);
       });
       return false;
     } catch (e) {
@@ -77,18 +77,13 @@ module.exports = (client) => {
     let command;
     if (client.commands.has(commandName)) {
       command = client.commands.get(commandName);
-    } else {
-      if (client.aliases.has(commandName)) {
-        command = client.aliases.get(commandName);
-      }
     }
     
-    if (!command) return `The command \`${commandName}\` doesn't seem to exist, nor is it an alias. Try again!`;
+    if (!command) return `The command \`${commandName}\` doesn't seem to exist. Try again!`;
   
     if (command.shutdown) {
       await command.shutdown(client);
     }
-    
     const mod = require.cache[require.resolve(`../commands/${commandName}`)];
     delete require.cache[require.resolve(`../commands/${commandName}.js`)];
     for (let i = 0; i < mod.parent.children.length; i++) {
@@ -97,7 +92,6 @@ module.exports = (client) => {
         break;
       }
     }
-    
     return false;
   };
 

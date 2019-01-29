@@ -21,7 +21,7 @@ module.exports = (client, member) => {
         .setColor('#eeeeee')
         .setDescription(`Name: ${member.username}\nID: ${member.id}\nReason: Detected by Cytrus GlobalBanSystem`);
 
-        await member.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(client.logger.error);
+        await member.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch();
       }
     }).catch(console.error);
   }

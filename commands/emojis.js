@@ -1,17 +1,22 @@
 exports.run = async (client, message, args, level) => {
-  const notAnimated = [];
-	const animated = [];
-	message.guild.emojis.map(emoji => {
-		if (emoji.animated === true) notAnimated.push(emoji.toString());
-		else animated.push(emoji.toString());
-	});
-  
-	message.channel.send(notAnimated.join(' ') + '\n\n' + animated.join(' '));
+  try {
+    const notAnimated = [];
+    const animated = [];
+    message.guild.emojis.map(emoji => {
+      if (emoji.animated === true) notAnimated.push(emoji.toString());
+      else animated.push(emoji.toString());
+    });
+
+    message.channel.send(notAnimated.join(' ') + '\n\n' + animated.join(' '));
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
+  }
 };
 
 exports.conf = {
   enabled: true,
   aliases: ['emoji'],
+  guildOnly: true,
   permLevel: 'User'
 };
 

@@ -16,17 +16,20 @@
   "license": "MIT",
   "dependencies": {
     "better-sqlite-pool": "^0.2.0",
+    "better-sqlite3": "^5.4.0",
     "chalk": "^2.4.1",
+    "discord-rpc": "^3.0.1",
     "discord.js": "^11.4.2",
     "enmap": "^4.6.6",
     "express": "^4.16.4",
+    "ffmpeg-binaries": "^4.0.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
+    "opusscript": "^0.0.6",
+    "pnpm": "^2.25.5",
     "request": "^2.88.0",
     "urban-dictionary": "^2.2.1",
-    "ytdl-core": "^0.29.0",
-    "opusscript": "^0.0.6",
-    "ffmpeg-binaries": "^4.0.0",
-    "better-sqlite3": "^5.4.0"
+    "wikipediajs": "^1.4.0",
+    "ytdl-core": "^0.29.0"
   }
 }

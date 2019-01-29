@@ -8,26 +8,24 @@ exports.run = async (client, message, args, level) => {
     if (user) {
       const member = message.guild.member(user);
       if (member) {
-        member.addRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(() => {
-          message.reply(`Successfully muted ${user.tag}`);
+        member.addRole(message.guild.roles.find(r => r.name == args.slice(1).join(' '))).then(() => {
+          message.reply(`Successfully added Role to ${user.tag}`);
 
           const modLogChannel = settings.modLogChannel;
           if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
             let embed = new Discord.RichEmbed()
-            .setTitle('User Mute')
+            .setTitle('Add Role')
             .setColor('#eeeeee')
             .setDescription(`Name: ${user.username}\nID: ${user.id}\nModerator: ${message.author.username}`);
 
-            message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error);
+            message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed);
           }
-        }).catch(err => {
-          message.reply('I was unable to mute the member');
         });
       } else {
         message.reply('That user isn\'t in this guild!');
       }
     } else {
-      message.reply('You didn\'t mention the user to unmute!');
+      message.reply('You didn\'t mention the user to add the Role to!');
     }
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
@@ -36,14 +34,14 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['m'],
+  aliases: [],
   guildOnly: true,
-  permLevel: 'Moderator'
+  permLevel: 'Administrator'
 };
 
 exports.help = {
-  name: 'mute',
+  name: 'addrole',
   category: 'Moderation',
-  description: 'Mutes a member.',
-  usage: 'mute @<user>'
+  description: 'Adds the specifyed role to your role list',
+  usage: 'addrole <user> <role name/id>'
 };

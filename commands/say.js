@@ -1,13 +1,18 @@
 
 exports.run = async (client, message, args, level) => {
-  message.delete().catch(console.error);
-  const str = args.join(' ');
-  message.channel.send(str);
+  try {
+    message.delete()
+    const str = args.join(' ');
+    message.channel.send(str);
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
+  }
 };
 
 exports.conf = {
   enabled: true,
   aliases: [],
+  guildOnly: true,
   permLevel: 'Bot Helper'
 };
 

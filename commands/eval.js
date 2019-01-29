@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  const code = args.join(' ');
   try {
+    const code = args.join(' ');
     const evaled = eval(code.replace('process.env.BOT_TOKEN', 'client.config.token'));
     const clean = await client.clean(client, evaled);
     message.author.send(`\`\`\`js\n${clean}\n\`\`\``);
@@ -12,6 +12,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 exports.conf = {
   enabled: true,
   aliases: [],
+  guildOnly: false,
   permLevel: 'Bot Developer'
 };
 

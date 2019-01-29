@@ -1,19 +1,24 @@
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  const msg = await message.channel.send('<@'+message.author.id+'>');
-  
-  let embed = new Discord.RichEmbed()
-  .setTitle('Ping')
-  .setDescription(`Latency: ${msg.createdTimestamp - message.createdTimestamp}ms\nAPI Latency: ${Math.round(client.ping)}ms`)
-  .setColor('#eeeeee');
-  
-  msg.edit(embed);
+  try {
+    const msg = await message.channel.send('<@'+message.author.id+'>');
+
+    let embed = new Discord.RichEmbed()
+    .setTitle('Ping')
+    .setDescription(`Latency: ${msg.createdTimestamp - message.createdTimestamp}ms\nAPI Latency: ${Math.round(client.ping)}ms`)
+    .setColor('#eeeeee');
+
+    msg.edit(embed);
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
+  }
 };
 
 exports.conf = {
   enabled: true,
   aliases: [],
+  guildOnly: false,
   permLevel: 'User'
 };
 

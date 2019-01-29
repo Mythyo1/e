@@ -1,26 +1,36 @@
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars-
-  var server = client.music[args[0]] || client.music[message.guild.id];
-  
-  let output = '';
-  if (server.queue) {
-    server.queue.forEach((song) => {
-      output += song + '\n';
-    });
+  try {
+    var server = client.music[args[0]] || client.music[message.guild.id];
+
+    let output = '';
+    if (server) {
+      if (server.queue) {
+        server.queue.forEach((song) => {
+          output += song + '\n';
+        });
+        let embed = new Discord.RichEmbed()
+        .setTitle('Queue')
+        .setDescription(output)
+        .setColor('#eeeeee');
+
+        message.channel.send(embed);
+      } else {
+        message.channel.send('Their is nothing in the queue!');
+      }
+    } else {
+      message.channel.send('Their is nothing in the queue!');
+    }
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
   }
-  
-  let embed = new Discord.RichEmbed()
-  .setTitle('Queue')
-  .setDescription(output)
-  .setColor('#eeeeee');
-  
-  message.channel.send(embed);
 };
 
 exports.conf = {
   enabled: true,
   aliases: [],
+  guildOnly: true,
   permLevel: 'User'
 };
 

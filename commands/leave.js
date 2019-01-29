@@ -1,14 +1,20 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  if (message.guild.voiceConnection) {
-    message.member.voiceChannel.leave()
-  } else {
-    message.reply('I need to be in a voice channel first!');
+  try {
+    if (message.guild.voiceConnection) {
+      message.member.voiceChannel.leave();
+      message.reply('Ive left the voice channel!');
+    } else {
+      message.reply('I need to be in a voice channel first!');
+    }
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
   aliases: ['l'],
+  guildOnly: true,
   permLevel: 'User'
 };
 

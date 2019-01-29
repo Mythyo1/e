@@ -1,10 +1,15 @@
 exports.run = async (client, message, args, level) => {
-  message.channel.send('Oof');
+  try {
+    message.channel.send('Oof');
+  } catch (err) {
+    message.channel.send('Their was an error!\n' + err).catch();
+  }
 };
 
 exports.conf = {
   enabled: true,
   aliases: [],
+  guildOnly: false,
   permLevel: 'User'
 };
 
