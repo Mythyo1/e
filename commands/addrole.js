@@ -20,7 +20,7 @@ exports.run = async (client, message, args, level) => {
 
             message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed);
           }
-        });
+        }).catch('There was an error!');
       } else {
         message.reply('That user isn\'t in this guild!');
       }
@@ -28,7 +28,7 @@ exports.run = async (client, message, args, level) => {
       message.reply('You didn\'t mention the user to add the Role to!');
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

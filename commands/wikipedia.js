@@ -11,9 +11,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       .setColor('#eeeeee');
 
       message.channel.send(embed);
-    });
+    }).catch(message.reply('There was an error!'));
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

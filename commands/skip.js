@@ -5,10 +5,14 @@ const ytdl = require('ytdl-core');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars  
   try {
     var server = client.music[message.guild.id];
-    server.dispatcher.emit('end');
-    message.channel.send('Song Skipped!');
+    if (server) {
+      if (server.dispatcher) {
+        server.dispatcher.emit('end');
+        message.channel.send('Song Skipped!');
+      } else message.channel.send('There is nothing playing!');
+    } else message.channel.send('There is nothing playing!');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

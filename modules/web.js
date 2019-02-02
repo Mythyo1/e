@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const logger = require('./Logger');
+const logger = require('/app/modules/Logger');
 
 const initWeb = function() {
   app.get('/api', (req, res) => res.send({status: 200, botList: 'https://discordbotlist.com/bots/526593597118873620/', upvote: 'https://discordbotlist.com/bots/526593597118873620/upvote', invite: 'https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8', client_id:'526593597118873620', server: 'https://discord.gg/VfTE9GH'}));

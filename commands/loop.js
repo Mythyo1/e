@@ -8,13 +8,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     }
 
     var server = client.music[message.guild.id];
-
-    if(ytdl.validateURL(args[0])) {
-      server.queue.push(args[0]);
-      message.channel.send('The song is in the queue!');
-    } else {
-      message.reply('Thats not a valid YouTube link!');
-    }
+    
+    if (server.loop == true) server.loop = false;
+    if (server.loop == false) server.loop = true;
+    
+    message.channel.send('Loop Toggled!');
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -24,12 +22,12 @@ exports.conf = {
   enabled: true,
   aliases: [],
   guildOnly: true,
-  permLevel: 'User'
+  permLevel: 'Moderator'
 };
 
 exports.help = {
-  name: 'add',
+  name: 'loop',
   category: 'Music',
-  description: 'Adds a song to the server\'s queue',
-  usage: 'add <youtube video URL>'
+  description: 'Loops the server\'s queue',
+  usage: 'loop'
 };

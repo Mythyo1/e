@@ -30,6 +30,7 @@
     "request": "^2.88.0",
     "urban-dictionary": "^2.2.1",
     "wikipediajs": "^1.4.0",
-    "ytdl-core": "^0.29.0"
+    "ytdl-core": "^0.29.0",
+    "ms": "^2.1.1"
   }
 }

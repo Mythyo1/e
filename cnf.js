@@ -20,7 +20,8 @@ const config = {
     'welcomeChannel': 'general',
     'welcomeMessage': 'Welcome to the server {{user}}!',
     'welcomeEnabled': 'true',
-    'deleteInvites': 'true'
+    'logMessageEdits': 'true',
+    'logMessageDeletions': 'true'
   },
 
   permLevels: [

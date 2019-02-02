@@ -5,12 +5,17 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     var server = client.music[message.guild.id];
     if (args[0] && Number(args[0]) <= 150 && Number(args[0]) > 0) {
-      server.dispatcher.setVolume(Number(args[0])).catch(message.channel.send('There was an error!'));
+      if (server) {
+        if (server.dispatcher) {
+          server.dispatcher.setVolume(Number(args[0]));
+          message.reply('The volume is at ' + server.dispatcher.volume);
+        } else message.channel.send('There is nothing playing in the server!');
+      }
     } else {
       message.reply('You must give me a number between 1 and 150!');
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

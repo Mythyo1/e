@@ -12,7 +12,7 @@ exports.run = async (client, message, args, level) => {
       message.reply('You need to join a voice channel first!');
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

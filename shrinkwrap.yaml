@@ -9,6 +9,7 @@ dependencies:
   ffmpeg-binaries: 4.0.0
   moment: 2.24.0
   moment-duration-format: 2.2.2
+  ms: 2.1.1
   opusscript: 0.0.6
   pnpm: 2.25.5
   request: 2.88.0
@@ -848,6 +849,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
+  /ms/2.1.1:
+    dev: false
+    resolution:
+      integrity: sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
   /nan/2.12.1:
     dev: false
     resolution:
@@ -1341,6 +1346,7 @@ specifiers:
   ffmpeg-binaries: ^4.0.0
   moment: ^2.24.0
   moment-duration-format: ^2.2.2
+  ms: ^2.1.1
   opusscript: ^0.0.6
   pnpm: ^2.25.5
   request: ^2.88.0

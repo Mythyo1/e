@@ -21,13 +21,14 @@ exports.run = (client, message, args, level) => {
           output += `\u200b\n${cat} Commands\n`;
           currentCategory = cat;
         }
-        output += `${message.settings.prefix}${c.help.name}: ${c.help.description}\n`;
+        output += `${c.help.name}: ${c.help.description}\n`;
       });
 
-        let embed = new Discord.RichEmbed()
-        .setTitle('Cytrus Help')
-        .setColor('#eeeeee')
-        .setDescription(output);
+      let embed = new Discord.RichEmbed()
+      .setTitle('Cytrus Help')
+      .setColor('#eeeeee')
+      .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
+      .setDescription(output);
 
       message.channel.send(embed);
     } else {
