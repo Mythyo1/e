@@ -13,24 +13,26 @@ exports.run = (client, message, args, level) => {
       const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
       let currentCategory = '';
-      let output = `Use ${message.settings.prefix}help <command> for details\n\n`;
+      let output = `Use help <command> for details\n\n`;
       const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
       sorted.forEach(c => {
         const cat = c.help.category;
         if (currentCategory !== cat) {
-          output += `\u200b\n${cat} Commands\n`;
+          let embed = new Discord.RichEmbed()
+          .setTitle('Cytrus Help')
+          .setColor('#eeeeee')
+          .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
+          .setDescription(output);
+          output = `Use help <command> for details\n\n`;
+          
+          message.author.send(embed);
+          message.react('✅');
+          output += `\u200b\n[${cat} Commands](https://cytrus.ga/commands.html)\n\n`;
           currentCategory = cat;
         }
-        output += `${c.help.name}: ${c.help.description}\n`;
+        output += `**${c.help.name}**: ${c.help.description}\n`;
       });
 
-      let embed = new Discord.RichEmbed()
-      .setTitle('Cytrus Help')
-      .setColor('#eeeeee')
-      .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
-      .setDescription(output);
-
-      message.channel.send(embed);
     } else {
       // Show individual command's help.
       let command = args[0];
@@ -47,7 +49,7 @@ exports.run = (client, message, args, level) => {
       }
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err.stack).catch();
   }
 };
 

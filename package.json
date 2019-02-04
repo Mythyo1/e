@@ -25,12 +25,12 @@
     "ffmpeg-binaries": "^4.0.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
+    "ms": "^2.1.1",
     "opusscript": "^0.0.6",
     "pnpm": "^2.25.5",
     "request": "^2.88.0",
     "urban-dictionary": "^2.2.1",
     "wikipediajs": "^1.4.0",
-    "ytdl-core": "^0.29.0",
-    "ms": "^2.1.1"
+    "ytdl-core": "^0.29.0"
   }
 }

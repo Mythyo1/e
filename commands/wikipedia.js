@@ -3,19 +3,39 @@ const wikipedia = require('wikipediajs');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    wikipedia.search(args.join(' ')).then((res) => {
-      let info = res.query.pages[Object.keys(res.query.pages)[0]]
+    wikipedia.search(args.join(' ')).then(async (res) => {
+      let output = '';
+      let i = 1;
+      
+      Object.keys(res.query.pages).forEach(async (page) => {
+        output += '\n' + i + '. ' + res.query.pages[page].title;
+        i++;
+      });
+      
+      let page = await client.awaitReply(message, `Please choose the page you want.\n${output}`);
+      
+      let info = res.query.pages[Object.keys(res.query.pages)[page - 1]]
       let embed = new Discord.RichEmbed()
-      .setTitle(info.title)
+      .setTitle('Wikipedia')
       .setDescription('['+info.title+']('+info.fullurl.replace('(', '\\(').replace(')', '\\)').replace('`', '\`')+')')
       .setColor('#eeeeee');
 
       message.channel.send(embed);
-    }).catch(message.reply('There was an error!'));
+    });
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
 };
+
+/*
+      let info = res.query.pages[Object.keys(res.query.pages)[0]]
+      let embed = new Discord.RichEmbed()
+      .setTitle('Wikipedia')
+      .setDescription('['+info.title+']('+info.fullurl.replace('(', '\\(').replace(')', '\\)').replace('`', '\`')+')')
+      .setColor('#eeeeee');
+
+      message.channel.send(embed);
+*/
 
 exports.conf = {
   enabled: true,

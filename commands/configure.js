@@ -2,15 +2,15 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    const settings = message.settings;
+    const settings = client.getSettings(message.guild.id);
     const defaults = client.config.defaultSettings;
     const overrides = client.settings.get(message.guild.id);
-    if (!client.settings.has(message.guild.id)) client.settings.set(message.guild.id, {});
+    if (!client.settings.has(message.guild.id)) client.settings.set(message.guild.id, client.config.defaultSettings);
 
     if (args[0] === 'edit') {
       if (!args[1]) return message.reply('Please specify a key to edit');
       if (!defaults[args[1]]) return message.reply(args[1] + ' does not exist in the settings');
-      const joinedValue = args.join(' ');
+      let joinedValue = args.join(' ');
       if (joinedValue.length < 1) return message.reply('Please specify a new value');
       if (joinedValue === settings[args[1].slice(2)]) return message.reply('This setting already has that value!');
 

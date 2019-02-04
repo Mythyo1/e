@@ -9,7 +9,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       .setTitle(entries[0].word)
       .setDescription(entries[0].definition)
       .addField('Example:', entries[0].example)
-      .setFooter('Requested by ' + message.author.username + message.author.tag)
+      .setFooter('Requested by ' + message.author.tag)
       .setColor('#eeeeee');
 
       message.channel.send(embed);

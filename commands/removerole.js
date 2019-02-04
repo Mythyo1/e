@@ -10,13 +10,13 @@ exports.run = async (client, message, args, level) => {
           const member = message.guild.member(user);
           if (member) {
             if (message.guild.roles.find(r => r.name == args.slice(1).join(' '))) {
-              member.addRole(message.guild.roles.find(r => r.name == args.slice(1).join(' '))).then(() => {
+              member.removeRole(message.guild.roles.find(r => r.name == args.slice(1).join(' '))).then(() => {
                 message.reply(`Successfully added Role to ${user.tag}`);
 
                 const modLogChannel = settings.modLogChannel;
                 if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
                   let embed = new Discord.RichEmbed()
-                  .setTitle('Add Role')
+                  .setTitle('Remove Role')
                   .setColor('#eeeeee')
                   .setDescription(`Name: ${user.username}\nID: ${user.id}\nModerator: ${message.author.username}`);
 
@@ -25,7 +25,7 @@ exports.run = async (client, message, args, level) => {
               }).catch('There was an error!');
             } else message.reply('I can\'t find that Role!');
           } else message.reply('That user isn\'t in this guild!');
-        } else message.reply('You didn\'t mention the user to add the Role to!');
+        } else message.reply('You didn\'t mention the user to remove the Role from!');
       } else message.reply('You dont have the Manage Roles permission!');
     } else message.reply('The role you are trying to add is above your roles position!');
   } catch (err) {
@@ -35,14 +35,14 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['rr', 'rm'],
   guildOnly: true,
   permLevel: 'Administrator'
 };
 
 exports.help = {
-  name: 'addrole',
+  name: 'removerole',
   category: 'Moderation',
-  description: 'Adds the specifyed role to your role list',
-  usage: 'addrole <user> <role name/id>'
+  description: 'Removes the specifyed role from your role list',
+  usage: 'removerole <user> <role name/id>'
 };

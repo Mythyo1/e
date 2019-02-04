@@ -6,7 +6,8 @@ module.exports = async (client, message) => {
 
   // Grab the settings for this server from Enmap.
   // If there is no guild, get default conf (DMs)
-  settings = message.settings = client.getSettings(message.guild.id);
+  if (message.guild) settings = client.getSettings(message.guild.id);
+  else settings = client.config.defaultSettings;
 
   // Checks if the bot was mentioned, with no message after it, returns the prefix.
   const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
@@ -16,7 +17,7 @@ module.exports = async (client, message) => {
   
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
-  if (message.content.indexOf(settings.prefix) !== 0) return;
+  if (message.content.indexOf(settings.prefix && 'cy.') !== 0) return;
 
   // Here we separate our 'command' name, and our 'arguments' for the command.
   // e.g. if we have the message '+say Is this the real life?' , we'll get the following:
