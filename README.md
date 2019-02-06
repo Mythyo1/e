@@ -43,6 +43,7 @@ pewdiepie: Returns the PewDiePie subscribe link
 pikaoh: Returns suprised Pikachu
 ree: Returns "REEEEE"
 reverse: Returns the string you input reversed
+someone: Pings a random user
 ```
 ​
 ### General Commands
@@ -53,9 +54,12 @@ emojis: Returns all of the emojis in the server.
 info: Returns info about Cytrus
 invite: Creates an invite to the current channel
 level: Tells you your permission level.
+logout: Logs out of your Cytrus account
 ping: Returns CytrusBot's ping
+profile: Shows info for your profile
 say: Says the string you input
 send: Sends a message to the CytrusLog
+ticket: Generates a support ticket
 urbandictionary: Returns your search term from the Urban Dictionary
 wikipedia: Searches Wikipedia for your search term
 ```
@@ -99,10 +103,10 @@ wipe: Wipes the queue
 ```markdown
 eval: Evaluates arbitrary javascript.
 execute: Executes a command in the shell
+files: Returns all of the files in the directory
 help: Displays all the available commands for your permission level.
 load: Loads a command
 publicip: Returns the Cytrus public IP
 reload: Reloads a command
 status: Reuturns the bots status
-files: Returns all of the files in the directory
 ```
