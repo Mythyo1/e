@@ -1,4 +1,3 @@
-
 module.exports = (client, readdir) => {
   //Get command files
   readdir("/app/commands/", (err, files) => {

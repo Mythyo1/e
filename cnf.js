@@ -7,7 +7,7 @@ const config = {
   'support': [],
   'helpers': ['339903300994596884', '277872422760349696'],
   
-  'globalBan': [],
+  'globalBan': ['282674803817578506'],
   'token': 'mfa.n0-t.r_e-a1-t0-k_e.n',
   
   'defaultSettings' : {

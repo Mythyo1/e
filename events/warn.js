@@ -1,3 +1,3 @@
 module.exports = async (client, warn) => {
-  client.logger.log(`DJS: \n\t${JSON.stringify(warn)}`, 'warn');
+  client.logger.log(`${warn.message}`, 'warn');
 };

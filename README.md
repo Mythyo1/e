@@ -39,12 +39,15 @@ dog: Returns a random Dog
 duck: Returns a random duck
 oof: Returns "oof"
 oofception: Returns "Oofception"
+pewdiepie: Returns the PewDiePie subscribe link
+pikaoh: Returns suprised Pikachu
 ree: Returns "REEEEE"
 reverse: Returns the string you input reversed
 ```
 ​
 ### General Commands
 ```markdown
+commands: Returns the ammount of commands in Cytrus
 convert: Converts Celcius to Farenhiet or Farenheit to Celcius
 emojis: Returns all of the emojis in the server.
 info: Returns info about Cytrus
@@ -65,8 +68,12 @@ check: Checks if anyone in your server is on the Cytrus Global Ban List
 configure: View or change settings for your server.
 create: Creates a channel in the server.
 kick: Kicks a member for an optional reason
+listbans: Returns the server's bans
 mute: Mutes a member.
 purge: Purges the amount of messages you specify
+region: Changes the servers region
+removerole: Removes the specifyed role from your role list
+unban: Unbans a member for an optional reason
 unmute: Unmutes a member.
 warn: Warns a member for an optional reason
 ```
@@ -97,4 +104,5 @@ load: Loads a command
 publicip: Returns the Cytrus public IP
 reload: Reloads a command
 status: Reuturns the bots status
+files: Returns all of the files in the directory
 ```

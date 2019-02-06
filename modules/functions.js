@@ -1,4 +1,5 @@
 module.exports = (client) => {
+  
   //Return the permission level
   client.permlevel = message => {
     let permlvl = 0;

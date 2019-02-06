@@ -8,27 +8,25 @@ const Discord = require('discord.js');
 const util = require('util');
 
 //Define client
-const client = new Discord.Client();
+const client = new Discord.Client({
+  disableEveryone: true
+});
 
-//Define databases
+//Define databases/objects
 client.commands = new Enmap();
 client.aliases = new Enmap();
+client.liusers = new Enmap();
+client.logins = new Enmap({name: 'logins'});
 client.spotify = new Enmap({name: 'spotify'});
 client.settings = new Enmap({name: 'settings'});
+client.tickets = new Enmap({name: 'supporttickets'});
+client.warns = new Enmap({name: 'warns'});
+client.levelCache = {};
+client.music = {};
 
 //Define variubles
 const promisify = util.promisify;
 const readdir = (fs.readdir);
-client.levelCache = {};
-client.music = {};
-client.warns = new Enmap({name: 'warns'});
-const startTimestamp = new Date();
-
-//Define databases
-client.commands = new Enmap();
-client.aliases = new Enmap();
-client.spotify = new Enmap({name: 'spotify'});
-client.settings = new Enmap({name: 'settings'});
 
 //Import files
 require('./modules/commands')(client, readdir);
@@ -36,6 +34,7 @@ require('./modules/events')(client, readdir);
 require('./modules/functions')(client);
 client.config = require('./cnf');
 client.logger = require('./modules/Logger');
+client.token = client.config.token;
 
 //Cache the permissions
 for (let i = 0; i < client.config.permLevels.length; i++) {

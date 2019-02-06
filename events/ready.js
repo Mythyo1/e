@@ -4,7 +4,7 @@ module.exports = async client => {
     {msg: `commands :3 | ${client.config.defaultSettings.prefix}help`, type: 'LISTENING'},
     {msg: `with async/await errors | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
     {msg: `with linux commands | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
-    {msg: `to bitch lasagnia | ${client.config.defaultSettings.prefix}help`, type: 'LISTENING'},
+    {msg: `bitch lasagnia | ${client.config.defaultSettings.prefix}help`, type: 'LISTENING'},
     {msg: `PewDiePie | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'},
     {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
     {msg: `cytrus.ga | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},

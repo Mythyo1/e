@@ -13,16 +13,18 @@ exports.run = (client, message, args, level) => {
       const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
       let currentCategory = '';
-      let output = `Use help <command> for details\n\n`;
+      let output = '';
       const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
       sorted.forEach(c => {
         const cat = c.help.category;
         if (currentCategory !== cat) {
-          let embed = new Discord.RichEmbed()
+          let embed;
+          embed = new Discord.RichEmbed()
           .setTitle('Cytrus Help')
           .setColor('#eeeeee')
           .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
           .setDescription(output);
+          
           output = `Use help <command> for details\n\n`;
           
           message.author.send(embed);
@@ -56,7 +58,7 @@ exports.run = (client, message, args, level) => {
 exports.conf = {
   enabled: true,
   aliases: ['h'],
-  guildOnly: false,
+  guildOnly: true,
   permLevel: 'User'
 };
 

@@ -4,14 +4,13 @@ dependencies:
   chalk: 2.4.2
   discord-rpc: 3.0.1
   discord.js: 11.4.2
-  enmap: 4.7.0
+  enmap: 4.7.1
   express: 4.16.4
   ffmpeg-binaries: 4.0.0
   moment: 2.24.0
   moment-duration-format: 2.2.2
   ms: 2.1.1
   opusscript: 0.0.6
-  pnpm: 2.25.5
   request: 2.88.0
   urban-dictionary: 2.2.1
   wikipediajs: 1.4.0
@@ -405,14 +404,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==
-  /enmap/4.7.0:
+  /enmap/4.7.1:
     dependencies:
       lodash: 4.17.11
     dev: false
     peerDependencies:
       better-sqlite-pool: 'github:eslachance/better-sqlite-pool'
     resolution:
-      integrity: sha512-/KvchlIzX1eZQJGWFkr1Jby/4HNyW4miz2aFd0vCRccs84ZvRVDziLLm/8Z3713umpwaDowO12h4xcxjtSt2vA==
+      integrity: sha512-EcXUUD67NTS74Gzv5aaY7AGDKJER+/lonfz9+uYaJBLYzmI87xqGCUCMBw3LDa3hlNhfRgnNmFdnVppZcN2t+g==
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -941,13 +940,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
-  /pnpm/2.25.5:
-    dev: false
-    engines:
-      node: '>=6'
-    hasBin: true
-    resolution:
-      integrity: sha512-v84xfH7SrMFNKG3y/avH5shBQ9vHs9zUMGcM+KKfOGV4CR2SkaUpABgT2hKZ61PO+bZEnyrL1o+siCX8ezo76w==
   /prism-media/0.0.3:
     dev: false
     resolution:
@@ -1341,14 +1333,13 @@ specifiers:
   chalk: ^2.4.1
   discord-rpc: ^3.0.1
   discord.js: ^11.4.2
-  enmap: ^4.6.6
+  enmap: ^4.7.1
   express: ^4.16.4
   ffmpeg-binaries: ^4.0.0
   moment: ^2.24.0
   moment-duration-format: ^2.2.2
   ms: ^2.1.1
   opusscript: ^0.0.6
-  pnpm: ^2.25.5
   request: ^2.88.0
   urban-dictionary: ^2.2.1
   wikipediajs: ^1.4.0
