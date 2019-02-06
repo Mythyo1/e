@@ -1,4 +1,4 @@
-[**Home**](index.md) | [**Links**](links.md) | [**Commands**](commands.md) | [**Info**](info.md) || [**API Docs**](apidocs.html)
+[**Home**](index.md) | [**Links**](links.md) | [**Commands**](commands.md) | [**Info**](info.md) | [**API Docs**](apidocs.html)
 
   
   
