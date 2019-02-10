@@ -1,4 +1,12 @@
-module.exports = (client, readdir) => {
+//Import modules
+const fs = require('fs');
+const util = require('util');
+
+//Define variubles
+const promisify = util.promisify;
+const readdir = (fs.readdir);
+
+module.exports = (client) => {
   //Get command files
   readdir("/app/commands/", (err, files) => {
     //If their is an error, Return the error

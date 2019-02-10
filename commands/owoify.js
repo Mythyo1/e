@@ -1,6 +1,7 @@
 const faces = ['(*^ω^)', '(◕‿◕✿)', '(◕ᴥ◕)', 'ʕ•ᴥ•ʔ', 'ʕ￫ᴥ￩ʔ', '(*^.^*)', 'owo', '(｡♥‿♥｡)', 'uwu', '(*￣з￣)', '>w<', '^w^', '(つ✧ω✧)つ', '(/ =ω=)/'];
 
 const owofy = (string) => {
+  string = string.replace(/(tseries|t-series)/, 'badseries');
   string = string.replace(/(?:l|r)/g, 'w');
   string = string.replace(/(?:L|R)/g, 'W');
   string = string.replace(/n([aeiou])/g, 'ny$1');

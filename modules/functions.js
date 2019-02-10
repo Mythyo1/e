@@ -1,7 +1,7 @@
 module.exports = (client) => {
   
   //Return the permission level
-  client.permlevel = message => {
+  client.permlevel = (message) => {
     let permlvl = 0;
 
     //Sort the permission levels
@@ -32,7 +32,7 @@ module.exports = (client) => {
     return returnObject;
   };
   
-  client.awaitReply = async (msg, question, limit = 60000) => {
+  client.awaitReply = async (msg, question, limit = 30000) => {
     const filter = m => m.author.id === msg.author.id;
     await msg.channel.send(question);
     try {

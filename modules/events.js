@@ -1,4 +1,12 @@
-module.exports = (client, readdir) => {
+//Import modules
+const fs = require('fs');
+const util = require('util');
+
+//Define variubles
+const promisify = util.promisify;
+const readdir = (fs.readdir);
+
+module.exports = (client) => {
   //Get event files
   readdir("/app/events/", (err, files) => {
     //If their is an error, Return the error

@@ -1,8 +1,11 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    const code = args.join(' ');
-    const evaled = eval(code.replace('process.env.BOT_TOKEN', 'client.config.token').replace('client.token', 'client.config.token'));
-    const clean = await client.clean(client, evaled);
+    let code = args.join(' ');
+    code = code.replace('process.env.BOT_TOKEN', client.config.token);
+    code = code.replace('client.token', client.config.token);
+    
+    let evaled = eval(code);
+    let clean = await client.clean(client, evaled);
     message.author.send(`\`\`\`js\n${clean}\n\`\`\``);
   } catch (err) {
     message.author.send(`\`ERROR\` \`\`\`xl\n${await client.clean(client, err)}\n\`\`\``);

@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => {
       if (err) {
         message.reply('There was an error!');
       } else {
-        message.reply(new Attachment(json.file));
+        message.channel.send(new Attachment(json.file));
       }
     });
   } catch (err) {

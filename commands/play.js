@@ -5,6 +5,10 @@ const Play = (connection, message, client) => {
   try {
     const server = client.music[message.guild.id];
     let audioStream;
+    if (!server.queue) {
+      server = {};
+      server.queue = [];
+    }
     let queue = server.queue;
     
     if (server) {

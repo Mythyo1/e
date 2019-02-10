@@ -22,7 +22,9 @@ exports.log = (content, type = 'log') => {
     case 'ready':
       return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
       break;
-    
+    case 'user':
+      return console.log(`${timestamp} ${chalk.white.bgRed(type.toUpperCase())} ${content}`);
+      break;
     default:
       throw new TypeError('Logger type must be either warn, debug, log, ready, cmd or error.');
   }

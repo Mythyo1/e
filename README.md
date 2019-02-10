@@ -34,11 +34,19 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 ## Commands
 ### Fun Commands
 ```markdown
+
+Cytrus Help
+Use help <command> for details
+
+​
+Fun Commands
+
 cat: Returns a random cat
 dog: Returns a random Dog
 duck: Returns a random duck
 oof: Returns "oof"
 oofception: Returns "Oofception"
+owoify: OwOifys your message
 pewdiepie: Returns the PewDiePie subscribe link
 pikaoh: Returns suprised Pikachu
 ree: Returns "REEEEE"
@@ -54,7 +62,6 @@ emojis: Returns all of the emojis in the server.
 info: Returns info about Cytrus
 invite: Creates an invite to the current channel
 level: Tells you your permission level.
-logout: Logs out of your Cytrus account
 ping: Returns CytrusBot's ping
 profile: Shows info for your profile
 say: Says the string you input
@@ -62,6 +69,7 @@ send: Sends a message to the CytrusLog
 ticket: Generates a support ticket
 urbandictionary: Returns your search term from the Urban Dictionary
 wikipedia: Searches Wikipedia for your search term
+youtube: Returns info about a youtube video
 ```
 ​
 ### Moderation Commands
@@ -77,6 +85,8 @@ mute: Mutes a member.
 purge: Purges the amount of messages you specify
 region: Changes the servers region
 removerole: Removes the specifyed role from your role list
+tempban: Temporaraly Bans a member for an optional reason
+tempmute: Temporaraly Mutes a member.
 unban: Unbans a member for an optional reason
 unmute: Unmutes a member.
 warn: Warns a member for an optional reason

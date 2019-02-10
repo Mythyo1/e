@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 
 exports.run = (client, message, args, level) => {
@@ -5,7 +6,7 @@ exports.run = (client, message, args, level) => {
     // If no specific command is called, show all filtered commands.
     if (!args[0]) {
       // Filter all commands by which are available for the user's level, using the <Collection>.filter() method.
-      const myCommands = message.guild ? client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level) : client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level &&  cmd.conf.guildOnly !== true);
+      const myCommands = message.guild ? client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level) : client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
 
       // Here we have to get the command names only, and we use that array to get the longest name.
       // This make the help commands 'aligned' in the output.
@@ -19,12 +20,12 @@ exports.run = (client, message, args, level) => {
         const cat = c.help.category;
         if (currentCategory !== cat) {
           let embed;
+          
           embed = new Discord.RichEmbed()
           .setTitle('Cytrus Help')
           .setColor('#eeeeee')
           .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
           .setDescription(output);
-          
           output = `Use help <command> for details\n\n`;
           
           message.author.send(embed);
@@ -58,7 +59,7 @@ exports.run = (client, message, args, level) => {
 exports.conf = {
   enabled: true,
   aliases: ['h'],
-  guildOnly: true,
+  guildOnly: false,
   permLevel: 'User'
 };
 

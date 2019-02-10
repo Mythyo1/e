@@ -35,10 +35,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
           .setColor('#eeeeee');
         }
 
-
         msg.edit(embed);
       } else if (args[0] == 'remove') {
-        if (level == 5) {
+        if (level >= 6) {
           if (client.tickets.get(args[1]) == undefined || client.tickets.get(args[1]) == null) message.reply('That is not a valid TicketID!');
           else {
             let msg = await message.channel.send('Removing ticket...');
@@ -47,9 +46,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
             msg.edit('Ticket removed');
           }
         } else message.reply(`
-  You do not have permission to use this command.
-  Your permission level is ${level} (${friendly})
-  This command requires level 5 (Bot Support)`);
+You do not have permission to use this command.
+Your permission level is ${level} (${friendly})
+This command requires level 6 (Bot Support)`);
       } else if (args[0] == 'get') {
         if (client.tickets.get(args[1])) {
           let msg = await message.channel.send('Getting ticket...');
@@ -96,7 +95,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
           i++;
         });
       }
-    } else message.reply('You need to be logged in to use this command! (Use login instead)');
+    } else message.reply('You need to be logged in to use this command! (Use profile login instead)');
   } catch (err) {
     message.channel.send('There was an error!\n' + err.stack).catch();
   }

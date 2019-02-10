@@ -1,15 +1,21 @@
 {
   "name": "cytrus",
-  "version": "2.3.5",
+  "version": "1.5.0",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "node": "node app.js",
+    "forever": "forever start app.js",
+    "pm2": "pm2 start app.js",
+    "pnpm": "pnpm server start",
+    "yarn": "yarn run app.js"
   },
   "engines": {
-    "node": "8.x"
+    "node": "10.x"
   },
   "repository": {
+    "type": "git",
     "url": "https://github.com/CelestialCrafter/cytrus"
   },
   "author": "CelestialCrafter#0001, EnderGirlGamer#5370",
@@ -18,7 +24,6 @@
     "better-sqlite-pool": "^0.2.0",
     "better-sqlite3": "^5.4.0",
     "chalk": "^2.4.1",
-    "discord-rpc": "^3.0.1",
     "discord.js": "^11.4.2",
     "enmap": "^4.7.1",
     "express": "^4.16.4",
@@ -30,6 +35,13 @@
     "request": "^2.88.0",
     "urban-dictionary": "^2.2.1",
     "wikipediajs": "^1.4.0",
-    "ytdl-core": "^0.29.0"
-  }
+    "ytdl-core": "^0.29.0",
+    "ytdl-getinfo": "^1.1.0",
+    "numeral": "^2.0.6",
+    "mathjs": "^5.4.2"
+  },
+  "bugs": {
+    "url": "https://github.com/CelestialCrafter/cytrus/issues"
+  },
+  "homepage": "https://cytrus.ga"
 }

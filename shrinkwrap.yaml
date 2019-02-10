@@ -2,19 +2,21 @@ dependencies:
   better-sqlite-pool: 0.2.0
   better-sqlite3: 5.4.0
   chalk: 2.4.2
-  discord-rpc: 3.0.1
   discord.js: 11.4.2
   enmap: 4.7.1
   express: 4.16.4
   ffmpeg-binaries: 4.0.0
+  mathjs: 5.4.2
   moment: 2.24.0
   moment-duration-format: 2.2.2
   ms: 2.1.1
+  numeral: 2.0.6
   opusscript: 0.0.6
   request: 2.88.0
   urban-dictionary: 2.2.1
   wikipediajs: 1.4.0
   ytdl-core: 0.29.1
+  ytdl-getinfo: 1.1.0
 packages:
   /@types/better-sqlite3/5.2.1:
     dependencies:
@@ -221,6 +223,10 @@ packages:
       node: '>= 0.6.x'
     resolution:
       integrity: sha1-Br42f+v9oMMwqh4qBy09yXYkJdQ=
+  /complex.js/2.0.11:
+    dev: false
+    resolution:
+      integrity: sha512-6IArJLApNtdg1P1dFtn3dnyzoZBEF0MwMnrfF1exSBRpZYoy4yieMkpZhQDC0uwctw48vii0CFVyHfpgZ/DfGw==
   /content-disposition/0.5.2:
     dev: false
     engines:
@@ -267,6 +273,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  /decimal.js/10.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-qL5tUTXAWjB5cSBfm0V2a4jO5FaDLumCfwc/0f7WaTOT3WU8pIeq2HHrd98eXHtbey4qFWlaPzfml1JWIoO9TQ==
   /decompress-tar/4.1.1:
     dependencies:
       file-type: 5.2.0
@@ -352,15 +362,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
-  /discord-rpc/3.0.1:
-    dependencies:
-      node-fetch: 2.3.0
-      ws: 5.2.2
-    dev: false
-    peerDependencies:
-      register-scheme: 'github:devsnek/node-register-scheme'
-    resolution:
-      integrity: sha512-PvkVpIlbFowih2mPIOAwUlX+w+9AGtpVUpQrGP6Mu7TPHDjfclsYoRuquIYiSHsS/n5EfhFgMZfsSTRPkvj22w==
   /discord.js/11.4.2:
     dependencies:
       long: 4.0.0
@@ -416,6 +417,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+  /escape-latex/1.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-nV5aVWW1K0wEiUIEdZ4erkGGH8mDxGyxSeqPzRNtWP7ataw+/olFObw7hujFWlVjNsaDFw5VZ5NzVSIqRgfTiw==
   /escape-string-regexp/1.0.5:
     dev: false
     engines:
@@ -564,6 +569,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+  /fraction.js/4.0.12:
+    dev: false
+    resolution:
+      integrity: sha512-8Z1K0VTG4hzYY7kA/1sj4/r1/RWLBD3xwReT/RCrUCbzPszjNQCCsy3ktkU/eaEqX3MYa4pY37a52eiBlPMlhA==
   /fresh/0.5.2:
     dev: false
     engines:
@@ -705,6 +714,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+  /javascript-natural-sort/0.7.1:
+    dev: false
+    resolution:
+      integrity: sha1-+eIwPUUH9tdDVac2ZNFED7Wg71k=
   /jsbn/0.1.1:
     dev: false
     resolution:
@@ -771,6 +784,22 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-2w31R7SJtieJJnQtGc7RVL2StM2vGYVfqUOvUDxH6bC6aJTxPxTF0GnIgCyu7tjockiUWAYQRbxa7vKn34s5sQ==
+  /mathjs/5.4.2:
+    dependencies:
+      complex.js: 2.0.11
+      decimal.js: 10.0.2
+      escape-latex: 1.2.0
+      fraction.js: 4.0.12
+      javascript-natural-sort: 0.7.1
+      seed-random: 2.2.0
+      tiny-emitter: 2.0.2
+      typed-function: 1.1.0
+    dev: false
+    engines:
+      node: '>= 6'
+    hasBin: true
+    resolution:
+      integrity: sha512-jN6SLsaRvihxgRoq4+5/Tbw/mVe71W0kCxZA2TdpNRR+MHJGow/TsRrU5B6uXd7lYNWxiVeubn+F5d3mLtxARw==
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -862,12 +891,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
-  /node-fetch/2.3.0:
+  /numeral/2.0.6:
     dev: false
-    engines:
-      node: 4.x || >=6.0.0
     resolution:
-      integrity: sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
+      integrity: sha1-StCAk21EPCVhrtnyGX7//iX05QY=
   /oauth-sign/0.9.0:
     dev: false
     resolution:
@@ -1045,6 +1072,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+  /seed-random/2.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-KpsZ4lCoFwmSMaW5mk2vgLf77VQ=
   /seek-bzip/1.0.5:
     dependencies:
       commander: 2.8.1
@@ -1173,6 +1204,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+  /tiny-emitter/2.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-2NM0auVBGft5tee/OxP4PI3d8WItkDM+fPnaRAVo6xTDI2knbz9eC5ArWGqtGlYqiH3RU5yMpdyTTO7MguC4ow==
   /to-buffer/1.1.1:
     dev: false
     resolution:
@@ -1209,6 +1244,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-HRkVv/5qY2G6I8iab9cI7v1bOIdhm94dVjQCPFElW9W+3GeDOSHmy2EBYe4VTApuzolPcmgFTN3ftVJRKR2J9Q==
+  /typed-function/1.1.0:
+    dev: false
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-TuQzwiT4DDg19beHam3E66oRXhyqlyfgjHB/5fcvsRXbfmWPJfto9B4a0TBdTrQAPGlGmXh/k7iUI+WsObgORA==
   /unbzip2-stream/1.3.1:
     dependencies:
       buffer: 3.6.0
@@ -1283,12 +1324,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ZGh/8kF9rrRNffkLFV4AzhvooEclrOH0xaugmqGsIfFgOE/pIz4fMc4Ef+5HSQqTEug2S9JZIWDR47duDSLfaA==
-  /ws/5.2.2:
-    dependencies:
-      async-limiter: 1.0.0
-    dev: false
-    resolution:
-      integrity: sha512-jaHFD6PFv6UgoIVda6qZllptQsMlDEJkTQcybzzXDYM1XO9Y8em691FGMPmM46WGyLU4z9KMgQN+qrux/nhlHA==
   /xml-js/1.6.2:
     dependencies:
       sax: 1.2.4
@@ -1324,6 +1359,13 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-J/TW3rupqE6y+TczHTTFjuwf23tweA9fasmnbU/5yYH0O2IRFLcwgHbbvEPt3t8mtXWGX207+TWH7uuJpB1FKQ==
+  /ytdl-getinfo/1.1.0:
+    dependencies:
+      request: 2.88.0
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-JxjnhHox4xpEA+ugtSIKVrQPAVSQE6TR7aLVCx1vZkrdNh6ifmJnxy7pVQydYBPP0u3jh//AZGOYxRzH5ZEdxg==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -1331,16 +1373,18 @@ specifiers:
   better-sqlite-pool: ^0.2.0
   better-sqlite3: ^5.4.0
   chalk: ^2.4.1
-  discord-rpc: ^3.0.1
   discord.js: ^11.4.2
   enmap: ^4.7.1
   express: ^4.16.4
   ffmpeg-binaries: ^4.0.0
+  mathjs: ^5.4.2
   moment: ^2.24.0
   moment-duration-format: ^2.2.2
   ms: ^2.1.1
+  numeral: ^2.0.6
   opusscript: ^0.0.6
   request: ^2.88.0
   urban-dictionary: ^2.2.1
   wikipediajs: ^1.4.0
   ytdl-core: ^0.29.0
+  ytdl-getinfo: ^1.1.0

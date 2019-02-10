@@ -2,13 +2,14 @@ const config = {
   'owners': ['493922020783030282', '314165962100310017'],
   'managers': [],
   'admins': ['463051744071516201'],
-  'developers': [],
-  'mods': ['476875063145005070'],
+  'developers': ['476875063145005070'],
+  'mods': [],
+  'blacklisted': [],
   'support': [],
   'helpers': ['339903300994596884', '277872422760349696'],
   
   'globalBan': ['282674803817578506'],
-  'token': 'mfa.n0-t.r_e-a1-t0-k_e.n',
+  'token': 'NTI2n0-t.r_e-a1-t0-k_e.n',
   
   'defaultSettings' : {
     'prefix': 'cy.',
@@ -26,12 +27,18 @@ const config = {
 
   permLevels: [
     { level: 0,
-      name: 'User',
+      name: 'Blacklisted',
      
       check: () => true
     },
-
+    
     { level: 1,
+      name: 'User',
+     
+      check: (message) => !config.blacklisted.includes(message.author.id) || !config.globalBan.includes(message.author.id)
+    },
+
+    { level: 2,
       name: 'Moderator',
 
       check: (message) => {
@@ -44,7 +51,7 @@ const config = {
       }
     },
 
-    { level: 2,
+    { level: 3,
       name: 'Administrator',
      
       check: (message) => {
@@ -57,55 +64,55 @@ const config = {
       }
     },
     
-    { level: 3,
+    { level: 4,
       name: 'Server Owner', 
      
       check: (message) => message.channel.type === 'text' ? (message.guild.ownerID === message.author.id ? true : false) : false
     },
     
     { 
-      level: 4,
+      level: 5,
       name: 'Bot Helper',
       
       check: (message) => config.helpers.includes(message.author.id)
     },
     
     { 
-      level: 5,
+      level: 6,
       name: 'Bot Support',
       
       check: (message) => config.support.includes(message.author.id)
     },
 
     { 
-      level: 6,
+      level: 7,
       name: 'Bot Moderator',
       
       check: (message) => config.mods.includes(message.author.id)
     },
     
     { 
-      level: 7,
+      level: 8,
       name: 'Bot Developer',
       
       check: (message) => config.developers.includes(message.author.id)
     },
     
     {
-      level: 8,
+      level: 9,
       name: 'Bot Admin',
      
       check: (message) => config.admins.includes(message.author.id)
     },
     
     {
-      level: 9,
+      level: 10,
       name: 'Bot Manager',
      
       check: (message) => config.admins.includes(message.author.id)
     },
 
-    { level: 10,
+    { level: 11,
       name: 'Bot Owner',
      
       check: (message) => config.owners.includes(message.author.id)

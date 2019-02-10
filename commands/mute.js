@@ -8,7 +8,7 @@ exports.run = async (client, message, args, level) => {
     if (user) {
       const member = message.guild.member(user);
       if (member) {
-        member.addRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(() => {
+        member.addRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(async () => {
           message.reply(`Successfully muted ${user.tag}`);
 
           const modLogChannel = settings.modLogChannel;
@@ -27,7 +27,7 @@ exports.run = async (client, message, args, level) => {
         message.reply('That user isn\'t in this guild!');
       }
     } else {
-      message.reply('You didn\'t mention the user to unmute!');
+      message.reply('You didn\'t mention the user to mute!');
     }
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
