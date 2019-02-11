@@ -5,7 +5,7 @@ module.exports = (client, member) => {
 
   if (settings.welcomeEnabled !== 'true') return;
 
-  let welcomeMessage = settings.welcomeMessage.replace('{{user}}', member.user.tag);
+  let welcomeMessage = settings.welcomeMessage.replace('{{user}}', member.user.tag).replace('{{ping}}', '<@' + member.user.id + '>');
   
   if (settings.welcomeMessage && member.guild.channels.find(c => c.name == settings.welcomeChannel)) {
     member.guild.channels.find(c => c.name == settings.welcomeChannel).send(welcomeMessage).catch();

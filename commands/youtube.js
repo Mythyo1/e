@@ -3,7 +3,7 @@ const { getInfo } = require('ytdl-getinfo');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    let msg = await message.channel.send('Seatching YouTube...');
+    let msg = await message.channel.send('Searching YouTube...');
     
     getInfo(args.join(' '), ['--default-search=ytsearch']).then(info => {
       let embed = new Discord.RichEmbed()

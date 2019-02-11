@@ -8,7 +8,23 @@ const config = {
   'support': [],
   'helpers': ['339903300994596884', '277872422760349696'],
   
-  'globalBan': ['282674803817578506'],
+  'globalBan': [
+    '531930059183751178',
+    '543947328877363200',
+    '543948984021155900',
+    '543942027939807262',
+    '543760294929760282',
+    '543946698171351042',
+    '543949486083407945',
+    '543942796298420225',
+    '543759634847236107',
+    '543945980500901909',
+    '543943953834180609',
+    '543944636603957248',
+    '543943392502087681',
+    '543940984631721996',
+    '282674803817578506'
+  ],
   'token': 'NTI2n0-t.r_e-a1-t0-k_e.n',
   
   'defaultSettings' : {
@@ -19,7 +35,7 @@ const config = {
     'muteRole': 'muted',
     'noPermissionNotice': 'true',
     'welcomeChannel': 'general',
-    'welcomeMessage': 'Welcome to the server {{user}}!',
+    'welcomeMessage': 'Welcome to the server {{ping}}!',
     'welcomeEnabled': 'true',
     'logMessageEdits': 'true',
     'logMessageDeletions': 'true'

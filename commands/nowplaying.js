@@ -9,10 +9,15 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     }
 
     var server = client.music[message.guild.id];
-    let res = await searcher.search(args.join(' '));
+    let res = await searcher.search(server.queue[0]);
     
-    server.queue.push(res.first.url);
-    message.channel.send('The song is in the queue!');
+    let embed = new Discord.RichEmbed()
+    .setTitle(res.first.title)
+    .setDescription(res.first.description)
+    .setColor('#eeeeee')
+    .setURL(res.first.url);
+    
+    message.channel.send(embed);
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -20,14 +25,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['np'],
   guildOnly: true,
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'add',
+  name: 'nowplaying',
   category: 'Music',
-  description: 'Adds a song to the server\'s queue',
-  usage: 'add <youtube video URL>'
+  description: 'Returns the song playing now',
+  usage: 'nowplaying'
 };

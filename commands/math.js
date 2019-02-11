@@ -17,7 +17,7 @@ exports.conf = {
 
 exports.help = {
   name: 'math',
-  mathegory: 'Fun',
+  category: 'Fun',
   description: 'Does math and returns the value',
   usage: 'math'
 };

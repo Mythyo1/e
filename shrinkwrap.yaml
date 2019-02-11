@@ -12,11 +12,13 @@ dependencies:
   ms: 2.1.1
   numeral: 2.0.6
   opusscript: 0.0.6
+  pidusage: 2.0.17
   request: 2.88.0
   urban-dictionary: 2.2.1
   wikipediajs: 1.4.0
   ytdl-core: 0.29.1
   ytdl-getinfo: 1.1.0
+  ytsearcher: 1.2.2
 packages:
   /@types/better-sqlite3/5.2.1:
     dependencies:
@@ -941,6 +943,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+  /pidusage/2.0.17:
+    dependencies:
+      safe-buffer: 5.1.2
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-N8X5v18rBmlBoArfS83vrnD0gIFyZkXEo7a5pAS2aT0i2OLVymFb2AzVg+v8l/QcXnE1JwZcaXR8daJcoJqtjw==
   /pify/2.3.0:
     dev: false
     engines:
@@ -1366,6 +1376,10 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-JxjnhHox4xpEA+ugtSIKVrQPAVSQE6TR7aLVCx1vZkrdNh6ifmJnxy7pVQydYBPP0u3jh//AZGOYxRzH5ZEdxg==
+  /ytsearcher/1.2.2:
+    dev: false
+    resolution:
+      integrity: sha512-nQ38akKe3O2OGfQba0aTetMx25U/V+jD+MN1v26/lR497KyzpPIolQuNEf5x4O0ANvLLIS9iPSc91Zle1OP+ww==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -1383,8 +1397,10 @@ specifiers:
   ms: ^2.1.1
   numeral: ^2.0.6
   opusscript: ^0.0.6
+  pidusage: ^2.0.17
   request: ^2.88.0
   urban-dictionary: ^2.2.1
   wikipediajs: ^1.4.0
   ytdl-core: ^0.29.0
   ytdl-getinfo: ^1.1.0
+  ytsearcher: ^1.2.2

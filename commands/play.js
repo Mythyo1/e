@@ -3,10 +3,10 @@ const ytdl = require('ytdl-core');
 
 const Play = (connection, message, client) => {
   try {
-    const server = client.music[message.guild.id];
+    let server = client.music[message.guild.id];
     let audioStream;
+    if (!server) server = {};
     if (!server.queue) {
-      server = {};
       server.queue = [];
     }
     let queue = server.queue;

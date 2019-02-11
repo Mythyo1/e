@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => {
   try {
-    client.music.queue[message.guild.id] = [];
+    client.music[message.guild.id] = {queue: [], loop: false};
     message.reply('The queue is wiped!');
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();

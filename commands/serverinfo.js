@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let embed = new Discord.RichEmbed()
-    .setTitle(message.guild.name.toPropperCase)
+    .setTitle(message.guild.name)
     .setDescription(`
 ID: ${message.guild.id}
 Members: ${message.guild.memberCount}

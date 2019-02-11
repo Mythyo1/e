@@ -28,17 +28,19 @@
     "enmap": "^4.7.1",
     "express": "^4.16.4",
     "ffmpeg-binaries": "^4.0.0",
+    "mathjs": "^5.4.2",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
     "ms": "^2.1.1",
+    "numeral": "^2.0.6",
     "opusscript": "^0.0.6",
+    "pidusage": "^2.0.17",
     "request": "^2.88.0",
     "urban-dictionary": "^2.2.1",
     "wikipediajs": "^1.4.0",
     "ytdl-core": "^0.29.0",
     "ytdl-getinfo": "^1.1.0",
-    "numeral": "^2.0.6",
-    "mathjs": "^5.4.2"
+    "ytsearcher": "^1.2.2"
   },
   "bugs": {
     "url": "https://github.com/CelestialCrafter/cytrus/issues"

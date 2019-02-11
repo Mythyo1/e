@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars 
   try {
-    var server = client.musicqueue[message.guild.id];
+    var server = client.music[message.guild.id];
     if (server) {
-      if (server.dispatcher) {
+      if (server.dispatcher) { 
         server.dispatcher.pause().then(message.channel.send('Song paused!'));
       } else message.channel.send('There is nothing playing!');
     } else message.channel.send('There is nothing playing!');

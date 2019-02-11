@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, level) => {
   try {
     let i = 0;
-     client.commands.forEach(() => i++);
+    await client.commands.forEach(async () => i++);
     message.channel.send('Commands: ' + i);
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();

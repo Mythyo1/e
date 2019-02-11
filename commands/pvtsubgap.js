@@ -40,7 +40,7 @@ exports.conf = {
 
 exports.help = {
   name: 'pvtsubgap',
-  category: 'Generale',
+  category: 'General',
   description: 'Returns the sub gap between T-Series vs PewDiePie',
   usage: 'pvtsubgap'
 };
