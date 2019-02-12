@@ -4,7 +4,7 @@ const ytdl = require('ytdl-core');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     if (!client.music[message.guild.id]) {
-      client.music[message.guild.id] = {queue: [], loop: false};
+      client.music[message.guild.id] = {queue: [], loop: true};
     }
 
     var server = client.music[message.guild.id];

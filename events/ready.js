@@ -1,4 +1,3 @@
-const initWeb = require('../modules/web');
 module.exports = async client => {
   const statusList = [
     {msg: `for commands | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'},
@@ -16,7 +15,7 @@ module.exports = async client => {
   }, 5000);
   
   //Starts the web server/API
-  initWeb();
+  require('../modules/web')(client);
   
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');

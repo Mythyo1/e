@@ -1,8 +1,8 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (message.memberpause.hasPermission('CREATE_INSTANT_INVITE')) {
+    if (message.member.hasPermission('CREATE_INSTANT_INVITE')) {
       message.channel.createInvite().then(invite => message.channel.send(`I've succesfuly created the invite!\nCode: ${invite.code}`));
-    } else message.reply('You dont have the permissions to ');
+    } else message.reply('You dont have the Create Invite permission!');
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

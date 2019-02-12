@@ -5,14 +5,17 @@ const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     if (!client.music[message.guild.id]) {
-      client.music[message.guild.id] = {queue: [], loop: false, dispatcher: ''};
+      client.music[message.guild.id] = {queue: [], loop: false};
     }
 
     var server = client.music[message.guild.id];
-    if (!server.dispatcher.song) return message.channel.send('There is nothing in the queue!');
+    if (!server.queue[0]) return message.channel.send('There is nothing next in the queue!');
     else {
-      let res = await searcher.search(server.dispatcher.song);
-
+      let res;
+      
+      if (!server.queue[1]) res = await searcher.search(server.queue[0]);
+      if (server.queue[1]) res = await searcher.search(server.queue[server.queue.length]);
+      
       let embed = new Discord.RichEmbed()
       .setTitle(res.first.title)
       .setDescription(res.first.description)
@@ -28,14 +31,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['np'],
+  aliases: ['nu'],
   guildOnly: true,
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'nowplaying',
+  name: 'nextup',
   category: 'Music',
-  description: 'Returns the song playing now',
-  usage: 'nowplaying'
+  description: 'Returns the song playing next',
+  usage: 'nextup'
 };

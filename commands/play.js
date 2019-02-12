@@ -5,7 +5,7 @@ const Play = (connection, message, client) => {
   try {
     let server = client.music[message.guild.id];
     let audioStream;
-    if (!server) server = {};
+    if (!server) server = {queue: [], loop: false};
     if (!server.queue) {
       server.queue = [];
     }
@@ -16,6 +16,7 @@ const Play = (connection, message, client) => {
         audioStream = ytdl(queue[0], {format: 'audioonly'});
 
         server.dispatcher = connection.playStream(audioStream, {passes: 7});
+        server.dispatcher.song = queue[0];
         if (server.loop == true) {
           queue.push(queue[0]);
         }

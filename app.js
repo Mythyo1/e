@@ -1,5 +1,5 @@
 //Check if the node version is 10.0.0+
-if (Number(process.version.slice(1).split('.')[0]) < 8) throw new Error('NodeJS 8.0.0 or higher is required. Re-run this with NodeJS 8.0.0+');
+if (Number(process.version.slice(1).split('.')[0]) < 10) throw new Error('NodeJS 10.0.0 or higher is required. Re-run this with NodeJS 10.0.0+');
 
 //Define NPM modules
 const Enmap = require('enmap');
@@ -14,6 +14,7 @@ const client = new Discord.Client({
 client.commands = new Enmap();
 client.aliases = new Enmap();
 client.liusers = new Enmap();
+client.raids = new Enmap({name: 'raids'});
 client.profiles = new Enmap({name: 'profiles'});
 client.logins = new Enmap({name: 'logins'});
 client.spotify = new Enmap({name: 'spotify'});
@@ -24,11 +25,11 @@ client.levelCache = {};
 client.music = {};
 
 //Import files
+client.logger = require('./modules/Logger');
+client.config = require('./cnf');
 require('./modules/commands')(client);
 require('./modules/events')(client);
 require('./modules/functions')(client);
-client.config = require('./cnf');
-client.logger = require('./modules/Logger');
 
 //Cache the permissions
 for (let i = 0; i < client.config.permLevels.length; i++) {

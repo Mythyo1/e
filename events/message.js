@@ -1,5 +1,10 @@
 module.exports = async (client, message) => {
+  if (message.guild) {
+    if (client.raids.has(message.guild.id) && !message.member.hasPermission('KICK_MEMBERS')) return message.delete().catch();
+  }
+  
   if (message.author.bot) return;
+  if (client.config.blacklisted.includes(message.author.id)) return;
   let settings;
   let args;
 

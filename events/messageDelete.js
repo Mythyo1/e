@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = (client, message) => {
-  if (message.bot) return;
+  if (message.author.bot) return;
+  if (client.raids.has(message.guild.id)) return;
   
   let settings = client.getSettings(message.guild.id);
   if (settings.logMessageDeletions == 'true') {

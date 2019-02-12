@@ -10,14 +10,14 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
       const embed = new Discord.RichEmbed()
       .setTitle('Cytrus Status')
       .setDescription(`
-    RAM Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
-    Uptime: ${duration}
-    Users: ${client.users.size.toLocaleString()}
-    Servers: ${client.guilds.size.toLocaleString()}
-    Channels: ${client.channels.size.toLocaleString()}
-    Discord.js: v${version}
-    CPU Usage: ${Math.round(stats.cpu)}%
-    Node.js: ${process.version}`)
+RAM Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
+Uptime: ${duration}
+Users: ${client.users.size.toLocaleString()}
+Servers: ${client.guilds.size.toLocaleString()}
+Channels: ${client.channels.size.toLocaleString()}
+Discord.js: v${version}
+CPU Usage: ${Math.round(stats.cpu)}%
+Node.js: ${process.version}`)
       .setColor('#eeeeee');
 
       message.channel.send(embed);
