@@ -18,7 +18,7 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 
 ## Links
 ### API
-[Visit](https://cytrusbot.glitch.me/api/)
+[Visit](https://api.cytrus.ga/api/)
 ​
 ### Bot List
 [Visit](https://discordbotlist.com/bots/526593597118873620/)
