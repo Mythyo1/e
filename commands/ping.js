@@ -6,7 +6,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     let embed = new Discord.RichEmbed()
     .setTitle('Ping')
-    .setDescription(`Latency: ${msg.createdTimestamp - message.createdTimestamp}ms\nAPI Latency: ${Math.round(client.ping)}ms`)
+    .setDescription(`Message Trip: ${msg.createdTimestamp - message.createdTimestamp}ms\nWebsocket Heartbeat: ${Math.round(client.ping)}ms`)
     .setColor('#eeeeee');
 
     msg.edit(embed);

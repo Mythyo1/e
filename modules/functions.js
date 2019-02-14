@@ -44,26 +44,24 @@ module.exports = (client) => {
   };
 
   client.clean = async (client, text) => {
-    if (text && text.constructor.name == 'Promise')
-      text = await text;
-    if (typeof evaled !== 'string')
-      text = require('util').inspect(text, {depth: 1});
+    if (text && text.constructor.name == 'Promise') text = await text;
+    if (typeof evaled !== 'string') text = require('util').inspect(text, {depth: 1});
 
     text = text
-      .replace(/`/g, '`' + String.fromCharCode(8203))
-      .replace(/@/g, '@' + String.fromCharCode(8203))
-      .replace(process.env.BOT_TOKEN, client.token);
+    .replace(/`/g, '`' + String.fromCharCode(8203))
+    .replace(/@/g, '@' + String.fromCharCode(8203))
+    .replace(process.env.BOT_TOKEN, client.config.token);
 
     return text;
   };
 
   client.loadCommand = (commandName) => {
     try {
-      client.logger.log(`Loading Command: ${commandName}`);
       const props = require(`../commands/${commandName}`);
       if (props.init) {
         props.init(client);
       }
+      
       client.commands.set(props.help.name, props);
       props.conf.aliases.forEach(alias => {
         client.aliases.set(alias, props);
@@ -82,9 +80,12 @@ module.exports = (client) => {
     
     if (!command) return `The command \`${commandName}\` doesn't seem to exist. Try again!`;
   
-    if (command.shutdown) {
-      await command.shutdown(client);
-    }
+    await client.commands.get(commandName).conf.aliases.forEach(alias => {
+      client.aliases.delete(alias);
+    });
+    
+    client.commands.delete(commandName);
+    
     const mod = require.cache[require.resolve(`../commands/${commandName}`)];
     delete require.cache[require.resolve(`../commands/${commandName}.js`)];
     for (let i = 0; i < mod.parent.children.length; i++) {
@@ -118,5 +119,9 @@ module.exports = (client) => {
   
   process.on('unhandledRejection', (err) => {
     client.logger.error(`Unhandled rejection: ${err.stack}`);
+  });
+  
+  process.on('exit', () => {
+    client.destroy();
   });
 };

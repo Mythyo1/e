@@ -14,13 +14,15 @@ const client = new Discord.Client({
 client.commands = new Enmap();
 client.aliases = new Enmap();
 client.liusers = new Enmap();
+client.tags = new Enmap({name: 'tags'});
 client.raids = new Enmap({name: 'raids'});
 client.profiles = new Enmap({name: 'profiles'});
 client.logins = new Enmap({name: 'logins'});
 client.spotify = new Enmap({name: 'spotify'});
 client.settings = new Enmap({name: 'settings'});
-client.tickets = new Enmap({name: 'supporttickets'});
+client.notes = new Enmap({name: 'notes'});
 client.warns = new Enmap({name: 'warns'});
+client.punchpower = new Enmap({name: 'punchpower'});
 client.levelCache = {};
 client.music = {};
 

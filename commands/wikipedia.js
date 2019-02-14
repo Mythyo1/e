@@ -27,16 +27,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   }
 };
 
-/*
-      let info = res.query.pages[Object.keys(res.query.pages)[0]]
-      let embed = new Discord.RichEmbed()
-      .setTitle('Wikipedia')
-      .setDescription('['+info.title+']('+info.fullurl.replace('(', '\\(').replace(')', '\\)').replace('`', '\`')+')')
-      .setColor('#eeeeee');
-
-      message.channel.send(embed);
-*/
-
 exports.conf = {
   enabled: true,
   aliases: ['wiki'],

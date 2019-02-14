@@ -6,7 +6,8 @@ module.exports = async client => {
     {msg: `PewDiePie | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'},
     {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
     {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
-    {msg: `minecraft... MOM GET OUT OF MY ROOM IM PLAYING MINECRAFT | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'}
+    {msg: `minecraft... MOM GET OUT OF MY ROOM IM PLAYING MINECRAFT | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
+    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'}
   ];
   
   setInterval(async () => {

@@ -3,15 +3,13 @@ const config = {
   'managers': [],
   'admins': ['463051744071516201'],
   'developers': ['476875063145005070'],
-  'mods': [],
+  'mods': ['437698252381487104'],
   'support': [],
   'helpers': ['339903300994596884', '277872422760349696'],
   
   'blacklisted': ['251213730577252354'],
-  'globalBan': require('./GlobalBans'),
+  'globalBan': require('./data/GlobalBans'),
   'token': 'NTI2n0-t.r_e-a1-t0-k_e.n',
-  'domain': 'https://dash.cytrus.ga',
-  'callbackURL': 'https://dash.cytrus.ga',
   
   'defaultSettings' : {
     'prefix': 'cy.',
@@ -24,7 +22,8 @@ const config = {
     'welcomeMessage': 'Welcome to the server {{ping}}!',
     'welcomeEnabled': 'true',
     'logMessageEdits': 'true',
-    'logMessageDeletions': 'true'
+    'logMessageDeletions': 'true',
+    'logEmojiUpdates': 'true'
   },
 
   permLevels: [

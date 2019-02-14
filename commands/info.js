@@ -6,7 +6,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     .setColor('#eeeeee')
     .setTitle('Cytrus Github')
     .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
-    .setDescription('Production: [Production Github](https://github.com/CelestialCrafter/cytrus) \n Website: [Website](https://cytrus.ga) \n API: [API](https://cytrusbot.glitch.me)\n Issues: [Github](https://github.com/CelestialCrafter/cytrus/issues)');
+    .setDescription(`Github: [Production Github](https://github.com/CelestialCrafter/cytrus)
+Website: [Website](https://cytrus.ga)
+API: [API](https://api.cytrus.ga/api)
+Support Server: [Server](https://discord.gg/a7vxMM5)
+Issues: [Github](https://github.com/CelestialCrafter/cytrus/issues)`);
 
     message.channel.send(embed);
   } catch (err) {

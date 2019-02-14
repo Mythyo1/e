@@ -35,7 +35,6 @@ exports.run = (client, message, args, level) => {
         }
         output += `**${c.help.name}**: ${c.help.description}\n`;
       });
-
     } else {
       // Show individual command's help.
       let command = args[0];
@@ -44,9 +43,9 @@ exports.run = (client, message, args, level) => {
         if (level < client.levelCache[command.conf.permLevel]) return;
 
         let embedTiny = new Discord.RichEmbed()
-        .setTitle(`${command.help.name}`)
+        .setTitle(`${command.help.name.toPropperCase()}`)
         .setColor('#eeeeee')
-        .setDescription(`${command.help.description}\nUsage: ${command.help.usage}\nAliases: ${command.conf.aliases.join(', ')}\n ${command.help.name} `);
+        .setDescription(`${command.help.description}\nUsage: ${command.help.usage}\nAliases: ${command.conf.aliases.join(' | ')}`);
 
         message.channel.send(embedTiny);
       }

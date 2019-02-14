@@ -24,8 +24,6 @@ exports.run = async (client, message, args, level) => {
         message.channel.send(embed);
       });
     });
-    
-    
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

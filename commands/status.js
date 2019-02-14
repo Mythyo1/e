@@ -1,6 +1,6 @@
+const Discord = require('discord.js');
 const { version } = require('discord.js');
 const moment = require('moment');
-const Discord = require('discord.js');
 require('moment-duration-format');
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
@@ -17,7 +17,8 @@ Servers: ${client.guilds.size.toLocaleString()}
 Channels: ${client.channels.size.toLocaleString()}
 Discord.js: v${version}
 CPU Usage: ${Math.round(stats.cpu)}%
-Node.js: ${process.version}`)
+Node.js: ${process.version}
+Voice Connections: ${client.voiceConnections.size}`)
       .setColor('#eeeeee');
 
       message.channel.send(embed);

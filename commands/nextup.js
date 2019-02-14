@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const { YTSearcher } = require('ytsearcher');
-const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
+const { getInfo } = require('ytdl-getinfo');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
@@ -12,17 +11,18 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!server.queue[0]) return message.channel.send('There is nothing next in the queue!');
     else {
       let res;
+      let msg = await message.channel.send('Searching youtube...');
       
-      if (!server.queue[1]) res = await searcher.search(server.queue[0]);
-      if (server.queue[1]) res = await searcher.search(server.queue[server.queue.length]);
+      if (!server.queue[1]) res = await getInfo(server.queue[0]);
+      if (server.queue[1]) res = await getInfo(server.queue[server.queue.length-1]);
       
       let embed = new Discord.RichEmbed()
-      .setTitle(res.first.title)
-      .setDescription(res.first.description)
+      .setTitle(res.items[0].title)
+      .setDescription(res.items[0].description)
       .setColor('#eeeeee')
-      .setURL(res.first.url);
+      .setURL(res.items[0].url);
 
-      message.channel.send(embed);
+      msg.edit(embed);
     }
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();

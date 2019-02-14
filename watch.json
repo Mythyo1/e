@@ -12,7 +12,6 @@
       "\\.js$"
     ],
     "include": [
-      "\\.json"
     ]
   },
   "throttle": 60000
