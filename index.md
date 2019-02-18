@@ -115,3 +115,5 @@ publicip: Returns the Cytrus public IP
 reload: Reloads a command
 status: Reuturns the bots status
 ```
+
+<img src="https://github.com/CelestialCrafter/cytrus/blob/glitch/dbl.svg" />
