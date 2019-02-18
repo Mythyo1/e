@@ -122,4 +122,4 @@ reload: Reloads a command
 status: Reuturns the bots status
 ```
 
-<img src="https://raw.githubusercontent.com/CelestialCrafter/cytrus/glitch/dbl.svg" />
+<img src="https://github.com/CelestialCrafter/cytrus/blob/glitch/dbl.svg" />
