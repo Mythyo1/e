@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let settings = client.getSettings(message.guild.id);
-    if (message.content.split(' ')[0] !== settings.prefix + 'punch') return message.reply('You cant use the mention prefix for this command! Use ' + settings.prefix + 'punch instead.');
     
     let member = message.mentions.members.first();
     let embed;

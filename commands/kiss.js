@@ -11,12 +11,11 @@ let kissGifs = [
   'https://cdn.discordapp.com/attachments/536964648654733313/537320253206691850/c71bde60c75c1dbdb1faa6309e4a29a4.gif',
   'https://cdn.discordapp.com/attachments/536964648654733313/537320169194913817/tenor_1.gif',
   'https://cdn.discordapp.com/attachments/536964648654733313/537320168611643405/b65893e0a0aec5b35fd5f7a6cfc423a5.gif'
-]
+];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let settings = client.getSettings(message.guild.id);
-    if (message.content.split(' ')[0] !== settings.prefix + 'kiss') return message.reply('You cant use the mention prefix for this command! Use ' + settings.prefix + 'kiss instead.');
     
     let member = message.mentions.members.first();
     let i = Math.floor(Math.random() * (kissGifs.length - 1) + 1);
@@ -44,7 +43,7 @@ exports.conf = {
 
 exports.help = {
   name: 'kiss',
-  category: 'General',
+  category: 'Fun',
   description: 'Returns a kiss',
-  usage: 'kiss'
+  usage: 'kiss <user>'
 };

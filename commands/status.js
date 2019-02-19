@@ -15,6 +15,8 @@ Uptime: ${duration}
 Users: ${client.users.size.toLocaleString()}
 Servers: ${client.guilds.size.toLocaleString()}
 Channels: ${client.channels.size.toLocaleString()}
+Status: ${client.user.presence.status}
+Game: ${client.user.presence.game}
 Discord.js: v${version}
 CPU Usage: ${Math.round(stats.cpu)}%
 Node.js: ${process.version}

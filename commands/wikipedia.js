@@ -14,6 +14,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       
       let page = await client.awaitReply(message, `Please choose the page you want.\n${output}`);
       
+      if (isNaN(page)) return message.reply(page + ' is not a number!');
       let info = res.query.pages[Object.keys(res.query.pages)[page - 1]]
       let embed = new Discord.RichEmbed()
       .setTitle('Wikipedia')

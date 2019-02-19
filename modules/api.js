@@ -10,7 +10,6 @@ const pewds = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&ke
 const tseries = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UCq-Fj5jknLsUf-MWSy4_brA';
 
 const initWeb = (client) => {
-  app.get('/', (req, res) => res.send('<script>window.location.href = "https://api.cytrus.ga/api/"</script><noscript><a href="https://api.cytrus.ga/api">Cytrus API</a></noscript>'));
   app.get('/api/', (req, res) => res.sendFile('/app/views/api/docs.html'));
   app.get('/api/invite', (req, res) => res.send({status: 200, invite: 'https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8'}));
   app.get('/api/server', (req, res) => res.send({status: 200, server: 'https://discord.gg/VfTE9GH'}));

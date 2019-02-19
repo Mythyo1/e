@@ -12,10 +12,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         break;
       case 'remove':
         if (client.notes.has(args[1])) {
-          msg = await message.channel.send('Deleting note...');
+          if (client.notes.get(args[1]).author !== message.author.id) message.reply('You dont own this note!');
+          else {
+            msg = await message.channel.send('Deleting note...');
 
-          await client.notes.delete(args[1]);
-          msg.edit('Note deleted with the ID of ' + args[1]);
+            await client.notes.delete(args[1]);
+            msg.edit('Note deleted with the ID of ' + args[1]);
+          }
         } else message.reply('That is not a valid NoteID!');
         break;
       case 'clear':

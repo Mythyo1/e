@@ -2,9 +2,13 @@ const Discord = require('discord.js');
 
 module.exports = (client, message, messageNew) => {
   if (message.author.bot) return;
+  if (message.pinned && !messageNew.pinned) return;
+  if (!message.pinned && messageNew.pinned) return;
+  if (message.content == messageNew.content) return;
+  
   let settings = client.getSettings(message.guild.id);
   
-  if (settings.logMessageEdits == 'true') {
+  if (settings.logMessageUpdates == 'true') {
     let embed = new Discord.RichEmbed()
     .setTitle('Message Edit')
     .setTimestamp(new Date())

@@ -3,16 +3,29 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    ud.term(args.join(' ')).then((result) => {
-      const entries = result.entries;
+    ud.term(args.join(' ')).then(async (result) => {
+      if (args.join(' ') == '') return message.channel.send('You need to input a search term!');
+      let output = '';
+      let entries = result.entries;
+      let i = 1;
+      
+      if (entries = []) return message.channel.send('I didint find any results for ' + args.join(' '));
+      
+      Object.keys(entries).forEach(async (pageID) => {
+        output += '\n' + i + '. ' + entries[pageID].word;
+        i++;
+      });
+      
+      let page = await client.awaitReply(message, `Please choose the page you want.\n${output}`);
+      
+      if (isNaN(page)) return message.reply(page + ' is not a number!');
       let embed = new Discord.RichEmbed()
-      .setTitle(entries[0].word)
-      .setDescription(entries[0].definition)
-      .addField('Example:', entries[0].example)
+      .setTitle(entries[page - 1].word)
+      .setDescription('Definition:\n' + entries[page - 1].definition + '\n\nExample:\n' + entries[page - 1].example)
       .setFooter('Requested by ' + message.author.tag)
       .setColor('#eeeeee');
 
-      message.channel.send(embed);
+      message.channel.send(embed).catch(err => message.channel.send('The definition was too big or there was another error!\n\n' + err));
     });
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
@@ -21,7 +34,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['urban', 'ub'],
+  aliases: ['urban', 'ud'],
   guildOnly: false,
   permLevel: 'User'
 };

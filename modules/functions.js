@@ -112,12 +112,17 @@ module.exports = (client) => {
   client.wait = require('util').promisify(setTimeout);
   
   process.on('uncaughtException', (err) => {
-    const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
-    client.logger.error(`Uncaught Exception: ${errorMsg}`);
+    let fs = require('fs');
+    let number = Math.floor(Math.random() * 10000000000001);
+    let errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
+    
+    client.logger.error(errorMsg);
+    client.destroy();
     process.exit(1);
   });
   
   process.on('unhandledRejection', (err) => {
+    if (err.name == 'DiscordAPIError') return;
     client.logger.error(`Unhandled rejection: ${err.stack}`);
   });
   

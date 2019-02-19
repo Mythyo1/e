@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
 
 module.exports = (client, message) => {
+  if (client.selfrole.has(message.id)) client.selfrole.delete(message.id);
   if (message.author.bot) return;
   if (client.raids.has(message.guild.id)) return;
   
   let settings = client.getSettings(message.guild.id);
-  if (settings.logMessageDeletions == 'true') {
+  if (settings.logMessageUpdates == 'true') {
     let embed = new Discord.RichEmbed()
     .setTitle('Message Delete')
     .setTimestamp(new Date())

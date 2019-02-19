@@ -16,14 +16,14 @@ const config = {
     'modLogChannel': 'log',
     'modRole': 'Moderator',
     'adminRole': 'Administrator',
-    'muteRole': 'muted',
+    'muteRole': 'CytrusMute',
     'noPermissionNotice': 'true',
     'welcomeChannel': 'general',
     'welcomeMessage': 'Welcome to the server {{ping}}!',
     'welcomeEnabled': 'true',
-    'logMessageEdits': 'true',
-    'logMessageDeletions': 'true',
-    'logEmojiUpdates': 'true'
+    'logMessageUpdates': 'true',
+    'logEmojiUpdates': 'true',
+    'logMemberUpdates': 'true'
   },
 
   permLevels: [

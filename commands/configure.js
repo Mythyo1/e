@@ -16,7 +16,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
       if (!client.settings.has(message.guild.id)) client.settings.set(message.guild.id, {});
 
-      client.settings.set(message.guild.id, args.slice(2).join(' '), args[1]);
+      if (args[1] == 'modLogChannel' || args[1] == 'welcomeChannel') client.settings.set(message.guild.id, args.slice(2).join(' ').replace('#', '').trim(), args[1]);
+      else client.settings.set(message.guild.id, args.slice(2).join(' '), args[1]);
 
       message.reply(`${args[1]} successfully edited to ${args.slice(2).join(' ')}`);
     } else

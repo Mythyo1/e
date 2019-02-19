@@ -8,6 +8,8 @@ const readdir = (fs.readdir);
 
 module.exports = (client) => {
   //Get command files
+  let i = 1;
+  
   readdir("/app/commands/", (err, files) => {
     //If their is an error, Return the error
     if (err) return client.logger.error(err);
@@ -24,7 +26,7 @@ module.exports = (client) => {
       let commandName = file.split(".")[0];
 
       //Log that the command is loading
-      client.logger.log(`Loading command: ${commandName}`);
+      client.logger.log(`Loading command: ${commandName}. Command ${i}`);
 
       //Set the command name the file objects
       client.commands.set(commandName, props);
@@ -32,7 +34,10 @@ module.exports = (client) => {
         //Set the aliases of the command the file objects
         client.aliases.set(al, client.commands.get(commandName));
       });
+      
+      i++;
     });
-    console.log();
   });
+  
+  console.log();
 };

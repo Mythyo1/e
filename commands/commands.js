@@ -1,8 +1,6 @@
 exports.run = async (client, message, args, level) => {
   try {
-    let i = 0;
-    await client.commands.forEach(async () => i++);
-    message.channel.send('Commands: ' + i);
+    message.channel.send('Commands: ' + Number(client.commands.size + 1));
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }
@@ -10,7 +8,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['cmd'],
+  aliases: ['cmds'],
   guildOnly: false,
   permLevel: 'User'
 };

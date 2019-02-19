@@ -122,4 +122,4 @@ reload: Reloads a command
 status: Reuturns the bots status
 ```
 
-<img src="https://discordbotlist.com/bots/526593597118873620/widget" />
+<img src="https://github.com/CelestialCrafter/cytrus/blob/glitch/dbl.svg" />

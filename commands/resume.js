@@ -5,7 +5,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     var server = client.music[message.guild.id];
     if (server) {
       if (server.dispatcher) {
-        server.dispatcher.resume().then(message.channel.send('Song resumed!'));
+        server.dispatcher.resume()
+        message.channel.send('Song resumed!');
       } else message.channel.send('There is nothing playing!');
     } else message.channel.send('There is nothing playing!');
   } catch (err) {

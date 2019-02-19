@@ -1,15 +1,16 @@
 const Discord = require('discord.js');
-const { getInfo } = require('ytdl-getinfo');
+const { YTSearcher } = require('ytsearcher');
+
+const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let msg = await message.channel.send('Searching YouTube...');
     
-    getInfo(args.join(' '), ['--default-search=ytsearch']).then(info => {
+    searcher.search(args.join(' ')).then(info => {
       let embed = new Discord.RichEmbed()
-      .setTitle(info.items[0].title)
-      .setThumbnail(info.items[0].thumbnail)
-      .setDescription(info.items[0].webpage_url)
+      .setTitle(info.first.title)
+      .setDescription(info.first.url)
       .setColor('#eeeeee');
       
       msg.edit(embed);

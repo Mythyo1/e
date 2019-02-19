@@ -16,7 +16,8 @@ module.exports = async client => {
   }, 5000);
   
   //Starts the web server/API
-  require('../modules/web')(client);
+  require('../modules/api')(client);
+  require('../modules/botlist')(client);
   
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');

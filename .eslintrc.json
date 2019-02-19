@@ -1,0 +1,22 @@
+{
+	"extends": "eslint:recommended",
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2017
+	},
+	"rules": {
+		"comma-dangle": ["error", "always-multiline"],
+		"comma-spacing": "error",
+		"comma-style": "error",
+		"handle-callback-err": "off",
+		"max-nested-callbacks": ["error", {"max": 4}],
+		"max-statements-per-line": ["error", {"max": 1}],
+		"no-empty-function": "error",
+		"no-var": "error",
+		"quotes": ["error", "single"],
+		"semi": ["error", "always"],
+	}
+}

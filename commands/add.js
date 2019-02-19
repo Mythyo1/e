@@ -34,5 +34,5 @@ exports.help = {
   name: 'add',
   category: 'Music',
   description: 'Adds a song to the server\'s queue',
-  usage: 'add <youtube video URL>'
+  usage: 'add <youtube video URL/youtube video>'
 };

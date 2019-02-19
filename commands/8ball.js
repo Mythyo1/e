@@ -1,10 +1,15 @@
 const posibleAnswers = [
-  'Maybe',
-  'Probably',
+  'wut',
+  'yes',
+  'no',
+  '..........................................no u',
+  'https://cytrus.ga',
+  'idk',
   'No',
-  'Yes',
-  'Possibly',
-  'Why?'
+  'yes',
+  'uhh',
+  'i dont think so m8',
+  'tHe AnSwEr LiEs WiThIn'
 ];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
@@ -15,7 +20,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       message.channel.send(posibleAnswers[i]);
     } else message.reply('You need to provide the question!');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

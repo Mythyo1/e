@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const { getInfo } = require('ytdl-getinfo');
+const { YTSearcher } = require('ytsearcher');
+
+const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
@@ -11,13 +13,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!server.dispatcher.song) return message.channel.send('There is nothing in the queue!');
     else {
       let msg = await message.channel.send('Searching Youtube...');
-      let res = await getInfo(server.dispatcher.song);
+      let res = await searcher.search(server.queue[server.queue.length -1]);
 
       let embed = new Discord.RichEmbed()
-      .setTitle(res.items[0].title)
-      .setDescription(res.items[0].description)
+      .setTitle(res.first.title)
+      .setDescription(res.first.description)
       .setColor('#eeeeee')
-      .setURL(res.items[0].url);
+      .setURL(res.first.url);
 
       msg.edit(embed);
     }

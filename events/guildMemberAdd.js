@@ -1,6 +1,12 @@
 const Discord = require('discord.js');
 
 module.exports = (client, member) => {
+  if (member.guild.id == '379818272230473729') {
+    if (member.user.createdTimestamp < 2592000003) member.kick('Account under 1 month old.');
+  }
+  
+  require('../modules/botlist')(client);
+  
   let settings = client.getSettings(member.guild.id);
 
   if (settings.welcomeEnabled !== 'true') return;
@@ -23,6 +29,6 @@ module.exports = (client, member) => {
 
         await member.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch();
       }
-    }).catch(console.error);
+    }).catch();
   }
 };
