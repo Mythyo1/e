@@ -116,4 +116,4 @@ reload: Reloads a command
 status: Reuturns the bots status
 ```
 
-<img src="https://discordbotlist.com/bots/526593597118873620/widget" />
+<a href="https://discordbotlist.com/bots/526593597118873620"><img src="https://discordbotlist.com/bots/526593597118873620/widget" /></a>
