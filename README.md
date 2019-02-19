@@ -35,11 +35,6 @@ YOUTUBE_API_KEY='`YourYoutubeAPIKey`'
 ## Commands
 ### Fun Commands
 ```markdown
-
-Cytrus Help
-Use help <command> for details
-
-​
 Fun Commands
 
 cat: Returns a random cat
@@ -122,4 +117,4 @@ reload: Reloads a command
 status: Reuturns the bots status
 ```
 
-<img src="https://github.com/CelestialCrafter/cytrus/blob/glitch/dbl.svg" />
+<a href="https://discordbotlist.com/bots/526593597118873620"><img src="https://discordbotlist.com/bots/526593597118873620/widget" /></a>
