@@ -6,7 +6,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     
     let evaled = safeEval(code);
     let clean = await client.clean(client, evaled);
-    message.author.send(`\`\`\`js\n${clean}\n\`\`\``);
+    message.author.send(`Response:\n\`\`\`js\n${clean}\n\`\`\``);
   } catch (err) {
     message.author.send(`\`ERROR\` \`\`\`xl\n${await client.clean(client, err)}\n\`\`\``);
   }

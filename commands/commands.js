@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => {
   try {
-    message.channel.send('Commands: ' + Number(client.commands.size + 1));
+    message.channel.send('Commands: ' + client.commands.size);
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

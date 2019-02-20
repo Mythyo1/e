@@ -1,8 +1,8 @@
 module.exports = (client, packet) => {
   if (client.readyTimestamp == null) return;
   
-  let events = ['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'];
-  
+  let events = ['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE', 'MESSAGE_DELETE'];
+    
   if (!events.includes(packet.t)) return;
   
   let channel = client.channels.get(packet.d.channel_id);
@@ -21,6 +21,14 @@ module.exports = (client, packet) => {
       if (packet.t == 'MESSAGE_REACTION_REMOVE') {
           client.emit('messageReactionRemove', client, reaction, client.users.get(packet.d.user_id));
         }
+      });
+    }
+  
+    if (['MESSAGE_DELETE'].includes(packet.t)) {
+      console.log(packet.d);
+      channel.fetchMessage(packet.d.id).then(message => {
+        console.log(message)
+        client.emit('messageDelete', client, message);
       });
     }
 };

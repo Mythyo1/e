@@ -3,24 +3,20 @@ let cryGifs = [
   'https://cdn.discordapp.com/attachments/545336635542339595/546896584575680512/cry1.gif',
   'https://cdn.discordapp.com/attachments/545336635542339595/546896616133754900/cry5.gif',
   'https://cdn.discordapp.com/attachments/545336635542339595/546896692042137600/cry2.gif',
-  ''
 ];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let settings = client.getSettings(message.guild.id);
     
-    let member = message.mentions.members.first();
-    let i = Math.floor(Math.random() * (cryGifs.length - 1) + 1);
+    let i = Math.floor(Math.random() * cryGifs.length + 1) - 1;
     
-    if (member) {
-      let embed = new Discord.RichEmbed()
-      .setTitle(message.author.username + ' cried')
-      .setColor('#eeeeee')
-      .setImage(cryGifs[i]);
+    let embed = new Discord.RichEmbed()
+    .setTitle(message.author.username + ' cried')
+    .setColor('#eeeeee')
+    .setImage(cryGifs[i]);
 
-      message.channel.send(embed);
-    } else message.reply('You need to mention the user to cry!');
+    message.channel.send(embed);
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

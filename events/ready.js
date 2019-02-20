@@ -11,7 +11,7 @@ module.exports = async client => {
   ];
   
   setInterval(async () => {
-    let index = Math.floor(Math.random() * (statusList.length - 1) + 1)
+    let index = Math.floor(Math.random() * statusList.length + 1) - 1;
     await client.user.setActivity(statusList[index].msg, {type: statusList[index].type});
   }, 5000);
   

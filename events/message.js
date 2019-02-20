@@ -1,15 +1,12 @@
+const cooled = new Map();
+
 module.exports = async (client, message) => {
-  if (message.guild) {
-    if (message.author.bot && !client.raids.has(message.guild.id)) return;
-    if (client.config.blacklisted.includes(message.author.id) && !client.raids.has(message.guild.id)) return;
-  } else {
-    if (message.author.bot) return;
-    if (client.config.blacklisted.includes(message.author.id)) return;
-  }
+  if (message.author.bot) return;
+  if (client.config.blacklisted.includes(message.author.id)) return;
   
   if (message.content.toLowerCase() == 'f') return message.channel.send(message.author.username + ' has payed their respects!');
-  if (message.content.toLowerCase() == 'night' || message.content.toLowerCase() == 'gn') return message.channel.send('Good night!');
-  if (message.content.toLowerCase() == 'morning') return message.channel.send('Good morning!');
+  if (message.content.toLowerCase() == 'night' || message.content.toLowerCase() == 'gn' || message.content.toLowerCase() == 'good night') return message.channel.send('Good night!');
+  if (message.content.toLowerCase() == 'morning' || message.content.toLowerCase() == 'good morning') return message.channel.send('Good morning!');
 
   let settings;
   let args;
@@ -17,19 +14,24 @@ module.exports = async (client, message) => {
   if (message.guild) settings = client.getSettings(message.guild.id);
   else settings = client.config.defaultSettings;
 
-  if (message.guild) {
-    let aliraid = [settings.prefix + 'unraid', settings.prefix + 'unmutechat', settings.prefix + 'uc'];
-    if (client.raids.has(message.guild.id) && !aliraid.includes(message.content)) return message.delete().catch();
-  }
-
-
   const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
   if (message.content.match(prefixMention)) {
     return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
   }
 
-  if (message.content.indexOf(settings.prefix) !== 0) return;
   
+  if (message.content.toLowerCase().indexOf(settings.prefix.toLowerCase()) !== 0) return;
+  
+  if (cooled.has(message.author.id)) return message.react('⏳');
+  else {
+    if (client.permlevel(message) < 6) {
+      cooled.set(message.author.id, true);
+      setTimeout(async () => {
+        cooled.delete(message.author.id);
+      }, 1600);
+    }
+  }
+    
   args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
 
   let command = args.shift().toLowerCase();

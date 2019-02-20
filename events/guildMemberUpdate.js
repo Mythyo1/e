@@ -10,9 +10,9 @@ module.exports = (client, user, userNew) => {
   
   let modLogChannel = user.guild.channels.find(c => c.name == settings.modLogChannel);
   
-  if (user.user.nickname !== userNew.user.nickname) {
+  if (user.nickname !== userNew.nickname) {
     embed = new Discord.RichEmbed()
-    .setTitle('User Update')
+    .setTitle('User Nickname Update')
     .setColor('#eeeeee')
     .setFooter(`Full name: ${userNew.user.tag} | ID: ${userNew.id}`)
     .setDescription(`Old User:
@@ -25,7 +25,7 @@ New User:
   
   if (user.user.tag !== userNew.user.tag) {
      embed = new Discord.RichEmbed()
-    .setTitle('User Update')
+    .setTitle('User Full Name Update')
     .setColor('#eeeeee')
     .setFooter(`Full name: ${userNew.user.tag} | ID: ${userNew.id}`)
     .setDescription(`Old User:
@@ -35,20 +35,7 @@ New User:
     
     modLogChannel.send(embed).catch();
   }
-  
-  if (user.user.displayName !== userNew.user.displayName) {
-    embed = new Discord.RichEmbed()
-    .setTitle('User Display Name Update')
-    .setColor('#eeeeee')
-    .setFooter(`Full name: ${userNew.user.tag} | ID: ${userNew.id}`)
-    .setDescription(`Old User:
-•Display name: ${user.user.displayName}
-New User:
-•Display name: ${userNew.user.displayName}`);
-    
-    modLogChannel.send(embed).catch();
-  }
-  
+
   if (user.roles !== userNew.roles) {
     let output = '';
     let outputNew = '';
@@ -61,6 +48,8 @@ New User:
       outputNew += '\n' + role.name;
     });
     
+    if (output == outputNew) return;
+    
     embed = new Discord.RichEmbed()
     .setTitle('User Roles Update')
     .setFooter(`Full name: ${userNew.user.tag} | ID: ${userNew.id}`)
@@ -71,5 +60,20 @@ New Roles${outputNew}`)
     .setColor('#eeeeee');
     
     modLogChannel.send(embed).catch();
+  }
+  
+  if (user.avatarURL !== userNew.avatarUR) {
+    embed = new Discord.RichEmbed()
+    .setTitle('User Avatar Update')
+    .setFooter(`Full name: ${userNew.user.tag} | ID: ${userNew.id}`)
+    .setDescription(`
+Old Avatar URL: ${user.avatarURL}
+
+New Avatar URL: ${userNew.avatarURL}`)
+    .setColor('#eeeeee');
+    
+    modLogChannel.send(embed).catch();
+    modLogChannel.send('Old Avatar' + new Discord.Attachment(user.avatarURL)).catch();
+    modLogChannel.send('New Avatar' + new Discord.Attachment(userNew.avatarURL)).catch();
   }
 };

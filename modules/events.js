@@ -4,7 +4,7 @@ const util = require('util');
 
 //Define variubles
 const promisify = util.promisify;
-const readdir = (fs.readdir);
+const readdir = promisify(fs.readdir);
 
 module.exports = (client) => {
   //Get event files
