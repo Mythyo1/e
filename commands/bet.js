@@ -18,7 +18,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         embed = new Discord.RichEmbed()
         .setTitle(message.author.username + ' bet ' + member.user.username)
         .setColor('#eeeeee')
-        .setDescription(message.author.username + ' bet ' + member.user.username + ' and wont he bet ' + member.user.username + '!');
+        .setDescription(message.author.username + ' bet ' + member.user.username + ' and won the bet!');
       }
     } else message.reply('You need to mention the person you want to bet!');
     

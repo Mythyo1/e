@@ -28,6 +28,10 @@ client.warns = new Enmap({name: 'warns'});
 client.levelCache = {};
 client.music = {};
 
+//Define process.env stuff
+process.env.SESSION_SECRET = '';
+for (let i = 0;i<=1000;i++) process.env.SESSION_SECRET += Math.random().toString(16).slice(2, 8).toUpperCase().slice(-6);
+
 //Import files
 client.logger = require('./modules/Logger');
 client.config = require('./cnf');
@@ -43,3 +47,5 @@ for (let i = 0; i < client.config.permLevels.length; i++) {
 
 //Login to discord
 client.login(process.env.BOT_TOKEN);
+
+module.exports = client;

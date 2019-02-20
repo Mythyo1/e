@@ -23,12 +23,4 @@ module.exports = (client, packet) => {
         }
       });
     }
-  
-    if (['MESSAGE_DELETE'].includes(packet.t)) {
-      console.log(packet.d);
-      channel.fetchMessage(packet.d.id).then(message => {
-        console.log(message)
-        client.emit('messageDelete', client, message);
-      });
-    }
 };

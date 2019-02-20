@@ -1,6 +1,6 @@
 {
   "name": "cytrus",
-  "version": "1.7.0",
+  "version": "1.6.0",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {
@@ -44,7 +44,10 @@
     "ytsearcher": "^1.2.2",
     "cryptr": "^5.0.0",
     "nodejs-base64": "^1.0.3",
-    "node-opus": "^0.3.1"
+    "node-opus": "^0.3.1",
+    "express-session": "^1.15.6",
+    "node-fetch": "^2.3.0",
+    "ejs": "^2.6.1"
   },
   "devDependencies": {
     "eslint": "^5.14.0"

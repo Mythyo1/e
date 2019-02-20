@@ -22,16 +22,16 @@ module.exports = async (client, message) => {
   
   if (message.content.toLowerCase().indexOf(settings.prefix.toLowerCase()) !== 0) return;
   
-  if (cooled.has(message.author.id)) return message.react('⏳');
+  if (cooled.get(message.author.id)) return message.react('⏳');
   else {
     if (client.permlevel(message) < 6) {
       cooled.set(message.author.id, true);
       setTimeout(async () => {
         cooled.delete(message.author.id);
-      }, 1600);
+      }, 2550);
     }
   }
-    
+  
   args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
 
   let command = args.shift().toLowerCase();

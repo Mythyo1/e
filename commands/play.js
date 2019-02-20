@@ -6,12 +6,12 @@ const { validateURL } = ytdl;
 const Play = (connection, message, client, loop = false) => {
   try {
     let server = client.music[message.guild.id];
-    if (!server.queue[0]) return message.reply('There is nothing in the queue!');
+    if (!server.queue[0] && !server.loop) return message.reply('There is nothing in the queue!');
     
     server.dispatcher = connection.playStream(ytdl(server.queue[0]));
-    if (!loop) server.queue.shift();
     
     server.dispatcher.on('end', () => {
+      if (!server.loop) server.queue.shift();
       if (server.loop) Play(connection, message, client, true);
       else if (!server.queue[0]) {
         message.channel.send('There is nothing else in the queue. Bye!');

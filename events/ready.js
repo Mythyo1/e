@@ -1,13 +1,14 @@
 module.exports = async client => {
   const statusList = [
-    {msg: `for commands | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'},
-    {msg: `with async/await errors | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
-    {msg: `bitch lasagnia | ${client.config.defaultSettings.prefix}help`, type: 'LISTENING'},
-    {msg: `PewDiePie | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'},
-    {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
-    {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
-    {msg: `minecraft... MOM GET OUT OF MY ROOM IM PLAYING MINECRAFT | ${client.config.defaultSettings.prefix}help`, type: 'PLAYING'},
-    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help`, type: 'WATCHING'}
+    {msg: `for commands | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
+    {msg: `with async/await errors | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
+    {msg: `bitch lasagnia | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'LISTENING'},
+    {msg: `PewDiePie | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
+    {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
+    {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
+    {msg: `with my new web dashboard! | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
+    {msg: `minecraft... MOM GET OUT OF MY ROOM IM PLAYING MINECRAFT | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
+    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'}
   ];
   
   setInterval(async () => {
@@ -16,7 +17,7 @@ module.exports = async client => {
   }, 5000);
   
   //Starts the web server/API
-  require('../modules/api')(client);
+  require('../modules/web')(client);
   require('../modules/botlist')(client);
   
   //Logs the Status
