@@ -55,5 +55,5 @@ exports.help = {
   name: 'note',
   category: 'General',
   description: 'Generates a note',
-  usage: 'note [add [text]/remove [id]]'
+  usage: 'note [clear/add [text]/remove [id]]'
 };

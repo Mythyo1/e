@@ -23,7 +23,8 @@ const initWeb = (client) => {
   }));
   app.use('/', require('../dash/routes/index'));
   app.use('/login', require('../dash/routes/discord'));
-  app.use('/guild', require('../dash/routes/manage'));
+  app.use('/guild', require('../dash/routes/server'));
+  app.use('/servers', require('../dash/routes/servers'));
   app.get('/status', (req, res) => {
         require('pidusage')(process.pid, (err, stats) => {
       const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
@@ -40,7 +41,8 @@ const initWeb = (client) => {
           "discord1js": `v${require('discord.js').version}`,
           "cpu_usage": `${Math.round(stats.cpu)}%`,
           "node1js": `${process.version}`,
-          "voice_connections": `${client.voiceConnections.size}`
+          "voice_connections": `${client.voiceConnections.size}`,
+          "dependencies": `${Object.keys(require('../package').dependencies).length}`
         }
       });
     });
@@ -51,7 +53,6 @@ const initWeb = (client) => {
   app.get('/api/server', (req, res) => res.send({status: 200, server: 'https://discord.gg/VfTE9GH'}));
   app.get('/api/client_id', (req, res) => res.send({status: 200, client_id: '526593597118873620'}));
   app.get('/api/upvote', (req, res) => res.send({status: 200, upvote: 'https://discordbotlist.com/bots/526593597118873620/upvote'}));
-  app.get('/api/botList', (req, res) => res.send({status: 200, botList: 'https://discordbotlist.com/bots/526593597118873620/'}));
   app.get('/api/website', (req, res) => res.send({status: 200, website: 'https://www.cytrus.ga'}));
   app.get('/api/subgap', (req, res) => {
     let psubs;

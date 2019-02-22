@@ -1,15 +1,12 @@
 const cooled = new Map();
 
-module.exports = async (client, message) => {
+module.exports = async (client, message) => {  
   if (message.author.bot) return;
   if (client.config.blacklisted.includes(message.author.id)) return;
   
-  if (message.content.toLowerCase() == 'f') return message.channel.send(message.author.username + ' has payed their respects!');
-  if (message.content.toLowerCase() == 'night' || message.content.toLowerCase() == 'gn' || message.content.toLowerCase() == 'good night') return message.channel.send('Good night!');
-  if (message.content.toLowerCase() == 'morning' || message.content.toLowerCase() == 'good morning') return message.channel.send('Good morning!');
-
   let settings;
   let args;
+  
 
   if (message.guild) settings = client.getSettings(message.guild.id);
   else settings = client.config.defaultSettings;
@@ -23,13 +20,11 @@ module.exports = async (client, message) => {
   if (message.content.toLowerCase().indexOf(settings.prefix.toLowerCase()) !== 0) return;
   
   if (cooled.get(message.author.id)) return message.react('⏳');
-  else {
-    if (client.permlevel(message) < 6) {
-      cooled.set(message.author.id, true);
-      setTimeout(async () => {
-        cooled.delete(message.author.id);
-      }, 2550);
-    }
+  if (client.permlevel(message) < 6) {
+    cooled.set(message.author.id, true);
+    setTimeout(async () => {
+      cooled.delete(message.author.id);
+    }, 2550);
   }
   
   args = message.content.slice(settings.prefix.length).trim().split(/ +/g);

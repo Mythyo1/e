@@ -1,8 +1,6 @@
-const Discord = require('discord.js');
-
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    message.channel.send(new Discord.Attachment('https://im5.ezgif.com/tmp/ezgif-5-4468d259ce0a.gif'));
+    message.reply('There are ' + message.guild.memberCount + ' members in this server!');
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -11,13 +9,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 exports.conf = {
   enabled: true,
   aliases: [],
-  guildOnly: false,
+  guildOnly: true,
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'nou',
-  category: 'Fun',
-  description: 'Returns a No U gif',
-  usage: 'nou'
+  name: 'members',
+  category: 'General',
+  description: 'Returns the amount of members in the server',
+  usage: 'members'
 };

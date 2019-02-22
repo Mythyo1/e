@@ -23,7 +23,8 @@ const config = {
     'welcomeEnabled': 'true',
     'logMessageUpdates': 'true',
     'logEmojiUpdates': 'true',
-    'logMemberUpdates': 'true'
+    'logMemberUpdates': 'true',
+    'pointSystem': 'true'
   },
 
   permLevels: [

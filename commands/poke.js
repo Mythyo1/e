@@ -2,7 +2,14 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    message.channel.send(new Discord.Attachment('https://im5.ezgif.com/tmp/ezgif-5-4468d259ce0a.gif'));
+    let poke = await client.nekoslife.sfw.poke();
+    
+    let embed = new Discord.RichEmbed()
+    .setTitle('Poke')
+    .setImage(poke.url)
+    .setColor('#363942');
+
+    message.channel.send(embed);
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -16,8 +23,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'nou',
-  category: 'Fun',
-  description: 'Returns a No U gif',
-  usage: 'nou'
+  name: 'poke',
+  category: 'Weeb',
+  description: 'Returns a poke',
+  usage: 'poke'
 };

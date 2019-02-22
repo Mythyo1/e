@@ -13,7 +13,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     
     let embed = new Discord.RichEmbed()
     .setTitle(message.author.username + ' cried')
-    .setColor('#eeeeee')
+    .setColor('#363942')
     .setImage(cryGifs[i]);
 
     message.channel.send(embed);

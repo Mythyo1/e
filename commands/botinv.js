@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    message.channel.send('Bot Invite: https://discordapp.com/oauth2/authorize?client_id=' + client.user.id + '&permissions=8&scope=bot');
+    message.channel.send(client.generateInvite(['ADMINISTRATOR']));
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

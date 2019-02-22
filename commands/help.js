@@ -2,13 +2,9 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args, level) => {
   try {
-    // If no specific command is called, show all filtered commands.
     if (!args[0]) {
-      // Filter all commands by which are available for the user's level, using the <Collection>.filter() method.
       let myCommands = message.guild ? client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level) : client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
 
-      // Here we have to get the command names only, and we use that array to get the longest name.
-      // This make the help commands 'aligned' in the output.
       let commandNames = myCommands.keyArray();
       let longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 

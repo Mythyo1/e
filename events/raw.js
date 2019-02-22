@@ -10,6 +10,8 @@ module.exports = (client, packet) => {
   
   if (['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) {
     channel.fetchMessage(packet.d.message_id).then(message => {
+      if (!client.guilds.get(packet.d.guild_id)) return;
+      
       let emoji = packet.d.emoji.id ? `${packet.d.emoji.name}:${packet.d.emoji.id}` : packet.d.emoji.name;
       let reaction = message.reactions.get(emoji);
         

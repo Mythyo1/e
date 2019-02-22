@@ -12,12 +12,12 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       if (Math.random() < 0.5) {
         embed = new Discord.RichEmbed()
         .setTitle(message.author.username + ' betes ' + member.user.username)
-        .setColor('#eeeeee')
+        .setColor('#363942')
         .setDescription(message.author.username + ' bet ' + member.user.username + '!\n' + message.author.username + ' didn\'t win the bet ' + member.user.username + '!');
       } else {
         embed = new Discord.RichEmbed()
         .setTitle(message.author.username + ' bet ' + member.user.username)
-        .setColor('#eeeeee')
+        .setColor('#363942')
         .setDescription(message.author.username + ' bet ' + member.user.username + ' and won the bet!');
       }
     } else message.reply('You need to mention the person you want to bet!');

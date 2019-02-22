@@ -6,16 +6,16 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     let member = message.mentions.members.first();
 
-    require('request')({url: 'https://nekos.life/api/pat', json: true}, (req, res, json) => {
+    require('request')({url: 'https://nekos.life/api/hug', json: true}, (req, res, json) => {
       if (member) {
         let embed = new Discord.RichEmbed()
-        .setTitle(message.author.username + ' patts ' + member.user.username)
+        .setTitle(message.author.username + ' hugs ' + member.user.username)
         .setColor('#363942')
-        .setDescription(message.author.username + ' patted ' + member.user.username + '!')
+        .setDescription(message.author.username + ' hugged ' + member.user.username + '!')
         .setImage(json.url);
 
         message.channel.send(embed);
-      } else message.reply('You need to mention the user to pat!');
+      } else message.reply('You need to mention the user to hug!');
     });
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
@@ -30,8 +30,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'pat',
+  name: 'hug',
   category: 'Weeb',
-  description: 'Returns a pat',
-  usage: 'pat <user>'
+  description: 'Returns a hug',
+  usage: 'hug <user>'
 };

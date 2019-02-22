@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs') %>
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <div class="page-content">
+    <% Object.keys(djsclient.getSettings(guild)).forEach((key) => { %>
+      <h3><%= key %></h3>
+      <p><%= djsclient.getSettings(guild)[key] %></p>
+      <hr style="height: 0.2px;color: #eeeeee;">
+    <%}) %>    
+  </div>
+</body>
+</html>

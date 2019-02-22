@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core');
 const { YTSearcher } = require('ytsearcher');
 const { validateURL } = ytdl;
 
-const Play = (connection, message, client, loop = false) => {
+const Play = (connection, message, client) => {
   try {
     let server = client.music[message.guild.id];
     if (!server.queue[0] && !server.loop) return message.reply('There is nothing in the queue!');
@@ -12,7 +12,7 @@ const Play = (connection, message, client, loop = false) => {
     
     server.dispatcher.on('end', () => {
       if (!server.loop) server.queue.shift();
-      if (server.loop) Play(connection, message, client, true);
+      if (server.loop) Play(connection, message, client);
       else if (!server.queue[0]) {
         message.channel.send('There is nothing else in the queue. Bye!');
         server.dispatcher = null;

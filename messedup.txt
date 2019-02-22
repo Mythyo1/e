@@ -1,8 +1,0 @@
-      <div class="memberimg drop">
-        <img class="dropbtn" src="<%= member.user.avatarURL %>" width="100" style="border-radius: 50px">
-        <span class="membername"><%= member.user.tag %></span>
-        <div class="dropcontent">
-          <a href="#" onclick="<% member.kick('Kicked thru Web Dashboard by ' + user.username + '#' + user.descriminator) %>">Kick Member</a>
-          <a href="#" onclick="<% member.ban('Banned thru Web Dashboard by ' + user.username + '#' + user.descriminator) %>">Ban Member</a>
-        </div>
-      </div>

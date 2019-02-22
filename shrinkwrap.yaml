@@ -10,10 +10,11 @@ dependencies:
   express: 4.16.4
   express-session: 1.15.6
   ffmpeg-binaries: 4.0.0
-  mathjs: 5.4.2
+  mathjs: 5.5.0
   moment: 2.24.0
   moment-duration-format: 2.2.2
   ms: 2.1.1
+  nekos.life: 2.0.4
   node-fetch: 2.3.0
   node-opus: 0.3.1
   nodejs-base64: 1.0.3
@@ -1254,7 +1255,7 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-2w31R7SJtieJJnQtGc7RVL2StM2vGYVfqUOvUDxH6bC6aJTxPxTF0GnIgCyu7tjockiUWAYQRbxa7vKn34s5sQ==
-  /mathjs/5.4.2:
+  /mathjs/5.5.0:
     dependencies:
       complex.js: 2.0.11
       decimal.js: 10.0.2
@@ -1262,14 +1263,14 @@ packages:
       fraction.js: 4.0.12
       javascript-natural-sort: 0.7.1
       seed-random: 2.2.0
-      tiny-emitter: 2.0.2
+      tiny-emitter: 2.1.0
       typed-function: 1.1.0
     dev: false
     engines:
       node: '>= 6'
     hasBin: true
     resolution:
-      integrity: sha512-jN6SLsaRvihxgRoq4+5/Tbw/mVe71W0kCxZA2TdpNRR+MHJGow/TsRrU5B6uXd7lYNWxiVeubn+F5d3mLtxARw==
+      integrity: sha512-qvCNNcpPFpk85EYFiY9+jyWClFHBNqQlUQ3zKGy/EuLSicuJCmxEtHEQxThL0macmbgl1dzmenrgDbRpGE3QRg==
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -1378,6 +1379,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
+  /nekos.life/2.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-WNY7jj7XHQLuORep9RbqJP8NwwfmPaQ6mmpHppJhtXkGiIx6aC54cx1P66pTdiK84HZvF82+lRsy4NBq0mEg3A==
   /nice-try/1.0.5:
     dev: true
     resolution:
@@ -1958,10 +1963,10 @@ packages:
   /through/2.3.8:
     resolution:
       integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
-  /tiny-emitter/2.0.2:
+  /tiny-emitter/2.1.0:
     dev: false
     resolution:
-      integrity: sha512-2NM0auVBGft5tee/OxP4PI3d8WItkDM+fPnaRAVo6xTDI2knbz9eC5ArWGqtGlYqiH3RU5yMpdyTTO7MguC4ow==
+      integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
   /tmp/0.0.33:
     dependencies:
       os-tmpdir: 1.0.2
@@ -2185,10 +2190,11 @@ specifiers:
   express: ^4.16.4
   express-session: ^1.15.6
   ffmpeg-binaries: ^4.0.0
-  mathjs: ^5.4.2
+  mathjs: ^5.5.0
   moment: ^2.24.0
   moment-duration-format: ^2.2.2
   ms: ^2.1.1
+  nekos.life: ^2.0.4
   node-fetch: ^2.3.0
   node-opus: ^0.3.1
   nodejs-base64: ^1.0.3
