@@ -24,7 +24,7 @@ const config = {
     'logMessageUpdates': 'true',
     'logEmojiUpdates': 'true',
     'logMemberUpdates': 'true',
-    'pointSystem': 'true'
+    'starboardChannel': 'starboard'
   },
 
   permLevels: [

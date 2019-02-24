@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
+    if (!message.channel.nsfw) return message.reply('You need to be in a channel marked as NSFW to use this command!');
+    
     ud.term(args.join(' ')).then(async (result) => {
       if (args.join(' ') == '') return message.channel.send('You need to input a search term!');
       let output = '';

@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    message.channel.send(client.generateInvite(['ADMINISTRATOR']));
+    client.generateInvite(['ADMINISTRATOR']).then(link => message.channel.send('Bot Invite: ' + link));
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

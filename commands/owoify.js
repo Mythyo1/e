@@ -1,6 +1,8 @@
 const faces = ['(*^ω^)', '(◕‿◕✿)', '(◕ᴥ◕)', 'ʕ•ᴥ•ʔ', 'ʕ￫ᴥ￩ʔ', '(*^.^*)', 'owo', '(｡♥‿♥｡)', 'uwu', '(*￣з￣)', '>w<', '^w^', '(つ✧ω✧)つ', '(/ =ω=)/'];
 
 const owofy = (string) => {
+  let i = Math.floor(Math.random() * faces.length);
+    
   string = string.replace(/(tseries|t-series)/, 'badseries');
   string = string.replace(/(?:l|r)/g, 'w');
   string = string.replace(/(?:L|R)/g, 'W');
@@ -8,7 +10,7 @@ const owofy = (string) => {
   string = string.replace(/N([aeiou])/g, 'Ny$1');
   string = string.replace(/N([AEIOU])/g, 'Ny$1');
   string = string.replace(/ove/g, 'uv');
-  string = string.replace(/!+/g, ` ${faces[Math.floor(Math.random() * faces.length)]} `);
+  string = string.replace(/!+/g, ` ${faces[i]} `);
 
   return string;
 };

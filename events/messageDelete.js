@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 
 module.exports = (client, message) => {
-  if (client.selfrole.has(message.id)) client.selfrole.delete(message.id);
   if (message.author.bot) return;
   if (client.raids.has(message.guild.id)) return;
   

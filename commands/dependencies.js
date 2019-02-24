@@ -16,6 +16,6 @@ exports.conf = {
 exports.help = {
   name: 'dependencies',
   category: 'System',
-  description: 'Returns the ammount of dependencies Cytrus uses',
+  description: 'Returns the amount of dependencies Cytrus uses',
   usage: 'dependencies'
 };

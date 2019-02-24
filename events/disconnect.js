@@ -1,1 +1,1 @@
-module.exports = (client) => client.connect();
+module.exports = (client) => client.login(process.env.BOT_TOKEN);

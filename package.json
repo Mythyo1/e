@@ -1,6 +1,6 @@
 {
   "name": "cytrus",
-  "version": "1.8.0",
+  "version": "1.9",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {
@@ -48,7 +48,10 @@
     "express-session": "^1.15.6",
     "node-fetch": "^2.3.0",
     "ejs": "^2.6.1",
-    "nekos.life": "^2.0.4"
+    "nekos.life": "^2.0.4",
+    "node-weeb": "^1.0.0",
+    "txtgen": "^2.2.2",
+    "one-liner-joke": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^5.14.0"

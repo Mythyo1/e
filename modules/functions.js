@@ -1,5 +1,6 @@
+const Discord = require('discord.js');
+
 module.exports = (client) => {
-  
   //Return the permission level
   client.permlevel = (message) => {
     let permlvl = 0;
@@ -96,7 +97,9 @@ module.exports = (client) => {
     }
     return false;
   };
-
+  
+  client.wait = require('util').promisify(setTimeout);
+  
   Object.defineProperty(String.prototype, 'toProperCase', {
     value: function() {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -109,7 +112,6 @@ module.exports = (client) => {
     }
   });
 
-  client.wait = require('util').promisify(setTimeout);
   
   process.on('uncaughtException', (err) => {
     let fs = require('fs');
@@ -128,5 +130,6 @@ module.exports = (client) => {
   
   process.on('exit', () => {
     client.destroy();
+    client = null;
   });
 };

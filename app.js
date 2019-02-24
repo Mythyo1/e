@@ -11,7 +11,7 @@ const request = require('request');
 //Define client
 const client = new Discord.Client({
   disableEveryone: true,
-  disabledEvents: ['TYPING_START', 'TYPING_STOP', 'VOICE_STATE_UPDATE']
+  disabledEvents: ['TYPING_START', 'TYPING_STOP']
 });
 
 //Define databases/objects
@@ -23,7 +23,6 @@ client.profiles = new Enmap({name: 'profiles'});
 client.logins = new Enmap({name: 'logins'});
 client.spotify = new Enmap({name: 'spotify'});
 client.settings = new Enmap({name: 'settings'});
-client.selfrole = new Enmap({name: 'selfr'});
 client.notes = new Enmap({name: 'notes'});
 client.bugs = new Enmap({name: 'bugreports'});
 client.warns = new Enmap({name: 'warns'});

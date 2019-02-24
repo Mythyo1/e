@@ -5,7 +5,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     let msg = await message.channel.send('Logging out...');
     
     client.destroy();
-    client.login(process.env.BOT_TOKEN);
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
