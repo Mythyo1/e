@@ -1,5 +1,4 @@
 const Cryptr = require('cryptr');
-const algorithm = 'aes-256-ctr';
 
 const decrypt = (text, key) => {
   let cryptr = new Cryptr(key);
@@ -25,8 +24,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'encrypt',
+  name: 'deaes256ctr',
   category: 'General',
-  description: 'Encrypts text in aes-256-ctr',
-  usage: 'encrypt <key> <text>'
+  description: 'Decrypts text in aes-256-ctr',
+  usage: 'deaes256ctr <key> <text>'
 };

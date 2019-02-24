@@ -3,13 +3,11 @@ const Discord = require('discord.js');
 exports.run = (client, message, args, level) => {
   try {
     if (!args[0]) {
-      let myCommands = client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
-
-      let commandNames = myCommands.keyArray();
+      let userCommands = client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
 
       let currentCategory = '';
       let output = `Use help <command> for details`;
-      let sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
+      let sorted = userCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
       sorted.forEach(c => {
         const cat = c.help.category;
         if (currentCategory !== cat) {

@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-function convert(degree, args, message) {
+const convert = (degree, args, message) => {
   let x;
   if (degree == 'C') {
     x = args[1] * 9 / 5 + 32;

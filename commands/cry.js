@@ -6,9 +6,7 @@ let cryGifs = [
 ];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  try {
-    let settings = client.getSettings(message.guild.id);
-    
+  try {    
     let i = Math.floor(Math.random() * cryGifs.length + 1) - 1;
     
     let embed = new Discord.RichEmbed()

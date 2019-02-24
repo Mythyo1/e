@@ -6,7 +6,6 @@ if (Number(process.version.slice(1).split('.')[0]) < 10) throw new Error('NodeJS
 //Define NPM modules
 const Enmap = require('enmap');
 const Discord = require('discord.js');
-const request = require('request');
 
 //Define client
 const client = new Discord.Client({
