@@ -46,9 +46,9 @@ exports.run = (client, message, args, level) => {
       } else {
         let currentCategory = '';
         let output = '';
-        let myCommands = message.guild ? client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level) : client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
+        let userCommands = client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
         
-        let sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
+        let sorted = userCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
         sorted.forEach(c => {
           let cat = c.help.category;
           if (cat == args[0].replace(/^\w/, c => c.toUpperCase())) {
