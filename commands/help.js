@@ -6,7 +6,6 @@ exports.run = (client, message, args, level) => {
       let myCommands = client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
 
       let commandNames = myCommands.keyArray();
-      let longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
       let currentCategory = '';
       let output = `Use help <command> for details`;

@@ -1,6 +1,3 @@
-//https://cdn.discordapp.com/emojis/id.png
-const { Attachment } = require('discord.js');
-
 exports.run = async (client, message, args, level) => {
   try {
     let id = /[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/.exec(args[1]);

@@ -7,9 +7,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       exec(command, (err, stdout, stderr) => {
         message.author.send(stdout).catch('The output was too big!');
         if (stderr) {
-          if (stderr) {
-            message.author.send('```'+stderr+'```');
-          }
+          message.author.send('```'+stderr+'```');
 
           message.channel.send('Shell Error.');
         }
