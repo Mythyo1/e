@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => {
   try {
-    let settings = client.getSettings(message.guild.id);
-
     require('request')({url: 'http://www.splashbase.co/api/v1/images/random?images_only=true', json: true}, (req, res, json) => {
       let embed = new Discord.RichEmbed()
       .setTitle('Random Picture')

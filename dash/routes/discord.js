@@ -4,11 +4,6 @@ const { clientId, scopes, redirectUri } = require('../config.json');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 
-const forceAuth = (req, res, next) => {
-  if (!req.session.user) return res.redirect('/login')
-  else return next();
-}
-
 router.get('/', (req, res) => {
   if (req.session.user) return res.redirect('/');
 

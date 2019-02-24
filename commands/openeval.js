@@ -32,6 +32,6 @@ exports.conf = {
 exports.help = {
   name: 'openeval',
   category: 'System',
-  description: 'Evaluates javascript without the NodeJS API\'s and is safe for anyone to use. APIs: `weeb` = require(\'node-weeb\'), `joke` = require(\'one-liner-joke\'), `nekoslife` = require(\'nekos.life\'), `math` = require(\'mathjs\'), `txtgen` = require(\'txtgen\'), `level`, `args`',
+  description: 'Evaluates javascript without the NodeJS API\'s and is safe for anyone to use.\nAPIs: `weeb` = require(\'node-weeb\')\n`joke` = require(\'one-liner-joke\')\n`nekoslife` = require(\'nekos.life\')\n`math` = require(\'mathjs\')\n`txtgen` = require(\'txtgen\')\n`level`\n`args`',
   usage: 'openeval [code]'
 };

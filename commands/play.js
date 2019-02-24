@@ -1,5 +1,3 @@
-
-const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const { YTSearcher } = require('ytsearcher');
 const { validateURL } = ytdl;
@@ -54,7 +52,7 @@ exports.run = async (client, message, args, level) => {
         }
       }
       
-      message.channel.send('Playing the queue!');
+      if (server.queue[0]) message.channel.send('Playing the queue!');
     } else message.reply('You need to join a voice channel first!');
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();

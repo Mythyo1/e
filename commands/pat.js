@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    let settings = client.getSettings(message.guild.id);
-
     let member = message.mentions.members.first();
 
     require('request')({url: 'https://nekos.life/api/pat', json: true}, (req, res, json) => {

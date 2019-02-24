@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 module.exports = (client) => {
   //Return the permission level
   client.permlevel = (message) => {
@@ -114,8 +112,6 @@ module.exports = (client) => {
 
   
   process.on('uncaughtException', (err) => {
-    let fs = require('fs');
-    let number = Math.floor(Math.random() * 10000000000001);
     let errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
     
     client.logger.error(errorMsg);

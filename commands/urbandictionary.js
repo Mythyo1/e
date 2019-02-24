@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       let entries = result.entries;
       let i = 1;
       
-      if (entries = []) return message.channel.send('I didint find any results for ' + args.join(' '));
+      if (entries == []) return message.channel.send('I didint find any results for ' + args.join(' '));
       
       Object.keys(entries).forEach(async (pageID) => {
         output += '\n' + i + '. ' + entries[pageID].word;

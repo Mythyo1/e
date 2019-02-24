@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args, level) => {
   try {
     if (!args[0]) {
-      let myCommands = message.guild ? client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level) : client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
+      let myCommands = client.commands.filter(cmd => client.levelCache[cmd.conf.permLevel] <= level);
 
       let commandNames = myCommands.keyArray();
       let longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);

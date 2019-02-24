@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => {
   try {
-    let settings = client.getSettings(message.guild.id);
-
     require('request')({url: 'https://nekos.life/api/why', json: true}, (req, res, json) => {
       let embed = new Discord.RichEmbed()
       .setTitle('Why?')

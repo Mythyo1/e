@@ -10,11 +10,12 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (['cancel', 'n', 'no'].includes(confirm)) message.reply('Ok!\nCancled.');
     else {
       message.guild.fetchBans().then(async (bans) => {
+        message.channel.send('The bans are in your DM\'s!');
+        
         bans.forEach(async (ban) => {
-          await message.author.send('**Name: ' + ban.tag + '** | **ID: ' + ban.id) + '**';
+          await message.author.send(i + '. **Name: ' + ban.tag + '** | **ID: ' + ban.id + '**');
         });
 
-        let msg = message.channel.send('The bans are in your DM\'s!');
       });
     }
   } catch (err) {
