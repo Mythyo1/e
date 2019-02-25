@@ -122,22 +122,14 @@ module.exports = (client) => {
     let errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
     
  
-    zaq.fatal(err, {
-      detail: errorMsg,
-      executionTime: new Date(),
-      sessionId: process.pid
-    });
+    client.logger.error(err);
     client.destroy();
     process.exit(1);
   });
   
   process.on('unhandledRejection', (err) => {
     if (err.name == 'DiscordAPIError') return;
-    zaq.err(err, {
-      detail: errorMsg,
-      executionTime: new Date(),
-      sessionId: process.pid
-    });
+    client.logger.error(err);
   });
   
   process.on('exit', () => {

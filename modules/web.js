@@ -8,7 +8,7 @@ require('moment-duration-format');
 const logger = require('/app/modules/Logger');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const pewds = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw';
 const tseries = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UCq-Fj5jknLsUf-MWSy4_brA';
 
@@ -29,20 +29,20 @@ const initWeb = (client) => {
         require('pidusage')(process.pid, (err, stats) => {
       const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
       res.render('../views/status.ejs', {
-        "user": req.session.user,
-        "stats": {
-          "ram": `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`,
-          "uptime": `${duration}`,
-          "users": `${client.users.size.toLocaleString()}`,
-          "servers": `${client.guilds.size.toLocaleString()}`,
-          "channels": `${client.channels.size.toLocaleString()}`,
-          "status": `${client.user.presence.status}`,
-          "game": `${client.user.presence.game}`,
-          "discord1js": `v${require('discord.js').version}`,
-          "cpu_usage": `${Math.round(stats.cpu)}%`,
-          "node1js": `${process.version}`,
-          "voice_connections": `${client.voiceConnections.size}`,
-          "dependencies": `${Object.keys(require('../package').dependencies).length}`
+        'user': req.session.user,
+        'stats': {
+          'ram': `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`,
+          'uptime': `${duration}`,
+          'users': `${client.users.size.toLocaleString()}`,
+          'servers': `${client.guilds.size.toLocaleString()}`,
+          'channels': `${client.channels.size.toLocaleString()}`,
+          'status': `${client.user.presence.status}`,
+          'game': `${client.user.presence.game}`,
+          'discord1js': `v${require('discord.js').version}`,
+          'cpu_usage': `${Math.round(stats.cpu)}%`,
+          'node1js': `${process.version}`,
+          'voice_connections': `${client.voiceConnections.size}`,
+          'dependencies': `${Object.keys(require('../package').dependencies).length}`
         }
       });
     });
@@ -73,11 +73,11 @@ const initWeb = (client) => {
   });
   
   app.use((req, res) => {
-    res.status(404).send({status: 404, error: "Page Not Found"});
+    res.status(404).send({status: 404, error: 'Page Not Found'});
   });
   
   
-  app.listen(port, () => logger.log(`Web server started.`, 'ready'));
+  app.listen(port, () => logger.log('Web server started.', 'ready'));
 };
 
 module.exports = initWeb;

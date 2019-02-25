@@ -13,11 +13,9 @@
 		"max-nested-callbacks": ["error", {"max": 4}],
 		"max-statements-per-line": ["error", {"max": 1}],
 		"no-empty-function": "error",
-		"no-var": "error",
 		"quotes": ["error", "single"],
     "no-invalid-regexp": "error",
     "no-unexpected-multiline": "warn",
-    "block-scoped-var": "error",
     "no-new-func": "warn",
     "no-new-wrappers": "warn",
     "no-unused-expressions": "error"

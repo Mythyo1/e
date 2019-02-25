@@ -1,32 +1,52 @@
-const chalk = require('chalk');
+const zaq = require('zaq');
+const beautify = require('js-beautify').js;
 const moment = require('moment');
 
+const cytrus = zaq.as('Cytrus');
+
 exports.log = (content, type = 'log') => {
-  const timestamp = `[${moment().format('YYYY-MM-DD HH:mm:ss')}]:`;
+  const timestamp = `${moment().format('YYYY/MM/DD HH:mm:ss')}`;
   switch (type) {
     case 'log':
-      return console.log(`${timestamp} ${chalk.green.bgBlue(type.toUpperCase())} ${content} `);
+      return cytrus.info(content);
       break;
     case 'warn':
-      return console.log(`${timestamp} ${chalk.black.bgYellow(type.toUpperCase())} ${content} `);
+      return cytrus.warn(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+        executionTime: timestamp,
+        sessionId: process.pid
+      });
       break;
     case 'error':
-      return console.log(`${timestamp} ${chalk.bgRed(type.toUpperCase())} ${content} `);
+      return cytrus.err(content, {
+        executionTime: timestamp,
+        sessionId: process.pid,
+        error: content
+      });
       break;
     case 'debug':
-      return console.log(`${timestamp} ${chalk.green(type.toUpperCase())} ${content} `);
-      break;
-    case 'cmd':
-      return console.log(`${timestamp} ${chalk.black.bgWhite(type.toUpperCase())} ${content}`);
+      return cytrus.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+        executionTime: timestamp,
+        sessionId: process.pid
+      });
       break;
     case 'ready':
-      return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
+      return cytrus.ok(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+        executionTime: timestamp,
+        sessionId: process.pid
+      });
       break;
     case 'user':
-      return console.log(`${timestamp} ${chalk.white.bgRed(type.toUpperCase())} ${content}`);
+      return console.log(`${timestamp} ${content}`);
+      break;
+    case 'time':
+      return cytrus.time(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+        ms: client.ping,
+        executionTime: timestamp,
+        sessionId: process.pid
+      });
       break;
     default:
-      throw new TypeError('Logger type must be either warn, debug, log, ready, cmd or error.');
+      throw new TypeError('Logger type must be either warn, debug, log, ready, time, divider, user or error.');
   }
 }; 
 

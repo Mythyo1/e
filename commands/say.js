@@ -1,4 +1,3 @@
-
 exports.run = async (client, message, args, level) => {
   try {
     message.delete()

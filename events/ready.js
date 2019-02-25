@@ -16,9 +16,8 @@ module.exports = async client => {
     await client.user.setActivity(statusList[index].msg, {type: statusList[index].type});
   }, 5000);
   
-  //Starts the web server/API
-  require('../modules/web')(client);
-  require('../modules/botlist')(client);
+  client.user.setStatus('dnd');
+  
   
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');
@@ -27,4 +26,15 @@ module.exports = async client => {
   client.logger.log(`Channels: ${client.channels.size.toLocaleString()}`, 'ready');
   client.logger.log(`Discord.js: v${require('discord.js').version}`, 'ready');
   client.logger.log(`Node.js: ${process.version}`, 'ready');
+  require('fs').readFile('/app/pika.txt', 'utf8', (err, data) => {
+    console.log(data);
+    client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
+    
+    //Starts the web server/API
+    require('../modules/web')(client);
+
+    //Post stats to the bot list
+    require('../modules/botlist')(client);
+  });
+  
 };
