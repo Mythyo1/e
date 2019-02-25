@@ -34,7 +34,7 @@ module.exports = async (client, message) => {
 
   let cmd = client.commands.get(command) || client.aliases.get(command);
 
-  if (!cmd) return;
+  if (!client.commands.has(command) && !client.aliases.has(command)) return;
   if (!message.guild && cmd.conf.guildOnly) return message.channel.send('This command is unavailable via private message. Please run this command in a guild.');
 
   if (level < client.levelCache[cmd.conf.permLevel]) {

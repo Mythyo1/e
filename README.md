@@ -9,6 +9,7 @@ BOT_TOKEN='`YourBotToken`'
 LOG_WEBHOOK_TOKEN='`YourLogChannelWebhookToken`'  
 LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 YOUTUBE_API_KEY='`YourYoutubeAPIKey`'
+CLIENT_SECRET='`YourClientSecret'
 ```
 > Start the app.js file  
 

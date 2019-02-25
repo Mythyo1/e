@@ -1,3 +1,9 @@
 module.exports = async (client, warn) => {
-  client.logger.log(`${warn.message}`, 'warn');
+  const zaq = require('zaq');
+ 
+  zaq.warn(warn.message, {
+    detail: warn.message,
+    executionTime: new Date(),
+    sessionId: process.pid
+  });
 };

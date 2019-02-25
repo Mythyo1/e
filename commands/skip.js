@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars  
   try {
-    var server = client.music[message.guild.id];
+    let server = client.music[message.guild.id];
     if (server) {
       if (server.dispatcher) {
         server.dispatcher.emit('end');
@@ -8,7 +8,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       } else message.channel.send('There is nothing playing!');
     } else message.channel.send('There is nothing playing!');
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err.stack).catch();
   }
 };
 

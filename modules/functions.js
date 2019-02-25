@@ -1,3 +1,5 @@
+const zaq = require('zaq');
+
 module.exports = (client) => {
   //Return the permission level
   client.permlevel = (message) => {
@@ -98,6 +100,11 @@ module.exports = (client) => {
   
   client.wait = require('util').promisify(setTimeout);
   
+  client.truncate = (str, num = 20) => {
+    if (str.length > num) return str.slice(0, num) + '...';
+    else return str;
+  };
+  
   Object.defineProperty(String.prototype, 'toProperCase', {
     value: function() {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -114,14 +121,23 @@ module.exports = (client) => {
   process.on('uncaughtException', (err) => {
     let errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
     
-    client.logger.error(errorMsg);
+ 
+    zaq.fatal(err, {
+      detail: errorMsg,
+      executionTime: new Date(),
+      sessionId: process.pid
+    });
     client.destroy();
     process.exit(1);
   });
   
   process.on('unhandledRejection', (err) => {
     if (err.name == 'DiscordAPIError') return;
-    client.logger.error(`Unhandled rejection: ${err.stack}`);
+    zaq.err(err, {
+      detail: errorMsg,
+      executionTime: new Date(),
+      sessionId: process.pid
+    });
   });
   
   process.on('exit', () => {

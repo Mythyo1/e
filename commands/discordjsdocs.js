@@ -5,7 +5,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!args[0]) return message.reply('You need to input somthing to search!');
     
     request({url: 'https://djsdocs.sorta.moe/main/stable/embed?q=' + args.join(' ').replace('#', '%23'), json: true}, (req, res, json) => {
-      
       message.channel.send({embed: json});
     });
   } catch (err) {

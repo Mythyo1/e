@@ -8,6 +8,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     let msg = await message.channel.send('Searching YouTube...');
     
     searcher.search(args.join(' ')).then(info => {
+      if (!info.first) return message.reply('I couldent find anything on youtube with your search term!');
+      
       let embed = new Discord.RichEmbed()
       .setTitle(info.first.title)
       .setDescription(info.first.url)

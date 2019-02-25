@@ -9,8 +9,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     Kitsu(args.join(' ')).then(res => {
       let anime = JSON.parse(res).data[0];
+      
+      if (!anime) return message.reply('I couldent find any Anime with your search term!');
       let embed = new Discord.RichEmbed()
-      .setTitle(anime.attributes.titles.en)
+      .setTitle(anime.attributes.titles.en || 'Title not found')
       .setURL('https://kitsu.io/anime' + anime.id)
       .setDescription(anime.attributes.synopsis)
       .addField('Ages', anime.attributes.ageRatingGuide, true)

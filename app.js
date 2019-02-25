@@ -32,7 +32,12 @@ client.music = {};
 const NekoAPI = require('nekos.life');
 client.nekoslife = new NekoAPI();
 process.env.SESSION_SECRET = '';
-for (let i = 0;i<=1000;i++) process.env.SESSION_SECRET += Math.random().toString(16).slice(2, 8).toUpperCase().slice(-6);
+for (let i = 0;i<=1000;i++)
+  process.env.SESSION_SECRET += Math.random()
+  .toString(16)
+  .slice(2, 8)
+  .toUpperCase()
+  .slice(-6);
 
 //Import files
 client.logger = require('./modules/Logger');

@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => {
   try {
-    message.channel.send('Cytrus has ' + client.commands.size + ' commands');
+    message.channel.send('Your messages are ' + Math.floor(Math.random() * 99) + '% lies');
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }
@@ -8,14 +8,14 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['cmds'],
+  aliases: ['ld'],
   guildOnly: false,
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'commands',
-  category: 'General',
-  description: 'Returns the ammount of commands in Cytrus',
-  usage: 'commands'
+  name: 'liedetector',
+  category: 'Fun',
+  description: 'Returns how much you lie',
+  usage: 'liedetector'
 };
