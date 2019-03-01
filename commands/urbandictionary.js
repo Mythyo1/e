@@ -6,7 +6,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!message.channel.nsfw) return message.reply('You need to be in a channel marked as NSFW to use this command!');
     
     ud.term(args.join(' ')).then(async (result) => {
-      if (args.join(' ') == '') return message.channel.send('You need to input a search term!');
+      if (!args[0]) return message.channel.send('You need to input a search term!');
       let output = '';
       let entries = result.entries;
       let i = 1;
@@ -21,6 +21,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       let page = await client.awaitReply(message, `Please choose the page you want.\n${output}`);
       
       if (isNaN(page)) return message.reply(page + ' is not a number!');
+      
       let embed = new Discord.RichEmbed()
       .setTitle(entries[page - 1].word)
       .setDescription('Definition:\n' + entries[page - 1].definition + '\n\nExample:\n' + entries[page - 1].example)

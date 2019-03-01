@@ -23,7 +23,7 @@ const initWeb = (client) => {
     expires: 604800000
   }));
   app.use(bodyParser.json());
-  app.use(express.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
   
   app.use('/', require('../dash/routes/index'));
   app.use('/login', require('../dash/routes/discord'));

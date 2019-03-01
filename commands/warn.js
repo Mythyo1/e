@@ -26,16 +26,7 @@ exports.run = async (client, message, args, level) => {
 
         if (client.warns.get(message.guild.id)[member.id] == 3) {
           member.ban(args.slice(1).join(' ')).then(() => {
-          message.reply(`Successfully banned ${user.tag}`);
-
-            if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
-              let embed = new Discord.RichEmbed()
-              .setTitle('User Ban')
-              .setColor('#eeeeee')
-              .setDescription(`Name: ${user.username}\nID: ${user.id}\nReason: Exeding max amount of warns\nModerator: AutoModerator`);
-
-              message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed);
-            }
+            message.reply(`Successfully banned ${user.tag}`);
 
             client.warns.get(message.guild.id)[member.id] = 0;
           }).catch(err => {

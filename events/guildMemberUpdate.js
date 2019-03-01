@@ -62,18 +62,18 @@ New Roles${outputNew}`)
     modLogChannel.send(embed).catch();
   }
   
-  if (user.avatarURL !== userNew.avatarUR) {
+  if (user.user.avatarURL !== userNew.user.avatarURL) {
     embed = new Discord.RichEmbed()
     .setTitle('User Avatar Update')
     .setFooter(`Full name: ${userNew.user.tag} | ID: ${userNew.id}`)
     .setDescription(`
-Old Avatar URL: ${user.avatarURL}
+Old Avatar URL: ${user.user.avatarURL}
 
-New Avatar URL: ${userNew.avatarURL}`)
+New Avatar URL: ${userNew.user.avatarURL}`)
     .setColor('#eeeeee');
     
     modLogChannel.send(embed).catch();
-    modLogChannel.send('Old Avatar' + new Discord.Attachment(user.avatarURL)).catch();
-    modLogChannel.send('New Avatar' + new Discord.Attachment(userNew.avatarURL)).catch();
+    modLogChannel.send(new Discord.Attachment(user.user.avatarURL, 'old.png')).catch();
+    modLogChannel.send(new Discord.Attachment(userNew.user.avatarURL, 'new.png')).catch();
   }
 };

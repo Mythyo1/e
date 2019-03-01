@@ -5,17 +5,17 @@ const { validateURL } = ytdl;
 const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
 const MusicStream = (message, connection, client) => {
-  
   if (!client.music[message.guild.id]) client.music[message.guild.id] = {queue: [], loop: false};
-  
   if (!client.music[message.guild.id].queue) client.music[message.guild.id].queue = [];
   
-  client.music[message.guild.id].dispatcher = connection.playStream(ytdl(client.music[message.guild.id].queue[0]), {volume: 0.5});
-  client.music[message.guild.id].dispatcher.song = client.music[message.guild.id].queue[0];
+  let server = client.music[message.guild.id];
   
-  client.music[message.guild.id].dispatcher.on('end', () => {
-    if (!client.music[message.guild.id].loop) {
-      client.music[message.guild.id].queue.shift();
+  server.dispatcher = connection.playStream(ytdl(client.music[message.guild.id].queue[0]), {volume: 0.5});
+  server.dispatcher.song = client.music[message.guild.id].queue[0];
+  
+  server.dispatcher.on('end', () => {
+    if (!server.loop) {
+      server.queue.shift();
       return MusicStream(message, connection, client);
     }
     
@@ -25,16 +25,16 @@ const MusicStream = (message, connection, client) => {
 
 exports.run = async (client, message, args, level) => {
   try {
-    let server = client.music[message.guild.id];
-    
     if (!message.member.voiceChannelID) return message.reply('You need to be in a Voice Channel to use this command!');
     
     if (message.guild.voiceConnection) {
       if (message.guild.voiceConnection.channel.id !== message.member.voiceChannelID) return message.reply('You need to be in the same voice channel Cytrus is in to use this command!');
     }
     
-    if (!server) server = {queue: [], loop: false};
-    if (!server.queue) server.queue = [];
+    if (!client.music[message.guild.id]) client.music[message.guild.id] = {queue: [], loop: false};
+    if (!client.music[message.guild.id].queue) client.music[message.guild.id].queue = [];
+    
+    let server = client.music[message.guild.id];
     
     message.guild.channels.get(message.member.voiceChannelID).join();
     
@@ -56,8 +56,8 @@ exports.run = async (client, message, args, level) => {
       message.channel.send(embed);
       
       if (server.dispatcher) {
-        if (!server.dispatcher.song) MusicStream(message, message.guild, message.guild.voiceConnection, client);
-      } else MusicStream(message, message.guild, message.guild.voiceConnection, client);
+        if (!server.dispatcher.song) MusicStream(message, message.guild.voiceConnection, client);
+      } else MusicStream(message, message.guild.voiceConnection, client);
     }
   } catch (err) {
     message.channel.send('There was an error!\n' + err.stack).catch();

@@ -5,10 +5,21 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     if (!args[0]) return message.reply('You need to supply the anime to search!');
     
-    const msg = await message.channel.send('Searching Kitsu..');
-
-    Kitsu(args.join(' ')).then(res => {
-      let anime = JSON.parse(res).data[0];
+    let msg = await message.channel.send('Searching Kitsu..');
+    let output = '';
+    let i = 1;
+    
+    Kitsu(args.join(' ')).then(async res => {
+      JSON.parse(res).data.forEach((anime) => {
+        let title = anime.attributes.titles.en || 'Title not found';
+        output += '\n' + i + '. ' + title;
+        i++;
+      });
+      
+      let animenum = await client.awaitReply(message, `Please choose the anime you want.${output}`);
+      if (isNaN(animenum)) return message.reply('Thats not a number!');
+      
+      let anime = JSON.parse(res).data[animenum - 1];
       
       if (!anime) return message.reply('I couldent find any Anime with your search term!');
       let embed = new Discord.RichEmbed()
@@ -30,7 +41,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['anime', 'kitsuio'],
+  aliases: ['anime', 'kitsuio', 'k'],
   guildOnly: false,
   permLevel: 'User'
 };

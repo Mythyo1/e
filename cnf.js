@@ -25,8 +25,7 @@ const config = {
     'welcomeEnabled': 'true',
     'logMessageUpdates': 'true',
     'logEmojiUpdates': 'true',
-    'logMemberUpdates': 'true',
-    'starboardChannel': 'starboard'
+    'logMemberUpdates': 'true'
   },
 
   permLevels: [

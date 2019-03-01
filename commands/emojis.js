@@ -1,13 +1,17 @@
 exports.run = async (client, message, args, level) => {
   try {
-    const notAnimated = [];
-    const animated = [];
-    message.guild.emojis.map(emoji => {
-      if (emoji.animated === true) notAnimated.push(emoji.toString());
-      else animated.push(emoji.toString());
+    let notAnimated = [];
+    let animated = [];
+    
+    message.guild.emojis.forEach(async emoji => {
+      if (emoji.animated) animated.push(emoji.toString());
+      else notAnimated.push(emoji.toString());
     });
 
-    message.channel.send(notAnimated.join(' ') + '\n\n' + animated.join(' '));
+    if (!animated[0]) animated = ['None'];
+    if (!notAnimated[0]) notAnimated = ['None'];
+    
+    message.channel.send('Animated:\n' + animated.join(' ') + '\n\nNot Animated' + notAnimated.join(' '));
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }
