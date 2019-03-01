@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => {
 
     if (user) {
         message.guild.ban(user).then(() => {
-          message.reply(`Successfully banned the user!`);
+          message.reply('Successfully banned the user!');
 
           const modLogChannel = settings.modLogChannel;
           if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {

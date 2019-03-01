@@ -66,6 +66,6 @@ exports.conf = {
 exports.help = {
   name: 'configure',
   category: 'Moderation',
-  description: 'View or change settings for your server.',
+  description: 'View or change settings for your server',
   usage: 'configure <view/get/edit> <args[1]> <value>'
 };

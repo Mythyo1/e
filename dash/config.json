@@ -1,5 +1,5 @@
 {
   "clientId": "526593597118873620",
-  "scopes": ["identify", "guilds"],
+  "scopes": ["identify", "guilds", "email"],
   "redirectUri": "https://app.cytrus.ga/login/callback"
 }

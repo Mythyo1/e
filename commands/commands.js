@@ -16,6 +16,6 @@ exports.conf = {
 exports.help = {
   name: 'commands',
   category: 'General',
-  description: 'Returns the ammount of commands in Cytrus',
+  description: 'Returns the ammount of commands created',
   usage: 'commands'
 };

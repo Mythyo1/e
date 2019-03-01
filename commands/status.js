@@ -8,7 +8,7 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     require('pidusage')(process.pid, (err, stats) => {
       const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
       const embed = new Discord.RichEmbed()
-      .setTitle('Cytrus Status')
+      .setTitle(require('../app').user.username + ' Status')
       .setDescription(`
 RAM Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
 Uptime: ${duration}

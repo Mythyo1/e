@@ -46,6 +46,6 @@ exports.conf = {
 exports.help = {
   name: 'application',
   category: 'General',
-  description: 'Returns a Cytrus\'s OAuth2 application',
+  description: 'Returns the bots OAuth2 application',
   usage: 'application'
 };

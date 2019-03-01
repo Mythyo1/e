@@ -38,6 +38,6 @@ exports.conf = {
 exports.help = {
   name: 'bet',
   category: 'Fun',
-  description: 'betes a member',
+  description: 'I bet this command exists',
   usage: 'bet <member>'
 };

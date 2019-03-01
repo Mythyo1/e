@@ -15,14 +15,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['web', 'dash'],
   guildOnly: false,
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'ping',
+  name: 'dashboard',
   category: 'General',
-  description: 'Returns CytrusBot\'s ping',
-  usage: 'ping'
+  description: 'Returns the web dashboard',
+  usage: 'dashboard'
 };

@@ -24,7 +24,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: ['emoteimage','ei', 'eimage', 'emojii', 'emotei'],
+  aliases: ['emoteimage', 'ei', 'eimage', 'emojii', 'emotei'],
   guildOnly: false,
   permLevel: 'User'
 };

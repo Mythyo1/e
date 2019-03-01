@@ -50,6 +50,6 @@ exports.conf = {
 exports.help = {
   name: 'check',
   category: 'Moderation',
-  description: 'Checks if anyone in your server is on the Cytrus Global Ban List',
+  description: 'Checks if anyone in your server is on the Global Ban List',
   usage: 'check [ban]'
 };

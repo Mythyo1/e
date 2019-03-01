@@ -19,6 +19,6 @@ exports.conf = {
 exports.help = {
   name: 'log',
   category: 'General',
-  description: 'Sends a message to the CytrusLog',
+  description: 'Sends a message to the ' + require('../app').user.username + ' Logs',
   usage: 'log'
 };

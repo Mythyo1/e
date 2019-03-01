@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
+    if (!args[0]) return message.reply('You need to input the MessageID!');
+    
     let fetched = await message.channel.fetchMessage(args[0]);
     
     let embed = new Discord.RichEmbed()

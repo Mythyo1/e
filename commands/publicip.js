@@ -23,6 +23,6 @@ exports.conf = {
 exports.help = {
   name: 'publicip',
   category: 'System',
-  description: 'Returns the Cytrus public IP',
+  description: 'Returns the ' + require('../app').user.username + ' public IP',
   usage: 'publicip'
 };
