@@ -1,4 +1,3 @@
-const zaq = require('zaq');
 const Discord = require('discord.js');
 
 module.exports = (client) => {

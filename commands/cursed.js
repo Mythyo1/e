@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 let cursedImages = [
   'https://media.discordapp.net/attachments/544924982195650581/546200058551336963/991f263.jpg?width=441&height=280',
   'https://media.discordapp.net/attachments/544924982195650581/546200293189353473/b4ef32c.jpg?width=345&height=330',

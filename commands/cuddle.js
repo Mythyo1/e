@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     if (!message.mentions.members.first()) return message.reply('You need to mention the user to cuddle with!');

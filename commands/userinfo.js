@@ -1,9 +1,7 @@
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  try {
-    let settings = client.getSettings(message.guild.id);
-    
+  try {    
     let user = message.mentions.members.first() || message.member;
     
     let embed = new Discord.RichEmbed()

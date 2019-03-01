@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     if (!message.channel.nsfw) return message.reply('You need to be in a channel marked as NSFW');

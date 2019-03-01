@@ -1,7 +1,5 @@
-const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const { YTSearcher } = require('ytsearcher');
-const { validateURL } = ytdl;
 const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
 const MusicStream = (message, connection, client) => {
@@ -19,7 +17,7 @@ const MusicStream = (message, connection, client) => {
       return MusicStream(message, connection, client);
     }
     
-    if (client.music[message.guild.id].loop) MusicStream(message, guild, connection, client);
+    if (client.music[message.guild.id].loop) MusicStream(message, connection, client);
   });
 };
 

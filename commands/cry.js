@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 let cryGifs = [
   'https://cdn.discordapp.com/attachments/545336635542339595/546896584575680512/cry1.gif',
   'https://cdn.discordapp.com/attachments/545336635542339595/546896616133754900/cry5.gif',

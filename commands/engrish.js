@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const request = require('request');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars

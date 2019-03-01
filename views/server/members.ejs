@@ -6,7 +6,8 @@
   <% const members = djsclient.guilds.get(guild).members %>
   
   <div class="page-content">
-    <a href="/guild/config?id=<%= guild %>">Guild Config</a>
+    <a style="text-decoration: none;" href="/guild/config?id=<%= guild %>">Guild Config</a>
+    <br>
     <br>
     <br>
     <% members.forEach((member) => { %>
