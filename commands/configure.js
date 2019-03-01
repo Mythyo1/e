@@ -33,7 +33,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         client.settings.delete(message.guild.id, args[1]);
         message.reply(`${args[1]} was successfully reset to default.`);
       } else
-      if (['n','no','cancel'].includes(response)) {
+      if (['n', 'no', 'cancel'].includes(response)) {
         message.reply(`Your setting for \`${args[1]}\` remains at \`${settings[args[1]]}\``);
       }
     } else
@@ -47,7 +47,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       let embed = new Discord.RichEmbed()
       .setTitle('Server Settings')
       .setColor('#eeeeee');
-      Object.keys(client.getSettings(message.guild.id)).forEach((setting) => embed = embed.addField(setting ,settings[setting]));
+      Object.keys(client.getSettings(message.guild.id)).forEach((setting) => embed = embed.addField(setting, settings[setting]));
 
       await message.channel.send(embed);
     }

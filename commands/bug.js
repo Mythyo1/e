@@ -6,15 +6,15 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       case 'add':
         msg = await message.channel.send('Creating report...');
         
-        await client.reports.set(message.author.id+message.id, {txt: args.slice(1).join(' '), id: message.author.id+message.id, author: message.author.id});
+        await client.bugs.set(message.author.id+message.id, {txt: args.slice(1).join(' '), id: message.author.id+message.id, author: message.author.id});
         msg.edit('Bug report created with the ID of ' + message.author.id+message.id);
         break;
       case 'remove':
-        if (client.notes.has(args[1])) {
+        if (client.bugs.has(args[1])) {
           if (level < 6) return message.reply(`You do not have permission to use this command exention.
 Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
 This command requires level 6 (Bot Support)`);
-          msg = await message.channel.send('Deleting note...');
+          msg = await message.channel.send('Deleting bug report...');
 
           await client.bugs.delete(args[1]);
           msg.edit('Bug report deleted with the ID of ' + args[1]);

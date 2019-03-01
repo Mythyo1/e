@@ -4,22 +4,22 @@ const { YTSearcher } = require('ytsearcher');
 const { validateURL } = ytdl;
 const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
-const MusicStream = (message, guild, connection, client) => {
-  let server = client.music[guild.id];
+const MusicStream = (message, connection, client) => {
   
-  if (!server) server = {queue: [], loop: false};
-  if (!server.queue) server.queue = [];
+  if (!client.music[message.guild.id]) client.music[message.guild.id] = {queue: [], loop: false};
   
-  server.dispatcher = connection.playStream(ytdl(server.queue[0]), {volume: 0.5, passes: 11});
-  server.dispatcher.song = server.queue[0];
+  if (!client.music[message.guild.id].queue) client.music[message.guild.id].queue = [];
   
-  server.dispatcher.on('end', () => {
-    if (!server.loop) {
-      server.queue.shift();
-      return MusicStream(message, guild, connection, client);
+  client.music[message.guild.id].dispatcher = connection.playStream(ytdl(client.music[message.guild.id].queue[0]), {volume: 0.5});
+  client.music[message.guild.id].dispatcher.song = client.music[message.guild.id].queue[0];
+  
+  client.music[message.guild.id].dispatcher.on('end', () => {
+    if (!client.music[message.guild.id].loop) {
+      client.music[message.guild.id].queue.shift();
+      return MusicStream(message, connection, client);
     }
     
-    if (server.loop) MusicStream(message, guild, connection, client);
+    if (client.music[message.guild.id].loop) MusicStream(message, guild, connection, client);
   });
 };
 
@@ -32,20 +32,26 @@ exports.run = async (client, message, args, level) => {
     if (message.guild.voiceConnection) {
       if (message.guild.voiceConnection.channel.id !== message.member.voiceChannelID) return message.reply('You need to be in the same voice channel Cytrus is in to use this command!');
     }
-      
+    
+    if (!server) server = {queue: [], loop: false};
+    if (!server.queue) server.queue = [];
+    
     message.guild.channels.get(message.member.voiceChannelID).join();
     
     if (args[0]) {
       let result = await searcher.search(args.join(' '));
-      server.queue.push(result.first.url);
       
-      let embed = new Discord.RichEmbed()
-      .setTitle(result.first.title)
-      .setDescription(client.truncate(result.first.description, 100))
-      .setThumbnail(result.first.thumbnails.medium.url)
-      .setAuthor(result.first.channelTitle)
-      .setURL(result.first.url)
-      .setColor('#eeeeee');
+      let embed = new client.Embed('normal', {
+        title: result.first.title,
+        description: client.truncate(result.first.description, 100),
+        thumbnail: result.first.thumbnails.medium.url,
+        author: {
+          name: result.first.channelTitle
+        },
+        url: result.first.url
+      });
+      
+      await server.queue.push(result.first.url);
       
       message.channel.send(embed);
       
@@ -54,7 +60,7 @@ exports.run = async (client, message, args, level) => {
       } else MusicStream(message, message.guild, message.guild.voiceConnection, client);
     }
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err.stack).catch();
   }
 };
 

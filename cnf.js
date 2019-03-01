@@ -7,7 +7,7 @@ const config = {
   'flexing': 'all the way',
   'codequality': 100,
   'support': [],
-  'helpers': ['339903300994596884', '277872422760349696'],
+  'helpers': ['339903300994596884', '277872422760349696', '355026215137968129'],
   
   'blacklisted': ['251213730577252354'],
   'globalBan': require('./data/GlobalBans'),
@@ -61,7 +61,7 @@ const config = {
       check: (message) => {
         try {
           const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase());
-          return (adminRole && message.member.roles.has(adminRole.id) || message.author.hasPermission('ADMINISTRATOR'));
+          return (adminRole && message.member.roles.has(adminRole.id));
         } catch (e) {
           return false;
         }

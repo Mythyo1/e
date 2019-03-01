@@ -38,10 +38,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     let i = Math.floor(Math.random() * cursedImages.length + 1) - 1;
 
-    let embed = new Discord.RichEmbed()
-    .setTitle('Cursed Images')
-    .setColor('#eeeeee')
-    .setImage(cursedImages[i]);
+    let embed = new client.Embed('blend', {
+      title: 'Cursed Image',
+      image: cursedImages[i]
+    });
 
     message.channel.send(embed);
   } catch (err) {

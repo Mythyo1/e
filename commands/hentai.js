@@ -5,10 +5,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!message.channel.nsfw) return message.reply('You need to be in a channel marked as NSFW');
 
     let hentai = await client.nekoslife.nsfw.randomHentaiGif();
-    let embed = new Discord.RichEmbed()
-    .setTitle('Hentai')
-    .setImage(hentai.url)
-    .setColor('#eeeeee');
+    let embed = new client.Embed('blend', {
+      title: 'Hentai',
+      image: hentai.url
+    });
 
     message.channel.send(embed);
   } catch (err) {

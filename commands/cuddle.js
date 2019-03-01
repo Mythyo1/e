@@ -5,10 +5,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!message.mentions.members.first()) return message.reply('You need to mention the user to cuddle with!');
     let cuddle = await client.nekoslife.sfw.cuddle();
     
-    let embed = new Discord.RichEmbed()
-    .setTitle('Cuddle')
-    .setImage(cuddle.url)
-    .setColor('#363942');
+    let embed = new client.Embed('blend', {
+      title: 'Cuddle',
+      image: cuddle.url
+    });
 
     message.channel.send(embed);
   } catch (err) {

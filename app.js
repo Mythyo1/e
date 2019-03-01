@@ -10,7 +10,7 @@ const Discord = require('discord.js');
 //Define client
 const client = new Discord.Client({
   disableEveryone: true,
-  disabledEvents: ['TYPING_START', 'TYPING_STOP']
+  disabledEvents: ['TYPING_START']
 });
 
 //Define databases/objects
@@ -25,12 +25,13 @@ client.settings = new Enmap({name: 'settings'});
 client.notes = new Enmap({name: 'notes'});
 client.bugs = new Enmap({name: 'bugreports'});
 client.warns = new Enmap({name: 'warns'});
+client.tags = new Enmap({name: 'tags'});
 client.levelCache = {};
 client.music = {};
 
 //Define other variubles
-const NekoAPI = require('nekos.life');
-client.nekoslife = new NekoAPI();
+const NekosLifeAPI = require('nekos.life');
+client.nekoslife = new NekosLifeAPI();
 process.env.SESSION_SECRET = '';
 for (let i = 0;i<=1000;i++)
   process.env.SESSION_SECRET += Math.random()

@@ -2,6 +2,7 @@ const Minesweeper = require('discord.js-minesweeper');
 const express = require('express');
 const request = require('request');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const moment = require('moment');
 require('moment-duration-format');
 
@@ -19,12 +20,16 @@ const initWeb = (client) => {
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    expires: 604800000,
+    expires: 604800000
   }));
+  app.use(bodyParser.json());
+  app.use(express.json());
+  
   app.use('/', require('../dash/routes/index'));
   app.use('/login', require('../dash/routes/discord'));
   app.use('/guild', require('../dash/routes/server'));
   app.use('/servers', require('../dash/routes/servers'));
+  app.get('/invite', (req, res) => res.send('<script>window.location.href = "https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot";</script><noscript><a href="https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot">https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot</a></noscript>'));
   app.get('/status', (req, res) => {
         require('pidusage')(process.pid, (err, stats) => {
       const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');

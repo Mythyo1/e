@@ -1,4 +1,5 @@
 const zaq = require('zaq');
+const Discord = require('discord.js');
 
 module.exports = (client) => {
   //Return the permission level
@@ -105,6 +106,42 @@ module.exports = (client) => {
     else return str;
   };
   
+  client.Embed = class {
+    constructor(type, settings) {
+      this.type = type;
+      this.settings = settings;
+      
+      this.embed = new Discord.RichEmbed();
+      
+      if (this.type !== 'blend') this.embed.setColor('#eeeeee');
+      else this.embed.setColor('#363942');
+      
+      if (this.settings.title) this.embed.setTitle(this.settings.title);
+      if (this.settings.url) this.embed.setURL(this.settings.url);
+      if (this.settings.timestamp) this.embed.setTimestamp();
+      
+      if (this.settings.description) this.embed.setDescription(this.settings.description);
+      
+      if (this.settings.fields) {
+        this.settings.fields.forEach((field) => {
+          if (field == 'blank') this.embed.addBlankField();
+          else this.embed.addField(field.title, field.text, field.inline || false);
+        });
+      }
+      
+      if (this.settings.files) this.embed.attachFiles(this.settings.files);
+      
+      if (this.settings.footer) this.embed.setFooter(this.settings.footer);
+      
+      if (this.settings.image) this.embed.setImage(this.settings.image);
+      if (this.settings.thumbnail) this.embed.setThumbnail(this.settings.thumbnail);
+      
+      if (this.settings.author) this.embed.setAuthor(this.settings.author.name, this.settings.author.icon || null, this.settings.author.url || null);
+      
+      return this.embed;
+    }
+  };
+  
   Object.defineProperty(String.prototype, 'toProperCase', {
     value: function() {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -113,16 +150,13 @@ module.exports = (client) => {
 
   Object.defineProperty(Array.prototype, 'random', {
     value: function() {
-      return this[Math.floor(Math.random() * this.length)];
+      return this[Math.floor(Math.random() * this.length + 1) - 1];
     }
   });
 
   
-  process.on('uncaughtException', (err) => {
-    let errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
-    
- 
-    client.logger.error(err);
+  process.on('uncaughtException', (err) => {    
+    client.logger.error(err.stack);
     client.destroy();
     process.exit(1);
   });

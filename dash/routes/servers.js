@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const client = require('../../app');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (!req.session.user) return res.redirect('/');
   if (!req.session.guilds) return res.redirect('/');
   

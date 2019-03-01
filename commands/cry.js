@@ -9,10 +9,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {    
     let i = Math.floor(Math.random() * cryGifs.length + 1) - 1;
     
-    let embed = new Discord.RichEmbed()
-    .setTitle(message.author.username + ' cried')
-    .setColor('#363942')
-    .setImage(cryGifs[i]);
+    let embed = new client.Embed('blend', {
+      title: message.author.username + ' cried',
+      image: cryGifs[i]
+    });
 
     message.channel.send(embed);
   } catch (err) {

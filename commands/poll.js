@@ -11,11 +11,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     let msg = await message.channel.send(embed);
     
-    await msg.react('🇦');
-    await msg.react('🇧');
-    await msg.react('🇨');
-    await msg.react('🇩');
-    await msg.react('🇪');
+    await msg.react('👍');
+    await msg.react('👎');
+    await msg.react('🤷');
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }

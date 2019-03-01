@@ -3,15 +3,31 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     client.fetchApplication('@me').then(app => {
-      let embed = new Discord.RichEmbed()
-      .setTitle(app.name)
-      .setThumbnail(app.iconURL)
-      .addField('ID', app.id, true)
-      .addField('Public', app.botPublic, true)
-      .addField('Created At', app.createdAt)
-      .addField('Owner', app.owner.tag)
-      .setDescription(app.description)
-      .setColor('#363942');
+      let embed = new client.Embed('blend', {
+        title: app.name,
+        thumbnail: app.iconURL,
+        description: app.description,
+        fields: [
+          {
+            title: 'ID',
+            text: app.id,
+            inline: true
+          },
+          {
+            title: 'Public',
+            text: app.botPublic,
+            inline: true
+          },
+          {
+            title: 'Created At',
+            text: app.createdAt
+          },
+          {
+            title: 'Owner',
+            text: app.owner.tag
+          }
+        ]
+      });
 
       message.channel.send(embed);
     });

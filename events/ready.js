@@ -26,15 +26,12 @@ module.exports = async client => {
   client.logger.log(`Channels: ${client.channels.size.toLocaleString()}`, 'ready');
   client.logger.log(`Discord.js: v${require('discord.js').version}`, 'ready');
   client.logger.log(`Node.js: ${process.version}`, 'ready');
-  require('fs').readFile('/app/pika.txt', 'utf8', (err, data) => {
-    console.log(data);
-    client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
+  client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
     
-    //Starts the web server/API
-    require('../modules/web')(client);
+  //Starts the web server/API
+  require('../modules/web')(client);
 
-    //Post stats to the bot list
-    require('../modules/botlist')(client);
-  });
+  //Post stats to the bot list
+  require('../modules/botlist')(client);
   
 };

@@ -4,14 +4,14 @@ const { clientId, scopes, redirectUri } = require('../config.json');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (req.session.user) return res.redirect('/');
 
   const authorizeUrl = `https://discordapp.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scopes.join('%20')}`;
   res.redirect(authorizeUrl);
 });
 
-router.get('/callback', (req, res) => {
+router.get('/callback', async (req, res) => {
   if (req.session.user) return res.redirect('/');
     
   const accessCode = req.query.code;
@@ -56,7 +56,7 @@ router.get('/callback', (req, res) => {
   });
 });
 
-router.get('/logout',(req, res) => {
+router.get('/logout', async(req, res) => {
   req.session.destroy();
   res.redirect('/');
 });

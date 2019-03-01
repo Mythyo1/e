@@ -5,9 +5,7 @@ module.exports = async (client, message) => {
   if (client.config.blacklisted.includes(message.author.id)) return;
   
   let settings;
-  let args;
   
-
   if (message.guild) settings = client.getSettings(message.guild.id);
   else settings = client.config.defaultSettings;
 
@@ -15,7 +13,19 @@ module.exports = async (client, message) => {
   if (message.content.match(prefixMention)) {
     return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
   }
-
+  
+  let args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+  let command = args.shift().toLowerCase();
+  
+  if (message.guild) {
+    if (client.tags.has(message.guild.id)) {
+      Object.keys(client.tags.get(message.guild.id)).forEach(tagid => {
+        let tag = client.tags.get(message.guild.id)[tagid];
+        
+        if (message.content == tag.name) message.channel.send(tag.text.replace('@user', '<@' + message.author.id + '>'));
+      });
+    }
+  }
   
   if (message.content.toLowerCase().indexOf(settings.prefix.toLowerCase()) !== 0) return;
   
@@ -24,12 +34,10 @@ module.exports = async (client, message) => {
     cooled.set(message.author.id, true);
     setTimeout(async () => {
       cooled.delete(message.author.id);
-    }, 2550);
+    }, 3000);
   }
   
-  args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
 
-  let command = args.shift().toLowerCase();
   let level = client.permlevel(message);
 
   let cmd = client.commands.get(command) || client.aliases.get(command);

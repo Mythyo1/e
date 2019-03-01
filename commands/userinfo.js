@@ -4,7 +4,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     let settings = client.getSettings(message.guild.id);
     
-    if (message.content.split(' ')[0] !== settings.prefix + 'userinfo' && message.content.split(' ')[0] !== settings.prefix + 'user' && message.content.split(' ')[0] !== settings.prefix + 'ui') return message.reply('You cant use the mention prefix for this command! Use ' + settings.prefix + 'userinfo instead.');
     let user = message.mentions.members.first() || message.member;
     
     let embed = new Discord.RichEmbed()
@@ -14,8 +13,7 @@ ID: ${user.id}
 Name: ${user.user.username}
 Icon URL: ${user.user.avatarURL}
 Account Created At: ${user.user.createdAt}
-Joined At: ${user.joinedAt}
-Game: ${user.user.presence.game}
+Game: ${user.user.presence.game || 'none'}
 Status: ${user.user.presence.status}
 Full Name: ${user.user.tag}`)
     .setThumbnail(user.user.avatarURL)

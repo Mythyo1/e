@@ -29,7 +29,7 @@ exports.conf = {
   enabled: true,
   aliases: ['emotesteal', 'es', 'esteal'],
   guildOnly: false,
-  permLevel: 'User'
+  permLevel: 'Moderator'
 };
 
 exports.help = {
