@@ -26,6 +26,6 @@ exports.conf = {
 exports.help = {
   name: 'dependencylist',
   category: 'System',
-  description: 'Returns a list of dependencies that ' + require('../app').user.username +' uses',
+  description: 'Returns a list of dependencies that Cytrus uses',
   usage: 'dependencylist'
 };

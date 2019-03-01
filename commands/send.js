@@ -20,6 +20,6 @@ exports.conf = {
 exports.help = {
   name: 'send',
   category: 'General',
-  description: 'Sends a message to the ' + require('../app').user.username + ' Logs',
+  description: 'Sends a message to the CytrusLog',
   usage: 'send'
 };

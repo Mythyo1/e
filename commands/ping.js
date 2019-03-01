@@ -25,6 +25,6 @@ exports.conf = {
 exports.help = {
   name: 'ping',
   category: 'General',
-  description: 'Returns ' + require('../app').user.username + '\'s ping',
+  description: 'Returns CytrusBot\'s ping',
   usage: 'ping'
 };

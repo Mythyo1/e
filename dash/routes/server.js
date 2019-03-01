@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const client = require('../../app');
+const beautify = require('js-beautify').js;
 
 router.get('/', async (req, res) => {
   if (!req.session.user) return res.redirect('/');

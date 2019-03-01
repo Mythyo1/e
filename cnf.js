@@ -1,4 +1,3 @@
-'
 const config = {
   'owners': ['493922020783030282', '314165962100310017'],
   'managers': [],
@@ -25,10 +24,10 @@ const config = {
     'welcomeMessage': 'Welcome to the server {{ping}}!',
     'welcomeEnabled': 'true',
     'logMessageUpdates': 'true',
-    'logEmojiUpdates': 'true'    'logMemberUpdates': 'true'
-
+    'logEmojiUpdates': 'true',
+    'logMemberUpdates': 'true',
     'starboardChannel': 'starboard'
- },
+  },
 
   permLevels: [
     { level: 0,
@@ -125,4 +124,4 @@ const config = {
   ]
 };
 
-module.exports = config;,
+module.exports = config;

@@ -2,35 +2,35 @@ const zaq = require('zaq');
 const beautify = require('js-beautify').js;
 const moment = require('moment');
 
-const lns = zaq.as(require('../app').user.username);
+const cytrus = zaq.as('Cytrus');
 
 exports.log = (content, type = 'log') => {
   const timestamp = `${moment().format('YYYY/MM/DD HH:mm:ss')}`;
   switch (type) {
     case 'log':
-      return lns.info(content);
+      return cytrus.info(content);
       break;
     case 'warn':
-      return lns.warn(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+      return cytrus.warn(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
         executionTime: timestamp,
         sessionId: process.pid
       });
       break;
     case 'error':
-      return lns.err(content, {
+      return cytrus.err(content, {
         executionTime: timestamp,
         sessionId: process.pid,
         error: content
       });
       break;
     case 'debug':
-      return lns.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+      return cytrus.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
         executionTime: timestamp,
         sessionId: process.pid
       });
       break;
     case 'ready':
-      return lns.ok(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+      return cytrus.ok(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
         executionTime: timestamp,
         sessionId: process.pid
       });
@@ -39,7 +39,7 @@ exports.log = (content, type = 'log') => {
       return console.log(`${timestamp} ${content}`);
       break;
     case 'time':
-      return lns.time(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+      return cytrus.time(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
         ms: client.ping,
         executionTime: timestamp,
         sessionId: process.pid

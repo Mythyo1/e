@@ -30,6 +30,6 @@ exports.conf = {
 exports.help = {
   name: 'cry',
   category: 'Fun',
-  description: 'Returns a cry gif',
+  description: 'Returns a cry',
   usage: 'cry <user>'
 };

@@ -59,6 +59,6 @@ exports.conf = {
 exports.help = {
   name: 'cursed',
   category: 'General',
-  description: 'Returns a cursed image',
+  description: 'Returns a cursed',
   usage: 'cursed'
 };

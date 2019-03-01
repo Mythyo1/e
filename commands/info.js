@@ -28,6 +28,6 @@ exports.conf = {
 exports.help = {
   name: 'info',
   category: 'General',
-  description: 'Returns info about ' + require('../app').user.username,
+  description: 'Returns info about Cytrus',
   usage: 'info'
 };
