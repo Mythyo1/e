@@ -12,12 +12,15 @@ const MusicStream = (message, connection, client) => {
   server.dispatcher.song = client.music[message.guild.id].queue[0];
   
   server.dispatcher.on('end', () => {
-    if (!server.loop) {
-      server.queue.shift();
-      return MusicStream(message, connection, client);
-    }
+    server.dispatcher.song = null;
+    server.dispatcher = null;
     
-    if (client.music[message.guild.id].loop) MusicStream(message, connection, client);
+    if (!server.queue[0]) return connection.disconnect();
+    
+    if (!server.loop) server.queue.shift();
+    
+    return MusicStream(message, connection, client);
+    
   });
 };
 

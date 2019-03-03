@@ -13,11 +13,12 @@ module.exports = async client => {
   
   setInterval(async () => {
     let index = Math.floor(Math.random() * statusList.length + 1) - 1;
-    await client.user.setActivity(statusList[index].msg, {type: statusList[index].type});
+    await client.user.setActivity(statusList[index].msg, {
+      type: statusList[index].type
+    });
   }, 5000);
   
   client.user.setStatus('dnd');
-  
   
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');

@@ -4,10 +4,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     let baka = await client.nekoslife.sfw.baka();
     
-    let embed = new Discord.RichEmbed()
-    .setTitle('Baka')
-    .setImage(baka.url)
-    .setColor('#363942');
+    let embed = new client.embed('blend', {
+      title: 'Baka',
+      image: baka.url
+    });
 
     message.channel.send(embed);
   } catch (err) {

@@ -29,9 +29,10 @@ const initWeb = (client) => {
   app.use('/login', require('../dash/routes/discord'));
   app.use('/guild', require('../dash/routes/server'));
   app.use('/servers', require('../dash/routes/servers'));
+  app.get('/anime', (req, res) => res.send('<script>window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";</script>'));
   app.get('/invite', (req, res) => res.send('<script>window.location.href = "https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot";</script><noscript><a href="https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot">https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot</a></noscript>'));
   app.get('/status', (req, res) => {
-        require('pidusage')(process.pid, (err, stats) => {
+    require('pidusage')(process.pid, (err, stats) => {
       const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
       res.render('../views/status.ejs', {
         'user': req.session.user,

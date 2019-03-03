@@ -17,6 +17,7 @@ exports.log = (content, type = 'log') => {
       });
       break;
     case 'error':
+      if (content) return;
       return cytrus.err(content, {
         executionTime: timestamp,
         sessionId: process.pid,

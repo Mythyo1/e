@@ -13,10 +13,7 @@ const client = new Discord.Client({
   disabledEvents: ['TYPING_START']
 });
 
-//Define databases/objects
-client.commands = new Enmap();
-client.aliases = new Enmap();
-client.liusers = new Enmap();
+//Define Databases/Objects
 client.raids = new Enmap({name: 'raids'});
 client.profiles = new Enmap({name: 'profiles'});
 client.logins = new Enmap({name: 'logins'});
@@ -26,14 +23,19 @@ client.notes = new Enmap({name: 'notes'});
 client.bugs = new Enmap({name: 'bugreports'});
 client.warns = new Enmap({name: 'warns'});
 client.tags = new Enmap({name: 'tags'});
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+client.liusers = new Discord.Collection();
 client.levelCache = {};
 client.music = {};
 
-//Define other variubles
+//Define Nekos.life API
 const NekosLifeAPI = require('nekos.life');
 client.nekoslife = new NekosLifeAPI();
+
+//Generate Session secret
 process.env.SESSION_SECRET = '';
-for (let i = 0;i<=1000;i++)
+for (let i = 0; i <= 1000; i++)
   process.env.SESSION_SECRET += Math.random()
   .toString(16)
   .slice(2, 8)
@@ -49,11 +51,12 @@ require('./modules/functions')(client);
 
 //Cache the permissions
 for (let i = 0; i < client.config.permLevels.length; i++) {
-  const thisLevel = client.config.permLevels[i];
-  client.levelCache[thisLevel.name] = thisLevel.level;
+  let currentlevel = client.config.permLevels[i];
+  client.levelCache[currentlevel.name] = currentlevel.level;
 }
 
 //Login to discord
 client.login(process.env.BOT_TOKEN);
 
+//Export the client
 module.exports = client;

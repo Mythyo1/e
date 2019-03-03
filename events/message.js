@@ -29,13 +29,6 @@ module.exports = async (client, message) => {
   
   if (message.content.toLowerCase().indexOf(settings.prefix.toLowerCase()) !== 0) return;
   
-  if (cooled.get(message.author.id)) return message.react('⏳');
-  if (client.permlevel(message) < 6) {
-    cooled.set(message.author.id, true);
-    setTimeout(async () => {
-      cooled.delete(message.author.id);
-    }, 3000);
-  }
   
 
   let level = client.permlevel(message);
@@ -43,6 +36,14 @@ module.exports = async (client, message) => {
   let cmd = client.commands.get(command) || client.aliases.get(command);
 
   if (!client.commands.has(command) && !client.aliases.has(command)) return;
+  
+  if (cooled.get(message.author.id)) return message.react('⏳');
+  if (client.permlevel(message) < 6) {
+    cooled.set(message.author.id, true);
+    setTimeout(async () => {
+      cooled.delete(message.author.id);
+    }, 3000);
+  }
   if (!message.guild && cmd.conf.guildOnly) return message.channel.send('This command is unavailable via private message. Please run this command in a guild.');
 
   if (level < client.levelCache[cmd.conf.permLevel]) {

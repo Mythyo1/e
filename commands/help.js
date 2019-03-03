@@ -30,7 +30,7 @@ exports.run = (client, message, args, level) => {
 
         let embedTiny = new client.Embed('blend', {
           title: command.help.name,
-          description: `${command.help.description}\nUsage: ${command.help.usage}\nAliases: ${command.conf.aliases.join(' | ')}`,
+          description: `${command.help.description}\nUsage: ${command.help.usage}\nAliases: ${command.conf.aliases.join(' | ') || 'none'}`,
           fields: [
             {
               title: 'Permission Level',

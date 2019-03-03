@@ -5,7 +5,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     if (!args[0]) return message.reply('You need to supply the anime to search!');
     
-    let msg = await message.channel.send('Searching Kitsu..');
     let output = '';
     let i = 1;
     
@@ -22,16 +21,29 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       let anime = JSON.parse(res).data[animenum - 1];
       
       if (!anime) return message.reply('I couldent find any Anime with your search term!');
-      let embed = new Discord.RichEmbed()
-      .setTitle(anime.attributes.titles.en || 'Title not found')
-      .setURL('https://kitsu.io/anime' + anime.id)
-      .setDescription(anime.attributes.synopsis)
-      .addField('Ages', anime.attributes.ageRatingGuide, true)
-      .addField('Status', anime.attributes.status, true)
-      .addField('NSFW', anime.attributes.nsfw)
-      .setThumbnail(anime.attributes.posterImage.medium)
-      .setColor('#eeeeee');
-      msg.edit(embed);
+      let embed = new client.Embed('normal', {
+        title: anime.attributes.titles.en || 'Title not found',
+        url: 'https://kitsu.io/anime' + anime.id,
+        thumbnail: anime.attributes.posterImage.medium,
+        fields: [
+          {
+            title: 'Ages',
+            text: anime.attributes.ageRatingGuide,
+            inline: true
+          },
+          {
+            title: 'Status',
+            text: anime.attributes.status,
+            inline: true
+          },
+          {
+            title: 'NSFW',
+            text: anime.attributes.nsfw ? 'yes' : 'no'
+          }
+        ]
+      });
+      
+      message.channel.send(embed);
     });
 
   } catch (err) {

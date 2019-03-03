@@ -105,6 +105,10 @@ module.exports = (client) => {
     else return str;
   };
   
+  client.spoilerify = (ts) => {
+    return '||' + ts.replace('||', '\||') + '||';
+  };
+  
   client.Embed = class {
     constructor(type, settings) {
       this.type = type;
@@ -141,7 +145,7 @@ module.exports = (client) => {
     }
   };
   
-  Object.defineProperty(String.prototype, 'toProperCase', {
+  Object.defineProperty(String.prototype, 'toPropperCase', {
     value: function() {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
     }
