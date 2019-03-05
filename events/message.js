@@ -1,6 +1,13 @@
-const cooled = new Map();
+const Discord = require('discord.js');
+const cooled = new Discord.Collection();
 
-module.exports = async (client, message) => {  
+module.exports = async (client, message) => {
+  if (message.guild) {
+    if (client.raids.has(message.guild.id)) {
+      if (!message.member.hasPermission('BAN_MEMBERS')) message.delete().catch();
+      else return;
+    }
+  }
   if (message.author.bot) return;
   if (client.config.blacklisted.includes(message.author.id)) return;
   

@@ -88,7 +88,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['mine', 'sweeper', 'sweep'],
+  aliases: ['sweeper', 'sweep'],
   guildOnly: false,
   permLevel: 'User'
 };

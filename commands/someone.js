@@ -2,10 +2,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     let i = [];
     message.guild.members.forEach(member => {
-      if (!message.author.bot) i.push(member.id);
+      if (!member.user.bot) i.push(member.id);
     });
 
-    let outputid = i[Math.floor(Math.random() * (i.length - 1) + 1)];
+    let outputid = i[Math.floor(Math.random() * i.length + 1) - 1];
     await message.channel.send('<@'+outputid+'>');
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();

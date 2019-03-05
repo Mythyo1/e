@@ -14,6 +14,8 @@ const client = new Discord.Client({
 });
 
 //Define Databases/Objects
+client.items = new Enmap({name: 'glptmitems'});
+client.money = new Enmap({name: 'glptm'});
 client.raids = new Enmap({name: 'raids'});
 client.profiles = new Enmap({name: 'profiles'});
 client.logins = new Enmap({name: 'logins'});

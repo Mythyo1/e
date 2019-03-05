@@ -3,7 +3,7 @@ const { YTSearcher } = require('ytsearcher');
 const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
 const MusicStream = (message, connection, client) => {
-  if (!client.music[message.guild.id]) client.music[message.guild.id] = {queue: [], loop: false};
+  if (!client.music[message.guild.id]) client.music[message.guild.id] = {queue: [], loop: false, loopqueue: false};
   if (!client.music[message.guild.id].queue) client.music[message.guild.id].queue = [];
   
   let server = client.music[message.guild.id];
@@ -17,7 +17,11 @@ const MusicStream = (message, connection, client) => {
     
     if (!server.queue[0]) return connection.disconnect();
     
-    if (!server.loop) server.queue.shift();
+    if (!server.loop && !server.loopqueue) server.queue.shift();
+    if (server.loopqueue) {
+      server.queue.push(server.queue[0]);
+      server.queue.shift();
+    }
     
     return MusicStream(message, connection, client);
     

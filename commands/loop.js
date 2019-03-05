@@ -1,4 +1,3 @@
-
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     if (!client.music[message.guild.id]) client.music[message.guild.id] = {queue: [], loop: false};
@@ -9,7 +8,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (server.loop) server.loop = false;
     else server.loop = true;
     
-    message.channel.send('The loop is now ' + String(server.loop));
+    message.channel.send('The loop is now ' + String(server.loop ? 'On' : 'Off'));
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
