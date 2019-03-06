@@ -14,7 +14,7 @@ exports.run = async (client, message, args, level) => {
       message.channel.send(client.spotify.get(args[0]));
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

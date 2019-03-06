@@ -8,7 +8,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     let outputid = i[Math.floor(Math.random() * i.length + 1) - 1];
     await message.channel.send('<@'+outputid+'>');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

@@ -3,7 +3,7 @@ exports.run = async (client, message, args, level) => {
     await message.channel.send('Muting Chat...');
     client.raids.set(message.guild.id, true);
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

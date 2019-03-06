@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => {
     const str = args.join(' ');
     message.channel.send(str);
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

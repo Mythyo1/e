@@ -20,7 +20,7 @@ exports.run = async (client, message, args, level) => {
       message.channel.send('You must provide a message to OwOify!');
     } else message.channel.send(leet(args.join(' ')));
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

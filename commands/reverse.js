@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => {
     let msg = message.reply(str.split('').reverse().join(''));
     msg.react('🔁');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

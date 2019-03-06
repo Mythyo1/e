@@ -23,7 +23,7 @@ exports.run = async (client, message, args, level) => {
         });
     } else message.channel.send('You did not input a valid UserID');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err +'').catch();
+    message.channel.send('There was an error!\n' + err +'').catch();
   }
 };
 

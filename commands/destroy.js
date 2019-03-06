@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (res == 'yes') message.channel.send('Destroying client...');
     else message.channel.send('Aborted.');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 

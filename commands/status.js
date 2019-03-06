@@ -27,7 +27,7 @@ Voice Connections: ${client.voiceConnections.size}`)
       message.channel.send(embed);
     });
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
