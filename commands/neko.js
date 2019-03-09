@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (!message.channel.nsfw) return message.reply('You need to be in a channel marked as NSFW');
-
     let neko = await client.nekoslife.nsfw.nekoGif();
     let embed = new Discord.RichEmbed()
     .setTitle('Neko')
@@ -20,7 +18,8 @@ exports.conf = {
   enabled: true,
   aliases: [],
   guildOnly: false,
-  permLevel: 'User'
+  permLevel: 'User',
+  nsfw: true
 };
 
 exports.help = {

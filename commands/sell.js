@@ -16,7 +16,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     } else sts = client.money.get(message.author.id, 'stone');
     
     client.money.set(message.author.id, stone - sts, 'stone');
-    client.money.set(message.author.id, money + Math.round(sts/2 + 10), 'money');
+    client.money.set(message.author.id, money + Math.round(sts), 'money');
     
     message.channel.send('You now have $' + client.money.get(message.author.id, 'money') + '!');
   } catch (err) {

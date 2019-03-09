@@ -33,12 +33,10 @@ let cursedImages = [
 ];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  try {
-    let i = Math.floor(Math.random() * cursedImages.length + 1) - 1;
-
+  try {    
     let embed = new client.Embed('blend', {
       title: 'Cursed Image',
-      image: cursedImages[i]
+      image: cursedImages.random()
     });
 
     message.channel.send(embed);
@@ -51,7 +49,8 @@ exports.conf = {
   enabled: true,
   aliases: [],
   guildOnly: false,
-  permLevel: 'User'
+  permLevel: 'User',
+  nsfw: true
 };
 
 exports.help = {

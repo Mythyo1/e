@@ -45,12 +45,14 @@ exports.run = (client, message, args, level) => {
             {
               title: 'Guild Only',
               text: command.conf.guildOnly ? 'Yes' : 'No',
-              inline: true
             },
             {
               title: 'Enabled',
               text: command.conf.enabled ? 'Yes' : 'No',
-              inline: true
+            },
+            {
+              title: 'NSFW',
+              text: command.conf.nsfw ? 'Yes' : 'No',
             }
           ]
         });
@@ -82,7 +84,7 @@ exports.run = (client, message, args, level) => {
       }
     }
   } catch (err) {
-    message.channel.send('There was an error!\n' + err.stack).catch();
+    message.channel.send('Their was an error!\n' + err.stack).catch();
   }
 };
 

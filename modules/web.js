@@ -28,6 +28,7 @@ const initWeb = (client) => {
   app.use('/', require('../dash/routes/index'));
   app.use('/login', require('../dash/routes/discord'));
   app.use('/guild', require('../dash/routes/server'));
+  app.use('/money', require('../dash/routes/money'));
   app.use('/servers', require('../dash/routes/servers'));
   app.get('/desudesu', (req, res) => res.send('<script>window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";</script>'));
   app.get('/invite', (req, res) => res.send('<script>window.location.href = "https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot";</script><noscript><a href="https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot">https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot</a></noscript>'));
@@ -39,7 +40,7 @@ const initWeb = (client) => {
         'stats': {
           'ram': `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`,
           'uptime': `${duration}`,
-          'users': `${client.users.size.toLocaleString()}`,
+          'users': `${client.users.size}`,
           'servers': `${client.guilds.size.toLocaleString()}`,
           'channels': `${client.channels.size.toLocaleString()}`,
           'status': `${client.user.presence.status}`,

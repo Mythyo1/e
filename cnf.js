@@ -4,10 +4,8 @@ const config = {
   'admins': ['463051744071516201'],
   'developers': ['476875063145005070'],
   'mods': ['437698252381487104'],
-  'flexing': 'all the way',
-  'codequality': 100,
   'support': [],
-  'helpers': ['339903300994596884', '277872422760349696', '355026215137968129'],
+  'helpers': [],
   
   'blacklisted': ['251213730577252354'],
   'globalBan': require('./data/GlobalBans'),

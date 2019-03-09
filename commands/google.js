@@ -1,14 +1,26 @@
 const Discord = require('discord.js');
+const google = require('google');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  try {
-    let embed = new Discord.RichEmbed()
-    .setTitle(args.join(' '))
-    .setURL('https://lmgtfy.com/?q=' + args.join('+'))
-    .setDescription('How to google "' + args.join(' ') + '"')
-    .setColor('#eeeeee');
+  try { 
+    google.resultsPerPage = 5;
 
-    message.channel.send(embed);
+    google(args.join(' '), (err, res) => {
+      if (err) return message.channel.send('There was an error!\n' + err);
+      
+      if (!res.links[0].href) return message.reply('I couldent find anything for your search term!');
+      
+      let link = res.links[0];
+      
+      let embed = new client.Embed('normal', {
+        title: link.title,
+        url: link.href,
+        footer: link.href,
+        description: client.truncate(link.description, 2000)
+      });
+      
+      message.channel.send(embed);
+    });
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }

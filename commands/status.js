@@ -12,7 +12,7 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
       .setDescription(`
 RAM Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
 Uptime: ${duration}
-Users: ${client.users.size.toLocaleString()}
+Users: ${client.users.size}
 Servers: ${client.guilds.size.toLocaleString()}
 Channels: ${client.channels.size.toLocaleString()}
 Status: ${client.user.presence.status}
@@ -27,7 +27,7 @@ Voice Connections: ${client.voiceConnections.size}`)
       message.channel.send(embed);
     });
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 

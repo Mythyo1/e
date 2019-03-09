@@ -1,7 +1,5 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (!message.channel.nsfw) return message.reply('You need to be in a channel marked as NSFW');
-
     let hentai = await client.nekoslife.nsfw.randomHentaiGif();
     let embed = new client.Embed('blend', {
       title: 'Hentai',
@@ -18,7 +16,8 @@ exports.conf = {
   enabled: true,
   aliases: [],
   guildOnly: false,
-  permLevel: 'User'
+  permLevel: 'User',
+  nsfw: true
 };
 
 exports.help = {

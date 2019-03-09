@@ -6,13 +6,12 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     
     let embed = new Discord.RichEmbed()
     .setTitle(user.user.username)
-    .setDescription(`
-ID: ${user.id}
+    .setDescription(`ID: ${user.id}
 Name: ${user.user.username}
 Icon URL: ${user.user.avatarURL}
 Account Created At: ${user.user.createdAt}
 Game: ${user.user.presence.game || 'none'}
-Status: ${user.user.presence.status}
+Status: ${user.user.presence.status.toUpperCase()}
 Full Name: ${user.user.tag}`)
     .setThumbnail(user.user.avatarURL)
     .setColor('#eeeeee');

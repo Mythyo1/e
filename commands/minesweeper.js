@@ -82,7 +82,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     
     message.channel.send(minesweeper.start());
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 

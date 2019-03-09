@@ -45,7 +45,7 @@ exports.run = async (client, message, args, level) => {
       } else message.reply('You didn\'t mention the user to mute!');
     } else message.reply('You didint specify the time to mute the member or the time is invalid!');
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 
