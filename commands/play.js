@@ -8,19 +8,22 @@ const MusicStream = (message, connection, client) => {
   
   let server = client.music[message.guild.id];
   
-  server.dispatcher = connection.playStream(ytdl(client.music[message.guild.id].queue[0]), {volume: 0.5});
+  server.dispatcher = connection.playStream(ytdl(server.queue[0]), {volume: 0.5});
   server.dispatcher.song = client.music[message.guild.id].queue[0];
   
   server.dispatcher.on('end', () => {
     server.dispatcher.song = null;
     server.dispatcher = null;
     
-    if (!server.queue[0]) return connection.disconnect();
     
-    if (!server.loop && !server.loopqueue) server.queue.shift();
     if (server.loopqueue) {
       server.queue.push(server.queue[0]);
-      server.queue.shift();
+    }
+    if (!server.loop && !server.loopqueue) server.queue.shift();
+    
+    if (!server.queue[0]) {
+      server.queue = [];
+      return connection.disconnect();
     }
     
     return MusicStream(message, connection, client);

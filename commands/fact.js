@@ -3,10 +3,10 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args, level) => {
   try {
     require('request')({url: 'https://nekos.life/api/v2/fact', json: true}, (req, res, json) => {
-      let embed = new Discord.RichEmbed()
-      .setTitle('Fun Fact')
-      .setColor('#363942')
-      .setDescription(json.fact);
+      let embed = new client.Embed('blend', {
+        title: 'Fun Fact',
+        description: json.fact
+      });
       
       message.channel.send(embed);
     });

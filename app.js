@@ -37,6 +37,10 @@ client.music = {};
 const NekosLifeAPI = require('nekos.life');
 client.nekoslife = new NekosLifeAPI();
 
+//Define Lolis.life API
+const LolisLifeAPI = require('lolis.life');
+client.lolislife = new LolisLifeAPI();
+
 //Generate Session secret
 process.env.SESSION_SECRET = '';
 for (let i = 0; i <= 1000; i++)
@@ -51,7 +55,7 @@ client.logger = require('./modules/Logger');
 client.config = require('./cnf');
 require('./modules/commands')(client);
 require('./modules/events')(client);
-require('./modules/functions')(client);
+require('./modules/_functions')(client);
 
 //Cache the permissions
 for (let i = 0; i < client.config.permLevels.length; i++) {

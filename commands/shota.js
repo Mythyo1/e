@@ -1,11 +1,13 @@
+const Discord = require('discord.js');
+
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    let baka = await client.nekoslife.sfw.baka();
+    let shota = await client.lolislife.getSFWShota();
     
-    let embed = new client.embed('blend', {
-      title: 'Baka',
-      image: baka.url
-    });
+    let embed = new Discord.RichEmbed()
+    .setTitle('Shota')
+    .setImage(shota.url)
+    .setColor('#363942');
 
     message.channel.send(embed);
   } catch (err) {
@@ -21,8 +23,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'baka',
+  name: 'shota',
   category: 'Weeb',
-  description: 'Returns a baka',
-  usage: 'baka'
+  description: 'Returns a SFW Shota',
+  usage: 'shota'
 };

@@ -5,12 +5,25 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try { 
     google.resultsPerPage = 5;
 
-    google(args.join(' '), (err, res) => {
+    google(args.join(' '), async (err, res) => {
       if (err) return message.channel.send('There was an error!\n' + err);
       
       if (!res.links[0].href) return message.reply('I couldent find anything for your search term!');
       
-      let link = res.links[0];
+      let output = '';
+      let i = 1;
+      
+      res.links.forEach(async (l) => {
+        output += '\n' + i + '. ' + l.title;
+        i++;
+      });
+      
+            
+      let page = await client.awaitReply(message, `Please choose the Result you want${output}`);
+      if (isNaN(page)) return message.reply('Thats not a number!');
+      let pagenum = Number(page) - 1;
+      
+      let link = res.links[pagenum];
       
       let embed = new client.Embed('normal', {
         title: link.title,

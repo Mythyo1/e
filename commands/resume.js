@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars  
   try {
-    var server = client.music[message.guild.id];
+    let server = client.music[message.guild.id];
     if (server) {
       if (server.dispatcher) {
         server.dispatcher.resume()

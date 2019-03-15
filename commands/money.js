@@ -7,6 +7,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     
     let money = client.money.get(message.author.id, 'money');
     let stone = client.money.get(message.author.id, 'stone');
+    
     message.channel.send(`You have \$${money}
 and ${stone} stone`);
   } catch (err) {

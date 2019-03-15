@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     });
     else i.push(message.mentions.members.first());
 
-    let member = i[Math.floor(Math.random() * i.length + 1) - 1];
+    let member = i.random();
     await message.channel.send(new client.Embed('normal', {
       title: 'Ship',
       description: message.author.username + ' x ' + member.user.username,

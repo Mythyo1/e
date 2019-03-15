@@ -5,12 +5,10 @@ let cryGifs = [
 ];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  try {    
-    let i = Math.floor(Math.random() * cryGifs.length + 1) - 1;
-    
+  try {        
     let embed = new client.Embed('blend', {
       title: message.author.username + ' cried',
-      image: cryGifs[i]
+      image: cryGifs.random()
     });
 
     message.channel.send(embed);
