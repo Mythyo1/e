@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
-exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
+exports.run = async (client, message, args, level) => {
   try {
-    message.channel.send(new Discord.Attachment('https://im5.ezgif.com/tmp/ezgif-5-4468d259ce0a.gif'));
+    message.channel.send(new Discord.Attachment('https://cdn.discordapp.com/attachments/502236124308307968/556413748416479242/images16.gif'));
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -16,8 +16,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'nou',
+  name: 'gamergirl',
   category: 'Fun',
-  description: 'Returns a No U gif',
-  usage: 'nou'
+  description: 'Gamer girls',
+  usage: 'gamergirl'
 };

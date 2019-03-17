@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header.ejs') %>
+<body>
+  <%- include('partials/navbar.ejs') %>
+  
+  <div>
+    <% let cmd = djsclient.commands.get(command); %>
+    <h2><%= cmd.help.name %></h2>
+    <br>
+    <p>
+      <%= cmd.help.description} %>
+      <br>
+      Usage: <%= cmd.help.usage %>
+      <br>
+      Aliases: <%= cmd.conf.aliases.join(' | ') || 'none' %>
+    </p>
+    <br><br>
+    <h3>
+      Permission Level
+      <br>
+      <%= djsclient.levelCache[cmd.conf.permLevel] %> - <%= cmd.conf.permLevel %>
+    </h3>
+    <br><br>
+    <h3>
+      Category
+      <br>
+      <%= cmd.help.category %>
+    </h3>
+    <br><br>
+    <h3>
+      Guild Only
+      <br>
+      <%= cmd.conf.guildOnly ? 'Yes' : 'No' %>
+    </h3>
+    <br><br>
+    <h3>
+      Enabled
+      <br>
+      <%= cmd.conf.enabled ? 'Yes' : 'No' %>
+    </h3>
+    <br><br>
+    <h3>
+      NSFW
+      
+      <%= cmd.conf.nsfw ? 'Yes' : 'No' %>
+    </h3>
+  </div>
+</body>
+</html>

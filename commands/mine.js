@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const cooldown = new Discord.Collection();
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
@@ -8,11 +7,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       stone: 250
     });
     
-    if (cooldown.has(message.author.id)) return message.reply('You need to wait 10 minutes to mine again!');
-    else cooldown.set(message.author.id, true);
+    if (client.minecooldown.has(message.author.id)) return message.reply('You need to wait 10 minutes to mine again!');
+    else client.minecooldown.set(message.author.id, true);
     
     setTimeout(async () => {
-      cooldown.delete(message.author.id);
+      client.minecooldown.delete(message.author.id);
     }, 600000);
     
     let stone = client.money.get(message.author.id, 'stone');

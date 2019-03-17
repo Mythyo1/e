@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     if (!args[0]) return message.reply('You need to input somthing to make an achievement!');
     
-    message.channel.send(new Discord.Attachment('https://www.minecraftskinstealer.com/achievement/a.php?i=20&h=Achievment+Get!&t=' + args.join('+').replace('#', '%23'), 'mc.png'))  
+    message.channel.send(new Discord.Attachment(encodeURI('https://www.minecraftskinstealer.com/achievement/a.php?i=20&h=Achievment+Get!&t=' + args.join('+').replace('#', '%23'), 'mc.png')))  
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -12,13 +12,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['mcs'],
+  aliases: ['mca'],
   guildOnly: false,
   permLevel: 'User'
 };
 
 exports.help = {
-  name: 'achievement',
+  name: 'mcachievement',
   category: 'Fun',
   description: 'Creates an achievement from Minecraft',
   usage: 'achievement <string>'

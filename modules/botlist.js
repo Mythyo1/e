@@ -1,6 +1,6 @@
 const request = require('request');
 
-module.exports = (client) => {
+module.exports = async (client) => {
   const options = {
     url: 'https://discordbotlist.com/api/bots/' + client.user.id + '/stats',
     json: {

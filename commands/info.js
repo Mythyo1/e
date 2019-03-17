@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     const embed = new Discord.RichEmbed()
     .setColor('#eeeeee')
     .setTitle('Cytrus Github')
-    .setFooter('Made by CelestialCrafter#0770 and EnderGirlGamer#5370')
+    .setFooter('Made by CelestialCrafter#6830 and EnderGirlGamer#5370')
     .setDescription(`Github: [Production Github](https://github.com/CelestialCrafter/cytrus)
 Website: [Website](https://cytrus.ga)
 API: [API](https://api.cytrus.ga/api)

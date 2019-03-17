@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const Kitsu = require('node-weeb').anime;
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars

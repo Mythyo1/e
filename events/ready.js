@@ -27,12 +27,14 @@ module.exports = async client => {
   client.logger.log(`Channels: ${client.channels.size.toLocaleString()}`, 'ready');
   client.logger.log(`Discord.js: v${require('discord.js').version}`, 'ready');
   client.logger.log(`Node.js: ${process.version}`, 'ready');
-  client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
     
   //Starts the web server/API
-  require('../modules/web')(client);
+  await require('../modules/web')(client);
 
   //Post stats to the bot list
-  require('../modules/botlist')(client);
+  await require('../modules/botlist')(client);
   
+  client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
+  client.startuptime = new Date().getTime() - client.startup;
+  client.logger.log('It took ' + client.startuptime + 'ms to start Cytrus');
 };

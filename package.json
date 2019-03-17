@@ -1,6 +1,6 @@
 {
   "name": "cytrus",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/CelestialCrafter/cytrus"
   },
-  "author": "CelestialCrafter#0001, EnderGirlGamer#5370",
+  "author": "CelestialCrafter#6830, EnderGirlGamer#5370",
   "license": "MIT",
   "dependencies": {
     "better-sqlite-pool": "^0.2.2",

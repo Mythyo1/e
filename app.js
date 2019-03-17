@@ -15,6 +15,9 @@ const client = new Discord.Client({
   disabledEvents: ['TYPING_START']
 });
 
+//Define time of Startup
+client.startup = new Date().getTime();
+
 //Define Databases/Objects
 client.items = new Enmap({name: 'glptmitems'});
 client.money = new Enmap({name: 'glptm'});
@@ -25,8 +28,10 @@ client.spotify = new Enmap({name: 'spotify'});
 client.settings = new Enmap({name: 'settings'});
 client.notes = new Enmap({name: 'notes'});
 client.bugs = new Enmap({name: 'bugreports'});
+client.starboard = new Enmap({name: 'starboardmid'});
 client.warns = new Enmap({name: 'warns'});
 client.tags = new Enmap({name: 'tags'});
+client.minecooldown = new Discord.Collection();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.liusers = new Discord.Collection();

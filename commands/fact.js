@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 exports.run = async (client, message, args, level) => {
   try {
     require('request')({url: 'https://nekos.life/api/v2/fact', json: true}, (req, res, json) => {

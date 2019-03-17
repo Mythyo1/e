@@ -19,10 +19,23 @@
 
         djsclient.money.set(user.id, 0, 'stone');
         djsclient.money.set(user.id, money + Math.floor(stone), 'money');
-      };    
+      };
+    
+      const mineStone = () => {
+        if (djsclient.minecooldown.has(user.id)) return;
+        else djsclient.minecooldown.set(user.id, true);
+
+        setTimeout(async () => {
+          djsclient.minecooldown.delete(user.id);
+        }, 600000);
+
+        let stone = djsclient.money.get(user.id, 'stone');
+        djsclient.money.set(user.id, stone + Math.floor(Math.random() * 100 + 1), 'stone');
+      };
     %>
     
     <button onclick="<%= sellStone() %>" style="margin-top: 10px;margin-left: 21px;padding: 20px;color: #FFFFFF;background-color: #23272A;border: none;">Sell All Stone</button>
+    <button onclick="<%= mineStone() %>" style="margin-top: 10px;margin-left: 21px;padding: 20px;color: #FFFFFF;background-color: #23272A;border: none;">Mine Stone</button>
     <center>
       <h2>
         Money

@@ -3,14 +3,23 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let fetched = await message.channel.fetchMessage(args[0]);
+    let afiles = [];
     
-    let embed = new Discord.RichEmbed()
-    .setTitle(fetched.id)
-    .setColor('#eeeeee')
-    .setURL(fetched.url)
-    .setThumbnail(fetched.author.avatarURL)
-    .setDescription(fetched.content)
-    .setFooter('Message created by ' + fetched.author.tag);
+    fetched.attachments.forEach((attachment) => {
+      afiles.push({
+        name: attachment.filename,
+        attachment: attachment.url
+      });
+    });
+    
+    let embed = new client.Embed('normal', {
+      title: fetched.id,
+      url: fetched.url,
+      thumbnail: fetched.author.avatarURL,
+      footer: 'Message created by ' + fetched.author.tag,
+      description: fetched.content || 'No Message',
+      files: afiles
+    });
     
     message.channel.send(embed);
   } catch (err) {

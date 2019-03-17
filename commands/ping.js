@@ -1,4 +1,3 @@
-
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let msg = await message.channel.send('<@'+message.author.id+'>');

@@ -48,13 +48,14 @@ const initWeb = (client) => {
           'discord1js': `v${require('discord.js').version}`,
           'cpu_usage': `${Math.round(stats.cpu)}%`,
           'node1js': `${process.version}`,
+          'startup_time': `${client.startuptime}ms`,
           'voice_connections': `${client.voiceConnections.size}`,
           'dependencies': `${Object.keys(require('../package').dependencies).length}`
         }
       });
     });
   });
-  app.get('/commands', (req, res) => res.render('../views/commands.ejs', {user: req.session.user, djsclient: client}));
+  app.get('/commands', (req, res) => require('../dash/routes/commands'));
   app.get('/api', (req, res) => res.sendFile('/app/views/api/docs.html'));
   app.get('/api/invite', (req, res) => res.send({status: 200, invite: 'https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8'}));
   app.get('/api/server', (req, res) => res.send({status: 200, server: 'https://discord.gg/VfTE9GH'}));
