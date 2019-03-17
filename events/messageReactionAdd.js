@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 const Star = class {
   constructor(client) {
     this.client = client;

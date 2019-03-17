@@ -29,10 +29,10 @@ module.exports = async client => {
   client.logger.log(`Node.js: ${process.version}`, 'ready');
     
   //Starts the web server/API
-  await require('../modules/web')(client);
+  require('../modules/web')(client);
 
   //Post stats to the bot list
-  await require('../modules/botlist')(client);
+  require('../modules/botlist')(client);
   
   client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
   client.startuptime = new Date().getTime() - client.startup;
