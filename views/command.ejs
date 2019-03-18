@@ -4,47 +4,26 @@
 <body>
   <%- include('partials/navbar.ejs') %>
   
-  <div>
+  <center>
     <% let cmd = djsclient.commands.get(command); %>
     <h2><%= cmd.help.name %></h2>
-    <br>
     <p>
-      <%= cmd.help.description} %>
+      <%= cmd.help.description %>
       <br>
-      Usage: <%= cmd.help.usage %>
+      <b>Usage</b>: <%= cmd.help.usage %>
       <br>
-      Aliases: <%= cmd.conf.aliases.join(' | ') || 'none' %>
+      <b>Aliases</b>: <%= cmd.conf.aliases.join(' | ') || 'none' %>
+      <br>
+      <b>Permission Level</b>: <%= djsclient.levelCache[cmd.conf.permLevel] %> - <%= cmd.conf.permLevel %>
+      <br>
+      <b>Category</b>: <%= cmd.help.category %>
+      <br>
+      <b>Guild Only</b>: <%= cmd.conf.guildOnly ? 'Yes' : 'No' %>
+      <br>
+      <b>Enabled</b>: <%= cmd.conf.enabled ? 'Yes' : 'No' %>
+      <br>
+      <b>NSFW</b>: <%= cmd.conf.nsfw ? 'Yes' : 'No' %>
     </p>
-    <br><br>
-    <h3>
-      Permission Level
-      <br>
-      <%= djsclient.levelCache[cmd.conf.permLevel] %> - <%= cmd.conf.permLevel %>
-    </h3>
-    <br><br>
-    <h3>
-      Category
-      <br>
-      <%= cmd.help.category %>
-    </h3>
-    <br><br>
-    <h3>
-      Guild Only
-      <br>
-      <%= cmd.conf.guildOnly ? 'Yes' : 'No' %>
-    </h3>
-    <br><br>
-    <h3>
-      Enabled
-      <br>
-      <%= cmd.conf.enabled ? 'Yes' : 'No' %>
-    </h3>
-    <br><br>
-    <h3>
-      NSFW
-      
-      <%= cmd.conf.nsfw ? 'Yes' : 'No' %>
-    </h3>
-  </div>
+  </center>
 </body>
 </html>

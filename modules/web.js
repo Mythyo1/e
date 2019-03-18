@@ -30,7 +30,15 @@ const initWeb = (client) => {
   app.use('/guild', require('../dash/routes/server'));
   app.use('/money', require('../dash/routes/money'));
   app.use('/servers', require('../dash/routes/servers'));
-  app.get('/desudesu', (req, res) => res.send('<script>window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";</script>'));
+  app.get('/commands', (req, res) => {
+    if (!req.session.user || req.session.guild) res.redirect('/');
+  
+    if (req.query.command) {
+      if (!client.commands.has(req.query.command)) return res.redirect('/commands');
+
+      return res.render('command', {user: req.session.user, guilds: req.session.guilds, djsclient: client, command: req.query.command});
+    } else return res.render('commands', {user: req.session.user, guilds: req.session.guilds, djsclient: client});
+  });
   app.get('/invite', (req, res) => res.send('<script>window.location.href = "https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot";</script><noscript><a href="https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot">https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot</a></noscript>'));
   app.get('/status', (req, res) => {
     require('pidusage')(process.pid, (err, stats) => {
@@ -55,7 +63,6 @@ const initWeb = (client) => {
       });
     });
   });
-  app.get('/commands', (req, res) => require('../dash/routes/commands'));
   app.get('/api', (req, res) => res.sendFile('/app/views/api/docs.html'));
   app.get('/api/invite', (req, res) => res.send({status: 200, invite: 'https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8'}));
   app.get('/api/server', (req, res) => res.send({status: 200, server: 'https://discord.gg/VfTE9GH'}));

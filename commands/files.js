@@ -1,4 +1,4 @@
-const exec = require('child_process').exec
+const exec = require('child_process').exec;
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     const execute = (command) => {

@@ -53,7 +53,7 @@ for (let i = 0; i <= 1000; i++)
   .toString(16)
   .slice(2, 8)
   .toUpperCase()
-  .slice(-6);
+  .slice(-6) + i;
 
 //Import files
 client.logger = require('./modules/Logger');

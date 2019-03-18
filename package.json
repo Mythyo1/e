@@ -1,6 +1,6 @@
 {
   "name": "cytrus",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {

@@ -1,11 +1,13 @@
 const Discord = require('discord.js');
-const { version } = require('discord.js');
 const moment = require('moment');
+const cpu = require('pidusage');
+const { version } = require('discord.js');
 require('moment-duration-format');
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    require('pidusage')(process.pid, (err, stats) => {
+    cpu(process.pid, async (err, stats) => {
+      const diskspace = await disk.check('/app').free;
       const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
       const embed = new Discord.RichEmbed()
       .setTitle('Cytrus Status')
