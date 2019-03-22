@@ -3,11 +3,14 @@
 //Check if the node version is 10.0.0+
 if (Number(process.version.slice(1).split('.')[0]) < 10) throw new Error('NodeJS 10.0.0 or higher is required. Re-run this with NodeJS 10.0.0+');
 
+
 if (process.env.PREBOOT) eval(process.env.PREBOOT);
 
 //Define NPM modules
-const Enmap = require('enmap');
 const Discord = require('discord.js');
+const Enmap = require('enmap');
+const NekosLifeAPI = require('nekos.life');
+const LolisLifeAPI = require('lolis.life');
 
 //Define client
 const client = new Discord.Client({
@@ -39,11 +42,9 @@ client.levelCache = {};
 client.music = {};
 
 //Define Nekos.life API
-const NekosLifeAPI = require('nekos.life');
 client.nekoslife = new NekosLifeAPI();
 
 //Define Lolis.life API
-const LolisLifeAPI = require('lolis.life');
 client.lolislife = new LolisLifeAPI();
 
 //Generate Session secret
@@ -73,3 +74,4 @@ client.login(process.env.BOT_TOKEN);
 
 //Export the client
 module.exports = client;
+

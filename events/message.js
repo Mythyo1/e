@@ -21,9 +21,6 @@ module.exports = async (client, message) => {
     return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
   }
   
-  let args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
-  let command = args.shift().toLowerCase();
-  
   if (message.guild) {
     if (client.tags.has(message.guild.id)) {
       Object.keys(client.tags.get(message.guild.id)).forEach(tagid => {
@@ -36,6 +33,8 @@ module.exports = async (client, message) => {
   
   if (message.content.toLowerCase().indexOf(settings.prefix.toLowerCase()) !== 0) return;
   
+  let args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+  let command = args.shift().toLowerCase();
   
 
   let level = client.permlevel(message);
@@ -69,7 +68,7 @@ This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf
     message.flags.push(args.shift().slice(1));
   }
 
-  if (!cmd.conf.enabled === true) return;
+  if (!cmd.conf.enabled) return message.reply('This command is not enabled!');
    
   try {
     cmd.run(client, message, args, level);

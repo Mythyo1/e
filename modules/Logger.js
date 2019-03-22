@@ -1,7 +1,9 @@
 const zaq = require('zaq');
+const Discord = require('discord.js');
 const beautify = require('js-beautify').js;
 const moment = require('moment');
 
+const webhook = new Discord.WebhookClient(process.env.LOG_WEBHOOK_ID, process.env.LOG_WEBHOOK_TOKEN);
 const cytrus = zaq.as('Cytrus');
 
 exports.log = (content, type = 'log') => {
@@ -11,30 +13,21 @@ exports.log = (content, type = 'log') => {
       return cytrus.info(content);
       break;
     case 'warn':
-      return cytrus.warn(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
+      cytrus.warn(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
         executionTime: timestamp,
         sessionId: process.pid
       });
+      
+      return webhook.send('Warn:\n' + content);
       break;
     case 'error':
-      if (content) return;
-      return cytrus.err(content, {
-        executionTime: timestamp,
-        sessionId: process.pid,
-        error: content
-      });
+      return cytrus.err(String(content));
       break;
     case 'debug':
-      return cytrus.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
-        executionTime: timestamp,
-        sessionId: process.pid
-      });
+      return cytrus.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }));
       break;
     case 'ready':
-      return cytrus.ok(beautify(content, { indent_size: 2, space_in_empty_paren: true }), {
-        executionTime: timestamp,
-        sessionId: process.pid
-      });
+      return cytrus.ok(beautify(content, { indent_size: 2, space_in_empty_paren: true }));
       break;
     case 'user':
       return console.log(`${timestamp} ${content}`);

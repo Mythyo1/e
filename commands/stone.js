@@ -23,8 +23,8 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'money',
+  name: 'stone',
   category: 'Money',
   description: 'Returns how much money you have',
-  usage: 'money'
+  usage: 'stone'
 };

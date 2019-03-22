@@ -37,5 +37,7 @@ module.exports = (client) => {
       
       i++;
     });
+    
+    console.log();
   });
 };

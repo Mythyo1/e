@@ -26,10 +26,11 @@ const initWeb = (client) => {
   app.use(bodyParser.urlencoded({ extended: true }));
   
   app.use('/', require('../dash/routes/index'));
-  app.use('/login', require('../dash/routes/discord'));
+  app.use('/authorization', require('../dash/routes/discord'));
   app.use('/guild', require('../dash/routes/server'));
   app.use('/money', require('../dash/routes/money'));
   app.use('/servers', require('../dash/routes/servers'));
+  app.use('/status', require('../dash/routes/status'));
   app.get('/commands', (req, res) => {
     if (!req.session.user || req.session.guild) res.redirect('/');
   
@@ -40,30 +41,7 @@ const initWeb = (client) => {
     } else return res.render('commands', {user: req.session.user, guilds: req.session.guilds, djsclient: client});
   });
   app.get('/invite', (req, res) => res.send('<script>window.location.href = "https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot";</script><noscript><a href="https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot">https://discordapp.com/oauth2/authorize?client_id=526593597118873620&permissions=8&scope=bot</a></noscript>'));
-  app.get('/status', (req, res) => {
-    require('pidusage')(process.pid, (err, stats) => {
-      const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
-      res.render('../views/status.ejs', {
-        'user': req.session.user,
-        'stats': {
-          'ram': `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`,
-          'uptime': `${duration}`,
-          'users': `${client.users.size}`,
-          'servers': `${client.guilds.size.toLocaleString()}`,
-          'channels': `${client.channels.size.toLocaleString()}`,
-          'status': `${client.user.presence.status}`,
-          'game': `${client.user.presence.game}`,
-          'discord1js': `v${require('discord.js').version}`,
-          'cpu_usage': `${Math.round(stats.cpu)}%`,
-          'node1js': `${process.version}`,
-          'startup_time': `${client.startuptime}ms`,
-          'voice_connections': `${client.voiceConnections.size}`,
-          'dependencies': `${Object.keys(require('../package').dependencies).length}`
-        }
-      });
-    });
-  });
-  app.get('/api', (req, res) => res.sendFile('/app/views/api/docs.html'));
+  app.use('/api', require('../dash/routes/api'));
   app.get('/api/invite', (req, res) => res.send({status: 200, invite: 'https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8'}));
   app.get('/api/server', (req, res) => res.send({status: 200, server: 'https://discord.gg/VfTE9GH'}));
   app.get('/api/client_id', (req, res) => res.send({status: 200, client_id: '526593597118873620'}));
@@ -90,7 +68,6 @@ const initWeb = (client) => {
   app.use((req, res) => {
     res.status(404).send({status: 404, error: 'Page Not Found'});
   });
-  
   
   app.listen(port, () => logger.log('Web server started.', 'ready'));
 };

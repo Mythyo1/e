@@ -1,5 +1,8 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
+    if (!args[1]) return message.reply('You need to input the channel type!');
+    if (!args[0]) return message.reply('You need to input the channel name!');
+    
     message.channel.send('I\'ve created the channel!').then(() => {
       message.guild.createChannel(args[1], args[0], []).catch((err) => {
         message.channel.send('There was an error!')
@@ -12,14 +15,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['cr'],
+  aliases: ['crc'],
   guildOnly: true,
   permLevel: 'Administrator'
 };
 
 exports.help = {
-  name: 'create',
+  name: 'createchannel',
   category: 'Moderation',
   description: 'Creates a channel in the server.',
-  usage: 'create <voice, text> <name>'
+  usage: 'createchannel <voice, text> <name>'
 };

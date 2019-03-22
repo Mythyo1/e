@@ -17,7 +17,7 @@ const leet = (string) => {
 exports.run = async (client, message, args, level) => {
   try {
     if (!args[0]) {
-      message.channel.send('You must provide a message to OwOify!');
+      message.channel.send('You must provide a message to Leetify!');
     } else message.channel.send(leet(args.join(' ')));
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();

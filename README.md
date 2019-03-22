@@ -14,6 +14,7 @@ CLIENT_SECRET='`YourClientSecret`'
 KSOFT_TOKEN='`YourKSoft.siToken`'
 KSOFT_AUTHENTICATION='`YourKSoft.siAuthentication`'
 IPINFO_API_KEY='`YourIpinfo.ioAPIKey`'
+GITHUB_TOKEN='`YourGithubToken`'
 PREBOOT='/*JavaScript Code*/'
 ```
 > Start the app.js file  
