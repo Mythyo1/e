@@ -14,7 +14,7 @@ const posibleAnswers = [
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (args[0]) message.channel.send(posibleAnswers.radom());
+    if (args[0]) message.channel.send(posibleAnswers.random());
     else message.reply('You need to provide the question!');
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();

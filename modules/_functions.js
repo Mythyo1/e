@@ -59,9 +59,7 @@ module.exports = (client) => {
   client.loadCommand = (commandName) => {
     try {
       const props = require(`../commands/${commandName}`);
-      if (props.init) {
-        props.init(client);
-      }
+      if (props.init) props.init(client);
       
       client.commands.set(props.help.name, props);
       props.conf.aliases.forEach(alias => {
@@ -75,20 +73,18 @@ module.exports = (client) => {
 
   client.unloadCommand = async (commandName) => {
     let command;
-    if (client.commands.has(commandName)) {
-      command = client.commands.get(commandName);
-    }
+    if (client.commands.has(commandName) || client.aliases.has(commandName)) command = client.commands.get(commandName) || client.aliases.get(commandName);
     
     if (!command) return `The command \`${commandName}\` doesn't seem to exist. Try again!`;
   
-    await client.commands.get(commandName).conf.aliases.forEach(alias => {
+    await command.conf.aliases.forEach(alias => {
       client.aliases.delete(alias);
     });
     
-    client.commands.delete(commandName);
+    client.commands.delete(command.help.name);
     
-    const mod = require.cache[require.resolve(`../commands/${commandName}`)];
-    delete require.cache[require.resolve(`../commands/${commandName}.js`)];
+    const mod = require.cache[require.resolve(`../commands/${command.help.name}`)];
+    delete require.cache[require.resolve(`../commands/${command.help.name}.js`)];
     for (let i = 0; i < mod.parent.children.length; i++) {
       if (mod.parent.children[i] === mod) {
         mod.parent.children.splice(i, 1);

@@ -3,8 +3,6 @@ const express = require('express');
 const request = require('request');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const moment = require('moment');
-require('moment-duration-format');
 
 const logger = require('/app/modules/Logger');
 

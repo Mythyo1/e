@@ -1,6 +1,6 @@
 {
   "name": "cytrus",
-  "version": "2.3.6",
+  "version": "2.3.7",
   "description": "A multipurpose bot to handle all your needs.",
   "main": "app.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "dependencies": {
     "better-sqlite-pool": "^0.2.2",
     "better-sqlite3": "^5.4.0",
+    "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "cryptr": "^5.0.0",
     "discord.js": "^11.4.2",
@@ -32,6 +33,9 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "ffmpeg-binaries": "^4.0.0",
+    "google": "^2.1.0",
+    "js-beautify": "^1.8.9",
+    "lolis.life": "^4.0.0",
     "mathjs": "^5.8.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
@@ -44,7 +48,9 @@
     "numeral": "^2.0.6",
     "one-liner-joke": "^1.2.0",
     "pidusage": "^2.0.17",
+    "random-image-generator": "^1.0.2",
     "request": "^2.88.0",
+    "rhyme": "^0.0.3",
     "safe-eval": "^0.4.1",
     "txtgen": "^2.2.2",
     "urban-dictionary": "^2.2.1",
@@ -53,11 +59,8 @@
     "ytdl-getinfo": "^1.1.0",
     "ytsearcher": "^1.2.2",
     "zaq": "^2.1.3",
-    "js-beautify": "^1.8.9",
-    "body-parser": "^1.18.3",
-    "google": "^2.1.0",
-    "lolis.life": "^4.0.0",
-    "rhyme": "^0.0.3"
+    "sjotorp_image": "^1.1.0",
+    "cheerio": "^0.22.0"
   },
   "devDependencies": {
     "eslint": "^5.14.0"
