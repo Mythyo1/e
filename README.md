@@ -15,6 +15,8 @@ KSOFT_TOKEN='`YourKSoft.siToken`'
 KSOFT_AUTHENTICATION='`YourKSoft.siAuthentication`'
 IPINFO_API_KEY='`YourIpinfo.ioAPIKey`'
 GITHUB_TOKEN='`YourGithubToken`'
+CLEVERBOT_API_KEY='`YourCleverBot.ioAPIKey'
+CLEVERBOT_USER_KEY='`YourCleverBot.ioUserKey`'
 PREBOOT='/*JavaScript Code*/'
 ```
 > Start the app.js file  
