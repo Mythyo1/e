@@ -1,6 +1,8 @@
 const request = require('request');
 
 module.exports = async (client) => {
+  if (!process.env.BOT_LIST_TOKEN) return;
+  
   const options = {
     url: 'https://discordbotlist.com/api/bots/' + client.user.id + '/stats',
     json: {

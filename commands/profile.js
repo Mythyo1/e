@@ -9,7 +9,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
           let passwordRaw = await client.awaitReply(message, 'What do you want as your password?');
           let passwordRawConfirm = await client.awaitReply(message, 'Confirm your password');
           if (passwordRaw !== passwordRawConfirm) return message.channel.send('Your password does not match the confirmation.');
-          let password = crypto.createHash('sha256').update(passwordRawConfirm).digest("hex");
+          let password = crypto.createHash('sha256').update(passwordRawConfirm).digest('hex');
 
           let msg = await message.channel.send('Creating profile...');
           client.logins.set(message.author.id, password);
@@ -21,7 +21,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     } else if (args[0] == 'login') {
       if (!message.guild) {
         let passwordRaw = await client.awaitReply(message, 'What is your password?');
-        let password = crypto.createHash('sha256').update(passwordRaw).digest("hex");
+        let password = crypto.createHash('sha256').update(passwordRaw).digest('hex');
         let msg = await message.channel.send('Logging in...');
 
         if (password == client.logins.get(message.author.id)) {
@@ -31,7 +31,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       }
 
       else message.channel.send('Profile login is unavailable via a guild. Please run this command in DM\'s.');
-    } if (args[0] == 'logout') {
+    }
+    
+    if (args[0] == 'logout') {
       let msg = await message.channel.send('Logging out...');
       
       if (client.liusers.get(message.author.id)) {
@@ -47,7 +49,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
             let passwordRawConfirm = await client.awaitReply(message, 'Confirm your password');
             if (passwordRaw !== oldPasswordRaw) return message.channel.send('Your new password does not match the old password.');
             if (passwordRaw !== passwordRawConfirm) return message.channel.send('Your new password does not match the confirmation.');
-            let password = crypto.createHash('sha256').update(passwordRawConfirm).digest("hex");
+            let password = crypto.createHash('sha256').update(passwordRawConfirm).digest('hex');
 
             let msg = await message.channel.send('Changing password..');
             client.logins.set(message.author.id, password);

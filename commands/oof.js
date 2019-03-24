@@ -2,13 +2,13 @@ exports.run = async (client, message, args, level) => {
   try {
     message.channel.send('oof');
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: ['rbdeath'],
+  aliases: ['rbdeath', 'robloxdeath'],
   guildOnly: false,
   permLevel: 'User'
 };
