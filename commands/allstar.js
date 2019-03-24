@@ -8,7 +8,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: [as, shrek, astar],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -16,6 +16,6 @@ exports.conf = {
 exports.help = {
   name: 'allstar',
   category: 'Fun',
-  description: 'Returns All Star',
+  description: 'Returns the All Star music video',
   usage: 'allstar'
 };
