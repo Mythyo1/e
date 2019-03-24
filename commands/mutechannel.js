@@ -1,7 +1,10 @@
 exports.run = async (client, message, args, level) => {
   try {
-    await message.channel.send('Muting Chat...');
-    client.raids.set(message.guild.id, true);
+    await message.channel.send('Muting Channel...');
+    
+    message.channel.overwritePermissions(message.guild.id, {
+      SEND_MESSAGES: false
+    });
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }
@@ -11,12 +14,12 @@ exports.conf = {
   enabled: true,
   aliases: ['mc', 'raid'],
   guildOnly: true,
-  permLevel: 'User'
+  permLevel: 'Administrator'
 };
 
 exports.help = {
-  name: 'mutechat',
+  name: 'mutechannel',
   category: 'Moderation',
-  description: 'Mutes the chat Server-wide',
-  usage: 'mutechat'
+  description: 'Mutes the channel',
+  usage: 'mutechannel'
 };

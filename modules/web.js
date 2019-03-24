@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 const pewds = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw';
 const tseries = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UCq-Fj5jknLsUf-MWSy4_brA';
 
-const initWeb = (client) => {
+const initWeb = (client) => {  
   app.set('view engine', 'ejs');
   app.use(express.static('static'));
   app.use(session({

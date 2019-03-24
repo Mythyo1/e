@@ -2,12 +2,6 @@ const Discord = require('discord.js');
 const cooled = new Discord.Collection();
 
 module.exports = async (client, message) => {
-  if (message.guild) {
-    if (client.raids.has(message.guild.id)) {
-      if (!message.member.hasPermission('BAN_MEMBERS')) message.delete().catch();
-      else return;
-    }
-  }
   if (message.author.bot) return;
   if (client.config.blacklisted.includes(message.author.id)) return;
   
@@ -26,7 +20,7 @@ module.exports = async (client, message) => {
       Object.keys(client.tags.get(message.guild.id)).forEach(tagid => {
         let tag = client.tags.get(message.guild.id)[tagid];
         
-        if (message.content == tag.name) message.channel.send(tag.text.replace('@user', '<@' + message.author.id + '>'));
+        if (message.content.toLowerCase() == tag.name.toLowerCase()) message.channel.send(tag.text.replace('@user', '<@' + message.author.id + '>'));
       });
     }
   }

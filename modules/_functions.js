@@ -73,7 +73,7 @@ module.exports = (client) => {
 
   client.unloadCommand = async (commandName) => {
     let command;
-    if (client.commands.has(commandName) || client.aliases.has(commandName)) command = client.commands.get(commandName) || client.aliases.get(commandName);
+    if (client.commands.has(commandName)) command = client.commands.get(commandName);
     
     if (!command) return `The command \`${commandName}\` doesn't seem to exist. Try again!`;
   
@@ -83,8 +83,8 @@ module.exports = (client) => {
     
     client.commands.delete(command.help.name);
     
-    const mod = require.cache[require.resolve(`../commands/${command.help.name}`)];
-    delete require.cache[require.resolve(`../commands/${command.help.name}.js`)];
+    const mod = require.cache[require.resolve(`../commands/${commandName}`)];
+    delete require.cache[require.resolve(`../commands/${commandName}.js`)];
     for (let i = 0; i < mod.parent.children.length; i++) {
       if (mod.parent.children[i] === mod) {
         mod.parent.children.splice(i, 1);

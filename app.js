@@ -9,6 +9,7 @@ if (process.env.PREBOOT) eval(process.env.PREBOOT);
 //Define NPM modules
 const Discord = require('discord.js');
 const Enmap = require('enmap');
+const CleverBotAPI = require('cleverbot.io');
 const NekosLifeAPI = require('nekos.life');
 const LolisLifeAPI = require('lolis.life');
 
@@ -24,7 +25,6 @@ client.startup = new Date().getTime();
 //Define Databases/Objects
 client.items = new Enmap({name: 'glptmitems'});
 client.money = new Enmap({name: 'glptm'});
-client.raids = new Enmap({name: 'raids'});
 client.profiles = new Enmap({name: 'profiles'});
 client.logins = new Enmap({name: 'logins'});
 client.spotify = new Enmap({name: 'spotify'});
@@ -47,9 +47,13 @@ client.nekoslife = new NekosLifeAPI();
 //Define Lolis.life API
 client.lolislife = new LolisLifeAPI();
 
+//Define CleverBot API
+client.cleverbot = new CleverBotAPI(process.env.CLEVERBOT_USER_KEY, process.env.CLEVERBOT_API_KEY);
+client.cleverbot.setNick('CytrusBot');
+
 //Generate Session secret
 process.env.SESSION_SECRET = '';
-for (let i = 0; i <= 1000; i++)
+for (let i = 0; i <= 1500; i++)
   process.env.SESSION_SECRET += Math.random()
   .toString(16)
   .slice(2, 8)

@@ -21,7 +21,7 @@ exports.log = (content, type = 'log') => {
       return webhook.send('Warn:\n' + content);
       break;
     case 'error':
-      return cytrus.err(String(content));
+      return cytrus.err(JSON.stringify(content));
       break;
     case 'debug':
       return cytrus.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }));

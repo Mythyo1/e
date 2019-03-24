@@ -27,6 +27,6 @@ exports.conf = {
 exports.help = {
   name: 'love',
   category: 'Fun',
-  description: 'Shows how much in love tou are with a user',
+  description: 'Shows how in love you are with a user',
   usage: 'love [user]'
 };

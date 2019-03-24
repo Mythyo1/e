@@ -2,9 +2,11 @@ const google = require('google');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try { 
+    if (!args[0]) return message.reply('You need to input somthing to search!');
     google.resultsPerPage = 5;
 
     google(args.join(' '), async (err, res) => {
+      
       if (err) return message.channel.send('There was an error!\n' + err);
       
       if (!res.links[0].href) return message.reply('I couldent find anything for your search term!');

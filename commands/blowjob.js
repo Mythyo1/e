@@ -1,10 +1,9 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    let baka = await client.nekoslife.sfw.baka();
-    
+    let blowjob = await client.nekoslife.nsfw.bJ();
     let embed = new client.Embed('blend', {
-      title: 'Baka',
-      image: baka.url
+      title: 'Blowjob',
+      image: blowjob.url
     });
 
     message.channel.send(embed);
@@ -15,14 +14,15 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['bj'],
   guildOnly: false,
-  permLevel: 'User'
+  permLevel: 'User',
+  nsfw: true
 };
 
 exports.help = {
-  name: 'baka',
-  category: 'Weeb',
-  description: 'Returns a baka',
-  usage: 'baka'
+  name: 'blowjob',
+  category: 'NSFW',
+  description: 'Returns a blowjob picture',
+  usage: 'blowjob'
 };

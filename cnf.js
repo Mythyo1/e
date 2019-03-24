@@ -7,7 +7,7 @@ const config = {
   'support': [],
   'helpers': [],
   
-  'blacklisted': ['251213730577252354'],
+  'blacklisted': ['251213730577252354', '439183092037713930'],
   'globalBan': require('./data/GlobalBans'),
   'token': 'NTI2n0-t.r_e-a1-t0-k_e.n',
   
@@ -46,7 +46,7 @@ const config = {
       check: (message) => {
         try {
           const modRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.modRole.toLowerCase());
-          if (modRole && message.member.roles.has(modRole.id)) return true;
+          if (modRole && message.member.roles.has(modRole.id) || message.member.hasPermission('MANAGE_MEMBERS')) return true;
         } catch (e) {
           return false;
         }
@@ -58,8 +58,8 @@ const config = {
      
       check: (message) => {
         try {
-          const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase());
-          return (adminRole && message.member.roles.has(adminRole.id));
+          const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase())
+          return (adminRole && message.member.roles.has(adminRole.id) || message.member.hasPermission('MANAGE_MEMBERS'));
         } catch (e) {
           return false;
         }

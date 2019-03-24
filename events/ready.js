@@ -7,7 +7,7 @@ module.exports = async client => {
     {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
     {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
     {msg: `with my new web dashboard! | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `minecraft... MOM GET OUT OF MY ROOM IM PLAYING MINECRAFT | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
+    {msg: `minecraft | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
     {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'}
   ];
   
