@@ -20,7 +20,7 @@ module.exports = (client) => {
       if (!file.endsWith('.js')) return;
 
       //Make the "props" variuble the file object
-      let props = require(`/app/commands/${file}`);
+      let props = require(`../commands/${file}`);
 
       //Split the file name from the file extention
       let commandName = file.split('.')[0];

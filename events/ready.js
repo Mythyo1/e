@@ -18,7 +18,7 @@ module.exports = async client => {
     });
   }, 5000);
   
-  client.user.setStatus('dnd');
+  client.user.setStatus('idle');
   
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');

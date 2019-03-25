@@ -18,7 +18,7 @@ module.exports = (client) => {
       if (!file.endsWith('.js')) return;
 
       //Make the 'event' variuble the file object
-      const event = require(`/app/events/${file}`);
+      const event = require(`../events/${file}`);
 
       //Split the file name from the file extention
       let eventName = file.split('.')[0];
@@ -27,7 +27,7 @@ module.exports = (client) => {
       client.on(eventName, event.bind(null, client));
 
       //Delete the event cache
-      delete require.cache[require.resolve(`/app/events/${file}`)];
+      delete require.cache[require.resolve(`../events/${file}`)];
 
       //Log that the event is loading
       client.logger.log(`Loading event: ${eventName}`)
