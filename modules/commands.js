@@ -9,7 +9,7 @@ const readdir = promisify(fs.readdir);
 module.exports = (client) => {
   //Get command files
   let i = 1;
-  
+
   readdir(__dirname + '/../commands/', (err, files) => {
     //If their is an error, Return the error
     if (err) return client.logger.error(err);
@@ -34,10 +34,10 @@ module.exports = (client) => {
         //Set the aliases of the command the file objects
         client.aliases.set(al, client.commands.get(commandName));
       });
-      
+
       i++;
     });
-    
+
     console.log();
   });
 };

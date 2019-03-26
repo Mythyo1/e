@@ -45,8 +45,8 @@ const config = {
 
       check: (message) => {
         try {
-          const modRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.modRole.toLowerCase());
-          if (modRole && message.member.roles.has(modRole.id) || message.member.hasPermission('MANAGE_MEMBERS')) return true;
+          const modRole = message.guild.roles.find(r => r.name.toLowerCase() === client.getSettings(message.guild.id).modRole.toLowerCase());
+          if (modRole && message.member.roles.has(modRole.id) || message.member.hasPermission('MANAGE_MESSAGES')) return true;
         } catch (e) {
           return false;
         }
@@ -58,8 +58,8 @@ const config = {
      
       check: (message) => {
         try {
-          const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase())
-          return (adminRole && message.member.roles.has(adminRole.id) || message.member.hasPermission('MANAGE_MEMBERS'));
+          const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === client.getSettings(message.guild.id).adminRole.toLowerCase())
+          if (message.member.roles.has(adminRole.id) || message.member.hasPermission('ADMINISTRATOR')) return true;
         } catch (e) {
           return false;
         }

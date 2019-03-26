@@ -10,16 +10,16 @@ module.exports = async client => {
     {msg: `minecraft | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
     {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'}
   ];
-  
+
   setInterval(async () => {
     let index = Math.floor(Math.random() * statusList.length + 1) - 1;
     await client.user.setActivity(statusList[index].msg, {
       type: statusList[index].type
     });
   }, 5000);
-  
+
   client.user.setStatus('idle');
-  
+
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');
   client.logger.log(`Users: ${client.users.size.toLocaleString()}`, 'ready');
@@ -27,13 +27,13 @@ module.exports = async client => {
   client.logger.log(`Channels: ${client.channels.size.toLocaleString()}`, 'ready');
   client.logger.log(`Discord.js: v${require('discord.js').version}`, 'ready');
   client.logger.log(`Node.js: ${process.version}`, 'ready');
-    
+
   //Starts the web server/API
   require('../modules/web')(client);
 
   //Post stats to the bot list
   require('../modules/botlist')(client);
-  
+
   client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
   client.startuptime = new Date().getTime() - client.startup;
   client.logger.log('It took ' + client.startuptime + 'ms to start Cytrus');

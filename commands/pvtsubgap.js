@@ -9,17 +9,23 @@ exports.run = async (client, message, args, level) => {
   try {
     let psubs;
     let tsubs;
-    
+
     request({url: pewds, json: true}, (req, res, jsonp) => {
+      if (jsonp.error) return message.channel.send('There was an error!');
+
       psubs = jsonp.items[0].statistics.subscriberCount;
       request({url: tseries, json: true}, (req, res, jsont) => {
         tsubs = jsont.items[0].statistics.subscriberCount;
+
         let embed = new Discord.RichEmbed()
-        .setColor('#eeeeee')
         .setTitle('PewDiePie VS T-Series')
         .setDescription('Sub Gap: ' + numeral(Number(psubs) - Number(tsubs)).format('0,0'))
         .addField('PewDiePie', numeral(psubs).format('0,0') + ' Subscribers')
         .addField('T-Series', numeral(tsubs).format('0,0') + ' Subscribers');
+
+        if (Number(psubs) - Number(tsubs) >= 25000) embed.setColor('#32cd32');
+        else if (Number(psubs) - Number(tsubs) > 1000 && Number(psubs) - Number(tsubs) < 25000) embed.setColor('#FFFF33');
+        else if (Number(psubs) - Number(tsubs) <= 10000) embed.setColor('#ff0303');
 
         message.channel.send(embed);
       });

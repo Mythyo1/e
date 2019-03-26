@@ -17,11 +17,13 @@ exports.log = (content, type = 'log') => {
         executionTime: timestamp,
         sessionId: process.pid
       });
-      
+
       return webhook.send('Warn:\n' + content);
       break;
     case 'error':
-      return cytrus.err(JSON.stringify(content));
+      if (typeof content == 'object') content = String(JSON.stringify(content));
+
+      return cytrus.err(content);
       break;
     case 'debug':
       return cytrus.debug(beautify(content, { indent_size: 2, space_in_empty_paren: true }));
@@ -42,7 +44,7 @@ exports.log = (content, type = 'log') => {
     default:
       throw new TypeError('Logger type must be either warn, debug, log, ready, time, divider, user or error.');
   }
-}; 
+};
 
 exports.error = (args) => this.log(args, 'error');
 

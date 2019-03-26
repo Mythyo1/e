@@ -4,14 +4,14 @@ const request = require('request');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
-const logger = require('/app/modules/Logger');
+const logger = require('../modules/Logger');
 
 const app = express();
 const port = process.env.PORT || 3000;
 const pewds = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw';
 const tseries = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&key=' + process.env.YOUTUBE_API_KEY + '&id=UCq-Fj5jknLsUf-MWSy4_brA';
 
-const initWeb = (client) => {  
+const initWeb = (client) => {
   app.set('view engine', 'ejs');
   app.use(express.static('static'));
   app.use(session({
@@ -22,7 +22,7 @@ const initWeb = (client) => {
   }));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-  
+
   app.use('/', require('../dash/routes/index'));
   app.use('/authorization', require('../dash/routes/discord'));
   app.use('/guild', require('../dash/routes/server'));
@@ -31,7 +31,7 @@ const initWeb = (client) => {
   app.use('/status', require('../dash/routes/status'));
   app.get('/commands', (req, res) => {
     if (!req.session.user || req.session.guild) res.redirect('/');
-  
+
     if (req.query.command) {
       if (!client.commands.has(req.query.command)) return res.redirect('/commands');
 
@@ -48,12 +48,12 @@ const initWeb = (client) => {
   app.get('/api/subgap', (req, res) => {
     let psubs;
     let tsubs;
-  
+
     request({url: pewds, json: true}, (req, resp, jsonp) => {
       psubs = jsonp.items[0].statistics.subscriberCount;
       request({url: tseries, json: true}, (req, rest, jsont) => {
         tsubs = jsont.items[0].statistics.subscriberCount;
-        
+
         res.send({status: 200, subgap: Number(psubs) - Number(tsubs)})
       });
     });
@@ -62,11 +62,11 @@ const initWeb = (client) => {
     let minesweeper = new Minesweeper();
     res.send({status: 200, minesweeper: minesweeper.start()});
   });
-  
+
   app.use((req, res) => {
     res.status(404).send({status: 404, error: 'Page Not Found'});
   });
-  
+
   app.listen(port, () => logger.log('Web server started.', 'ready'));
 };
 
