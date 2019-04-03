@@ -146,6 +146,12 @@ module.exports = (client) => {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
     }
   });
+  
+  Object.defineProperty(Array.prototype, 'avrage', {
+    value: function() {
+      return this.reduce((a, b) => a + b, 0) / this.length;
+    }
+  });
 
   Object.defineProperty(Array.prototype, 'random', {
     value: function() {
@@ -162,6 +168,7 @@ module.exports = (client) => {
 
   process.on('unhandledRejection', (err) => {
     client.logger.error(err);
+    console.log(err.stack);
   });
 
   process.on('exit', () => {

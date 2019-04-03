@@ -3,7 +3,6 @@ const posibleAnswers = [
   'yes',
   'no',
   '..........................................no u',
-  'https://cytrus.ga',
   'idk',
   'No',
   'yes',

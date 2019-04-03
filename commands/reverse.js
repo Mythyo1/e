@@ -1,6 +1,7 @@
-
 exports.run = async (client, message, args, level) => {
   try {
+    if (!args[0]) return message.reply('You need to input the text to reverse!');
+    
     const str = args.join(' ');
     let msg = await message.reply(str.split('').reverse().join(''));
     msg.react('🔁');

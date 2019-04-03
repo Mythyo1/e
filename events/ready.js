@@ -35,6 +35,6 @@ module.exports = async client => {
   require('../modules/botlist')(client);
 
   client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
-  client.startuptime = new Date().getTime() - client.startup;
+  client.startuptime = new Date().getTime() - client.starttime;
   client.logger.log('It took ' + client.startuptime + 'ms to start Cytrus');
 };

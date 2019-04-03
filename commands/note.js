@@ -27,6 +27,12 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         
         message.channel.send('Cleared your notes!');
         break;
+      case 'view':
+        if (client.notes.has(args[1])) {
+          if (client.notes.get(args[1]).author !== message.author.id) message.reply('You dont own this note!');
+          else message.channel.send('•' + '*' + client.notes.get(args[1]).id + '*\n' + client.notes.get(args[1]).txt + '\n\n');
+        } else message.reply('That is not a valid NoteID!');
+        break;
       default:
           let output = '';
 
@@ -54,5 +60,5 @@ exports.help = {
   name: 'note',
   category: 'General',
   description: 'Generates a note',
-  usage: 'note [clear/add [text]/remove [id]]'
+  usage: 'note [clear/add [text]/remove [id]/view [id]]'
 };

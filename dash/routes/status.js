@@ -1,7 +1,12 @@
 const router = require('express').Router();
 const client = require('../../app');
+const moment = require('moment');
+require('moment-duration-format');
 
 router.get('/', async (req, res) => {
+  if (!req.session.user) return res.redirect('/');
+  if (!req.session.guilds) return res.redirect('/');
+  
   require('pidusage')(process.pid, (err, stats) => {
     const duration = moment.duration(client.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
     res.render('status', {
@@ -19,7 +24,7 @@ router.get('/', async (req, res) => {
         'node1js': `${process.version}`,
         'startup_time': `${client.startuptime}ms`,
         'voice_connections': `${client.voiceConnections.size}`,
-        'dependencies': `${Object.keys(require('../package').dependencies).length}`
+        'dependencies': `${Object.keys(require('../../package').dependencies).length}`
       }
     });
   });

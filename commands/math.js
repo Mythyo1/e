@@ -2,6 +2,8 @@ const math = require('mathjs');
 
 exports.run = async (client, message, args, level) => {
   try {
+    if (!args[0]) return message.reply('You need to input the equasion!');
+    
     message.channel.send('Output: ' + math.eval(args.join(' ')));
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();

@@ -13,7 +13,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         embed = new Discord.RichEmbed()
         .setTitle(message.author.username + ' betes ' + member.user.username)
         .setColor('#363942')
-        .setDescription(message.author.username + ' bet ' + member.user.username + '!\n' + message.author.username + ' didn\'t win the bet ' + member.user.username + '!');
+        .setDescription(message.author.username + ' bet ' + member.user.username + '!\n' + message.author.username + ' didn\'t win the bet!');
       } else {
         embed = new Discord.RichEmbed()
         .setTitle(message.author.username + ' bet ' + member.user.username)

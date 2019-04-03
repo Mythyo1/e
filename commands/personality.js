@@ -1,21 +1,23 @@
 const Discord = require('discord.js');
-const types = ['Psychopath', 'Depressed', 'Cheerful', 'Bright', 'Dark', 'God', 'Deceiver', 'Funny', 'Fishy', 'Cool', 'Insecure', 'Lonely', 'Optimistic', 'Brave', 'Brilliant', 'Dreamer', 'Nurturer', 'Peaceful', 'Overthinker', 'Idealist'];
-const social = ['Loser', 'The nice guy', 'Dank memer', 'Nerd'];
+const types = ['Psychopath', 'Depressed', 'Cheerful', 'Bright', 'Dark', 'God', 'Deceiver', 'Funny', 'Fishy', 'Cool', 'Insecure', 'Lonely', 'Optimistic', 'Brave', 'Brilliant', 'Dreamer', 'Nurturer', 'Peaceful', 'Hot', 'Sexy', 'Perfect', 'Overthinker', 'Idealist'];
+const social = ['Loser', 'The nice guy', 'The cute girl', 'Dank memer', 'Nerd', 'Kinky'];
+const relationship = ['Single', 'Married', 'Taken', 'Forever alone'];
 const hobbys = ['Art', 'Drawing', 'Painting', 'Singing', 'Writing', 'Anime', 'Memes', 'Minecraft', 'Subscribing to PewDiePie from alt accounts', 'Deleting T-Series'];
-const genres = ['Nightcore', 'Heavy Metal', 'Alternative', 'Electronic', 'Classical', 'Dubstep', 'Jazz', 'Pop', 'Rap'];
+const genres = ['Nightcore', 'Heavy Metal', 'Alternative', 'Electronic', 'Classical', 'Dubstep', 'Jazz', 'Pop', 'Rap', 'Country'];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let user = message.mentions.members.first() || message.author;
-    
+
     let embed = new Discord.RichEmbed()
     .setTitle('Personality')
     .setThumbnail(user.avatarURL)
     .setAuthor(user.username + '\'s personality')
-    .addField('Type', types[Math.floor(Math.random() * types.length + 1) - 1])
-    .addField('Social Status', social[Math.floor(Math.random() * social.length + 1) - 1])
-    .addField('Hobby', hobbys[Math.floor(Math.random() * hobbys.length + 1) - 1])
-    .addField('Music Genre', genres[Math.floor(Math.random() * genres.length + 1) - 1])
+    .addField('Type', types.random())
+    .addField('Social Status', social.random())
+    .addField('Relationship Status', relationship.random())
+    .addField('Hobby', hobbys.random())
+    .addField('Music Genre', genres.random())
     .setColor('#eeeeee');
 
     message.channel.send(embed);

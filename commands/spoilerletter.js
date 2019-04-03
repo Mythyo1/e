@@ -1,8 +1,7 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    let msg = await message.reply('Spoilerifying...');
-    
     if (!args[0]) return message.reply('You need to supply the message!');
+    let msg = await message.reply('Spoilerifying...');
     
     let tsl = args.join(' ').split('');
     let out = '';

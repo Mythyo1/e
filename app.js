@@ -18,7 +18,7 @@ const client = new Discord.Client({
 });
 
 //Define time of Startup
-client.startup = new Date().getTime();
+client.starttime = new Date().getTime();
 
 //Define Databases/Objects
 client.items = new Enmap({name: 'glptmitems'});
@@ -32,6 +32,7 @@ client.bugs = new Enmap({name: 'bugreports'});
 client.starboard = new Enmap({name: 'starboardmid'});
 client.warns = new Enmap({name: 'warns'});
 client.tags = new Enmap({name: 'tags'});
+client.uses = new Enmap({name: 'commandpop'});
 client.minecooldown = new Discord.Collection();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();

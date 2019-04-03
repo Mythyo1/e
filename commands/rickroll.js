@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     client.items.ensure(message.author.id, {});
-    if (!client.items.has(message.author.id, 'rickroll')) return message.reply('You dont have access to this command!');
+    if (!client.items.has(message.author.id, 'rickroll')) return message.reply('You dont have access to this command! Try using the buy command!');
     
     message.channel.send('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   } catch (err) {

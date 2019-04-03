@@ -18,6 +18,15 @@ module.exports = async (client, message) => {
   if (message.guild) {
     if (client.tags.has(message.guild.id)) {
       Object.keys(client.tags.get(message.guild.id)).forEach(tagid => {
+        if (client.permlevel(message) < 6) {
+          cooled.set(message.author.id, true);
+          setTimeout(async () => {
+            cooled.delete(message.author.id);
+          }, 3000);
+          
+          return;
+        }
+        
         let tag = client.tags.get(message.guild.id)[tagid];
         
         if (message.content.toLowerCase() == tag.name.toLowerCase()) message.channel.send(tag.text.replace('@user', '<@' + message.author.id + '>'));
@@ -66,6 +75,9 @@ This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf
    
   try {
     cmd.run(client, message, args, level);
+    
+    client.uses.ensure(cmd.help.name, 1);
+    client.uses.inc(cmd.help.name);
   } catch (err) {
     message.channel.send('Their was an error!\n' + err).catch();
   }

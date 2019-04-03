@@ -25,8 +25,8 @@ RickRoll - $75`);
       case 'owo':
         buyItem('owo', 50, client, message);
         break;
-      case 'blur':
-        buyItem('blur', 200, client, message);
+      case 'rickroll':
+        buyItem('rickroll', 200, client, message);
         break;
       default:
         message.reply('Thats not an item!');
