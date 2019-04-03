@@ -1,5 +1,3 @@
-//search/repositories?q=${query}
-//return ghGot(url, opts).then(res => res.body);
 const request = require('request');
 
 exports.run = async (client, message, args, level) => {
@@ -15,7 +13,7 @@ exports.run = async (client, message, args, level) => {
       },
       'json': true
     }, async (req, res, json) => {
-      if (!json.items[0]) return message.reply('I couldent find anything for your search term!');
+      if (!json.items[0]) return message.reply('I couldn\'t find anything for your search term!');
       
       let output = '';
       let i = 1;
