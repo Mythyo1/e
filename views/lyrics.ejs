@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header.ejs') %>
+<body>
+  <%- include('partials/navbar.ejs') %>
+  
+  <div>
+    <center>
+      <% if (success) { %>
+        <h2>
+          <%= song.artist %>
+          <br>
+          <%= song.name %>
+        </h2>
+        <p>
+          <% song.lyrics.split('\n').forEach((txt) => { %>
+            <%= txt %>
+            <br>
+          <% }) %>
+        </p>
+      <% } else { %>
+        <h2>
+          I couldn't find anything for your search term!
+        </h2>
+      <% } %>
+    </center>
+  </div>
+</body>
+</html>

@@ -29,6 +29,7 @@ const initWeb = (client) => {
   app.use('/money', require('../dash/routes/money'));
   app.use('/servers', require('../dash/routes/servers'));
   app.use('/status', require('../dash/routes/status'));
+  app.use('/lyrics', require('../dash/routes/lyrics'));
   app.get('/commands', (req, res) => {
     if (!req.session.user || req.session.guild) res.redirect('/');
 

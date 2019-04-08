@@ -1,4 +1,5 @@
 const request = require('request');
+const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => {
   try {
@@ -6,7 +7,7 @@ exports.run = async (client, message, args, level) => {
       if (err) {
         message.reply('There was an error!');
       } else {
-        message.reply(json.url);
+        message.channel.send(new Discord.Attachment(json.url));
       }
     });
   } catch (err) {

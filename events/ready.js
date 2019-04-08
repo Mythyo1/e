@@ -1,3 +1,5 @@
+const request = require('request');
+
 module.exports = async client => {
   const statusList = [
     {msg: `for commands | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
@@ -17,16 +19,22 @@ module.exports = async client => {
       type: statusList[index].type
     });
   }, 5000);
+  
+  setInterval(async () => {
+    request('https://app.cytrus.ga', (err, res, html) => {
+      if (err) client.logger.error(err);
+    });
+  }, 28000);
 
   client.user.setStatus('idle');
 
   //Logs the Status
   client.logger.log(`Ram Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`, 'ready');
-  client.logger.log(`Users: ${client.users.size.toLocaleString()}`, 'ready');
-  client.logger.log(`Servers: ${client.guilds.size.toLocaleString()}`, 'ready');
-  client.logger.log(`Channels: ${client.channels.size.toLocaleString()}`, 'ready');
-  client.logger.log(`Discord.js: v${require('discord.js').version}`, 'ready');
-  client.logger.log(`Node.js: ${process.version}`, 'ready');
+  client.logger.log(`Users: ${client.users.size.toLocaleString().replace(/ /g, '')}`, 'ready');
+  client.logger.log(`Servers: ${client.guilds.size.toLocaleString().replace(/ /g, '')}`, 'ready');
+  client.logger.log(`Channels: ${client.channels.size.toLocaleString().replace(/ /g, '')}`, 'ready');
+  client.logger.log(`Discord.js: v${require('discord.js').version.replace(/ /g, '')}`, 'ready');
+  client.logger.log(`Node.js: ${process.version.replace(/ /g, '')}`, 'ready');
 
   //Starts the web server/API
   require('../modules/web')(client);

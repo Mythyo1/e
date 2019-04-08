@@ -13,9 +13,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         },
         url: json.source
       });
-      
-      console.log(json);
-      
+            
       message.channel.send(embed);
     });
   } catch (err) {

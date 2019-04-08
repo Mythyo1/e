@@ -21,7 +21,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       });
     }
 
-    execute('ls');
+    execute('ls -a');
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }

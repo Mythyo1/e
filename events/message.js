@@ -18,15 +18,6 @@ module.exports = async (client, message) => {
   if (message.guild) {
     if (client.tags.has(message.guild.id)) {
       Object.keys(client.tags.get(message.guild.id)).forEach(tagid => {
-        if (client.permlevel(message) < 6) {
-          cooled.set(message.author.id, true);
-          setTimeout(async () => {
-            cooled.delete(message.author.id);
-          }, 3000);
-          
-          return;
-        }
-        
         let tag = client.tags.get(message.guild.id)[tagid];
         
         if (message.content.toLowerCase() == tag.name.toLowerCase()) message.channel.send(tag.text.replace('@user', '<@' + message.author.id + '>'));
