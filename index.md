@@ -6,7 +6,7 @@
     location: ['bottom', 'right']
   }).notify({
     content: '`Welcome to cytrus.ga! Join our support server with https://discord.gg/VfTE9GH`',
-    timeout: 5000,
+    timeout: 7000,
     avatar: 'https://cdn.discordapp.com/avatars/526593597118873620/f0d2050df0608f196d81fa5221bc6415?size=2048'
   });;
 </script>
