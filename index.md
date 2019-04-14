@@ -34,3 +34,17 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 ​
 ### Server
 [Visit](https://discord.gg/VfTE9GH)
+
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  const crate = new Crate({
+    server: '529845146402029569',
+    channel: '529845146402029573',
+    shard: 'https://disweb.deploys.io'
+  }, location: ['bottom', 'right']);
+  
+  crate.notify({
+    content: '`Welcome to cytrus.ga!`',
+    timeout: 2000,
+    avatar: 'https://cdn.discordapp.com/avatars/526593597118873620/f0d2050df0608f196d81fa5221bc6415.png?size=2048'
+  });
+</script>
