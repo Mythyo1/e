@@ -1,3 +1,12 @@
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  new Crate({
+    server: '529845146402029569',
+    channel: '529845146402029573',
+    shard: 'https://disweb.deploys.io',
+    location: ['bottom', 'right']
+  });
+</script>
+
 [**Home**](index.md) | [**Links**](links.md) | [**Commands**](commands.md) | [**Info**](info.md) | [**API Docs**](https://app.cytrus.ga/api) | [**Dashboard**](https://app.cytrus.ga)
 
   
@@ -34,12 +43,3 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 ​
 ### Server
 [Visit](https://discord.gg/VfTE9GH)
-
-<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
-  new Crate({
-    server: '529845146402029569',
-    channel: '529845146402029573',
-    shard: 'https://disweb.deploys.io',
-    location: ['bottom', 'right']
-  });
-</script>
