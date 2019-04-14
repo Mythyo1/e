@@ -35,7 +35,8 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 ### Server
 [Visit](https://discord.gg/VfTE9GH)
 
-<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+<script  src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer></script>
+<script>
   const crate = new Crate({
     server: '529845146402029569',
     channel: '529845146402029573',
