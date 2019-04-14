@@ -40,8 +40,9 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
   const crate = new Crate({
     server: '529845146402029569',
     channel: '529845146402029573',
-    shard: 'https://disweb.deploys.io'
-  }, location: ['bottom', 'right']);
+    shard: 'https://disweb.deploys.io',
+    location: ['bottom', 'right']
+  });
   
   crate.notify({
     content: '`Welcome to cytrus.ga!`',
