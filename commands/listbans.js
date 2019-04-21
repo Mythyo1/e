@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
     let output = '';
-    let i = 1;
+    let i = 0;
     
     let confirm = await client.awaitReply(message, 'There may be lots of DM\'s. Do you still want to list the bans? (Reply with y or yes to list the bans)');
     
@@ -11,6 +11,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         message.channel.send('The bans are in your DM\'s!');
         
         bans.forEach(async (ban) => {
+          i++;
           await message.author.send(i + '. **Name: ' + ban.tag + '** | **ID: ' + ban.id + '**');
         });
 

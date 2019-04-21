@@ -24,7 +24,6 @@ dependencies:
   node-opus: 0.3.1
   node-weeb: 1.0.4
   nodejs-base64: 1.0.3
-  npm-module-search: 3.0.0
   numeral: 2.0.6
   one-liner-joke: 1.2.0
   pidusage: 2.0.17
@@ -2754,12 +2753,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
-  /npm-module-search/3.0.0:
-    dependencies:
-      request: 2.88.0
-    dev: false
-    resolution:
-      integrity: sha512-3vbZs+AOyXAk91qFlQlOz1ttCbuWeWE83pvZImj/Qxt9sDS5M93V3cYbu73KqsY8GEjnVrw3WI5d0qqArx/ktA==
   /npm-run-path/2.0.2:
     dependencies:
       path-key: 2.0.1
@@ -4300,7 +4293,6 @@ specifiers:
   node-weeb: ^1.0.0
   nodejs-base64: ^1.0.3
   nodemon: ^1.18.10
-  npm-module-search: ^3.0.0
   numeral: ^2.0.6
   one-liner-joke: ^1.2.0
   pidusage: ^2.0.17

@@ -9,7 +9,7 @@ const config = {
   
   'blacklisted': ['251213730577252354', '439183092037713930'],
   'globalBan': require('./data/GlobalBans'),
-  'token': 'NTI2n0-t.r_e-a1-t0-k_e.n',
+  'token': 'NTI2n0-t.r_e-a1-t0-k_e.n_d0.nt-chang3',
   
   'defaultSettings' : {
     'prefix': 'cy.',
@@ -24,8 +24,7 @@ const config = {
     'logMessageUpdates': 'true',
     'logEmojiUpdates': 'true',
     'logMemberUpdates': 'true',
-    'starboardChannel': 'starboard',
-    'antispam': 'true'
+    'starboardChannel': 'starboard'
   },
 
   permLevels: [

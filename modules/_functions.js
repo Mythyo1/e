@@ -147,7 +147,7 @@ module.exports = (client) => {
     }
   });
   
-  Object.defineProperty(Array.prototype, 'avrage', {
+  Object.defineProperty(Array.prototype, 'average', {
     value: function() {
       return this.reduce((a, b) => a + b, 0) / this.length;
     }

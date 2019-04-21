@@ -21,8 +21,6 @@ exports.log = (content, type = 'log') => {
       return webhook.send('Warn:\n' + content);
       break;
     case 'error':
-      if (typeof content == 'object') content = String(JSON.stringify(content));
-
       return cytrus.err(content);
       break;
     case 'debug':

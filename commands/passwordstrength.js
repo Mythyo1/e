@@ -56,6 +56,6 @@ exports.conf = {
 exports.help = {
   name: 'passwordstrength',
   category: 'General',
-  description: 'Returns how long your password will take to crack, and the strength score of it.',
+  description: 'Returns how long your password will take to crack, and the strength score of your password',
   usage: 'passwordstrength <password>'
 };

@@ -45,7 +45,6 @@ module.exports = async (client, message) => {
     }, 3000);
   }
   
-  if (!message.channel.nsfw && cmd.conf.nsfw) return message.reply('You need to be in a channel marked as NSFW to use this command!');
   if (!message.guild && cmd.conf.guildOnly) return message.reply('You need to be in a Guild to use this command!');
 
   if (level < client.levelCache[cmd.conf.permLevel]) {

@@ -37,8 +37,8 @@ client.minecooldown = new Discord.Collection();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.liusers = new Discord.Collection();
-client.levelCache = {};
 client.music = {};
+client.levelCache = {};
 
 //Define Nekos.life API
 client.nekoslife = new NekosLifeAPI();

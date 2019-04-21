@@ -30,5 +30,5 @@ exports.help = {
   name: 'poll',
   category: 'General',
   description: 'Starts a poll',
-  usage: 'poll question'
+  usage: 'poll <question>'
 };

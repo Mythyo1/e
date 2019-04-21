@@ -49,10 +49,6 @@ exports.run = (client, message, args, level) => {
             {
               title: 'Enabled',
               text: command.conf.enabled ? 'Yes' : 'No',
-            },
-            {
-              title: 'NSFW',
-              text: command.conf.nsfw ? 'Yes' : 'No',
             }
           ]
         });

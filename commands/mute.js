@@ -13,20 +13,11 @@ exports.run = async (client, message, args, level) => {
             name: settings.muteRole || 'CytrusMute',
             color: '#eeeeee',
             permissions: ['READ_MESSAGES']
-          }).then(role => {
-            message.guild.channels.forEach((channel) => {
-              channel.overwritePermissions(role, {
-                READ_MESSAGES: true,
-                SEND_MESSAGES: false,
-                ADD_REACTIONS: false,
-                SPEAK: false
-              });
-            });
-          });
+          }).catch();
         }
         
         
-        member.addRole(message.guild.roles.find(r => [settings.muteRole, 'CytrusMute'].includes(r.name))).then(async () => {
+        member.addRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(async () => {
           message.reply(`Successfully muted ${user.tag}`);
 
           const modLogChannel = settings.modLogChannel;

@@ -10,7 +10,8 @@ module.exports = async client => {
     {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
     {msg: `with my new web dashboard! | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
     {msg: `minecraft | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'}
+    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
+    {msg: `over ${client.guilds.size} servers | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'}
   ];
 
   setInterval(async () => {
@@ -38,9 +39,6 @@ module.exports = async client => {
 
   //Starts the web server/API
   require('../modules/web')(client);
-
-  //Post stats to the bot list
-  require('../modules/botlist')(client);
 
   client.logger.log('Cytrus V' + require('../package').version + ' | https://github.com/CelestialCrafter/cytrus');
   client.startuptime = new Date().getTime() - client.starttime;

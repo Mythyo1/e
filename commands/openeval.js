@@ -11,7 +11,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       txtgen: require('txtgen'),
       nekoslife: require('nekos.life'),
       joke: require('one-liner-joke'),
-      weeb: require('node-weeb')
+      weeb: require('node-weeb'),
+      ms: require('ms')
     }
     
     let evaled = safeEval(code, ctx);
@@ -32,6 +33,6 @@ exports.conf = {
 exports.help = {
   name: 'openeval',
   category: 'System',
-  description: 'Evaluates javascript without the NodeJS API\'s and is safe for anyone to use.\nAPIs: `weeb` = require(\'node-weeb\')\n`joke` = require(\'one-liner-joke\')\n`nekoslife` = require(\'nekos.life\')\n`math` = require(\'mathjs\')\n`txtgen` = require(\'txtgen\')\n`level`\n`args`',
+  description: 'Evaluates javascript without the NodeJS API\'s and is safe for anyone to use.\nAPIs: `weeb` = require(\'node-weeb\')\n`joke` = require(\'one-liner-joke\')\n`nekoslife` = require(\'nekos.life\')\n`math` = require(\'mathjs\')\n`txtgen` = require(\'txtgen\')\n`ms` = require(\'ms\')`level`\n`args`',
   usage: 'openeval [code]'
 };
