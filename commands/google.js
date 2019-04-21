@@ -21,7 +21,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       
             
       let page = await client.awaitReply(message, `Please choose the Result you want${output}`);
-      if (isNaN(page)) return message.reply('Thats not a number!');
+      if (isNaN(page)) return message.reply('That\'s not a number!');
       let pagenum = Number(page) - 1;
       
       let link = res.links[pagenum];
