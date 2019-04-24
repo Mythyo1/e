@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     const execute = (command) => {
 
-      message.channel.send('The files are in your DM\'s!');
+      message.channel.send('The files have been sent to your DMs!');
       exec(command, (err, stdout, stderr) => {
         message.author.send('**'+stdout+'**');
         if (err || stderr) {
@@ -37,6 +37,6 @@ exports.conf = {
 exports.help = {
   name: 'files',
   category: 'System',
-  description: 'Returns all of the files in the directory',
+  description: 'Returns all of the files in the directory.',
   usage: 'files'
 };
