@@ -25,6 +25,6 @@ exports.conf = {
 exports.help = {
   name: 'duck',
   category: 'Fun',
-  description: 'Returns a random duck',
+  description: 'Returns a random duck picture.',
   usage: 'duck'
 };
