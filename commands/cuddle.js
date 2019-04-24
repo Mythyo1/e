@@ -24,6 +24,6 @@ exports.conf = {
 exports.help = {
   name: 'cuddle',
   category: 'Weeb',
-  description: 'Returns a cuddle GIF',
+  description: 'Returns a GIF of a hug.',
   usage: 'cuddle <user>'
 };
