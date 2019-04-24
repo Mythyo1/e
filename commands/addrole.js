@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => {
     
     if (!message.guild.roles.find(r => r.name == args.slice(1).join(' '))) return message.reply('That\'s not a role!');
     if (user) {
-      if (message.guild.members.get(message.author.id).highestRole.name == '@everyone') message.reply('The role you are trying to add is above your roles position!');
+      if (message.guild.members.get(message.author.id).highestRole.name == '@everyone') message.reply('The role you are trying to add is above your highest role\'s position!');
       else {
         if (Number(message.member.highestRole.position) >= Number(message.guild.roles.find(r => r.name == args.slice(1).join(' ')).position)) {
           if (message.member.hasPermission('MANAGE_ROLES')) {
@@ -30,7 +30,7 @@ exports.run = async (client, message, args, level) => {
                 } else message.reply('I can\'t find that Role!');
               } else message.reply('That user isn\'t in this guild!');
           } else message.reply('You don\'t have the Manage Roles permission!');
-        } else message.reply('The role you are trying to add is above your role position!');
+        } else message.reply('The role you are trying to add is above your highest role\'s position!');
       }
     } else message.reply('You didn\'t mention the user to add the role to!');
   } catch (err) {
@@ -48,6 +48,6 @@ exports.conf = {
 exports.help = {
   name: 'addrole',
   category: 'Moderation',
-  description: 'Adds the specifyed role to your role list',
+  description: 'Adds the specified role to your role list.',
   usage: 'addrole <user> <role name/id>'
 };
