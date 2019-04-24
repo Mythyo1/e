@@ -13,7 +13,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     message.channel.send(embed);
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
@@ -27,6 +27,6 @@ exports.conf = {
 exports.help = {
   name: 'cry',
   category: 'Fun',
-  description: 'Returns a cry',
+  description: 'Returns a crying GIF',
   usage: 'cry <user>'
 };
