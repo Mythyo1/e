@@ -6,7 +6,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     if (!args.join(' ').split('|')[1]) return message.reply('You have to supply text for the tag!');
     
     if (!client.tags.has(message.guild.id)) client.tags.set(message.guild.id, {});
-    if (client.tags.has(message.guild.id, args.join(' ').split('|')[0])) return message.reply('Thats already a tag!');
+    if (client.tags.has(message.guild.id, args.join(' ').split('|')[0])) return message.reply('That\'s already a tag!');
     
     client.tags.set(message.guild.id, {
       name: args.join(' ').split('|')[0],
@@ -29,6 +29,6 @@ exports.conf = {
 exports.help = {
   name: 'createtag',
   category: 'General',
-  description: 'Creates a tag that triggers whenever somone says the specified message',
+  description: 'Creates a tag that triggers whenever someone sends the specified message.',
   usage: 'createtag trigger|text'
 };

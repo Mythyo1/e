@@ -68,7 +68,7 @@ exports.run = (client, message, args, level) => {
           }
         });
         
-        if (!output) return message.reply('Thats not a command, alias, or category!');
+        if (!output) return message.reply('That\'s not a command, alias, or category!');
         
         let embed = new client.Embed('blend', {
           title: 'Cytrus Help',
@@ -80,7 +80,7 @@ exports.run = (client, message, args, level) => {
       }
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err.stack).catch();
+    message.channel.send('There was an error!\n' + err.stack).catch();
   }
 };
 
