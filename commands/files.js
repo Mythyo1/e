@@ -37,6 +37,6 @@ exports.conf = {
 exports.help = {
   name: 'files',
   category: 'System',
-  description: 'Returns all of the files in the directory.',
+  description: 'Returns all the files for Cytrus.',
   usage: 'files'
 };
