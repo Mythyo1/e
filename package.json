@@ -10,7 +10,9 @@
     "pm2": "pm2 start app.js",
     "pnpm": "pnpm server start",
     "yarn": "yarn run app.js",
-    "nodemon": "nodemon app.js"
+    "nodemon": "nodemon app.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": "10.x"
@@ -61,7 +63,8 @@
     "ytsearcher": "^1.2.2",
     "zaq": "^2.1.3",
     "cleverbot.io": "^1.0.4",
-    "zxcvbn": "^4.4.2"
+    "zxcvbn": "^4.4.2",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "eslint": "^5.14.0",
@@ -71,5 +74,6 @@
   "bugs": {
     "url": "https://github.com/CelestialCrafter/cytrus/issues"
   },
-  "homepage": "https://cytrus.ga"
+  "homepage": "https://cytrus.ga",
+  "snyk": true
 }
