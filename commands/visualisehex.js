@@ -14,10 +14,10 @@ const validate = (color) => {
 
 exports.run = async (client, message, args, level) => {
   try {
-    if (!args[0]) return message.channel.send('You need to supply the HEX Code!');
-    if (!validate(args.join(' '))) return message.reply('Thats not a valid HEX Code!');
+    if (!args[0]) return message.channel.send('You need to supply the HEX code!');
+    if (!validate(args.join(' '))) return message.reply('That\'s not a valid HEX code!');
 
-    message.channel.send(new Discord.RichEmbed().setColor(args[0]).setTitle('HEX Visualiser'));
+    message.channel.send(new Discord.RichEmbed().setColor(args[0]).setTitle('HEX visualiser'));
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
   }
@@ -33,6 +33,6 @@ exports.conf = {
 exports.help = {
   name: 'visualisehex',
   category: 'General',
-  description: 'Sends an Embed with the specified HEX Code as the color',
+  description: 'Sends an embed with the specified HEX code as the color.',
   usage: 'visualisehex <hex>'
 };
