@@ -36,5 +36,7 @@ PREBOOT='/*JavaScript Code*/'
 
 ## What's new?
 -Fixed a bunch of typos
+​
 -Added a few aliases
+​
 -Added this section to the README
