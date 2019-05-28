@@ -6,13 +6,13 @@ exports.run = async (client, message, args, level) => {
       SEND_MESSAGES: false
     });
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: ['mc', 'raid'],
+  aliases: ['mc', 'raid', 'chmute', 'cmute', 'mutech'],
   guildOnly: true,
   permLevel: 'Administrator'
 };
@@ -20,6 +20,6 @@ exports.conf = {
 exports.help = {
   name: 'mutechannel',
   category: 'Moderation',
-  description: 'Mutes the channel',
+  description: 'Mutes the channel you use the command in.',
   usage: 'mutechannel'
 };
