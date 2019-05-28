@@ -28,8 +28,13 @@ PREBOOT='/*JavaScript Code*/'
 ### Invite
 [Visit](https://discordapp.com/oauth2/authorize?client_id=526593597118873620&scope=bot&permissions=8)
 ​
-### Client Id
+### Client ID
 526593597118873620
 ​
 ### Server
 [Visit](https://discord.gg/VfTE9GH)
+
+## What's new?
+-Fixed a bunch of typos
+-Added a few aliases
+-Added this section to the README
