@@ -1,5 +1,5 @@
 # Cytrus
-A multipurpose bot to cover all your needs.
+A multipurpose Discord bot that covers all your needs.
 
 ## How to set up
 Create a .env file in the directory Cytrus is installed in.  
@@ -35,5 +35,5 @@ PREBOOT='/*JavaScript Code*/'
 [Visit](https://discord.gg/VfTE9GH)
 
 ## What's new?
-### 28/05/19
+### V2.4 (28/05/19)
 Fixed a bunch of typos, added a few aliases and added this section to the README.
