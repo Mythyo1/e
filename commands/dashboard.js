@@ -22,6 +22,6 @@ exports.conf = {
 exports.help = {
   name: 'dashboard',
   category: 'General',
-  description: 'Returns the web dashboard',
+  description: 'Returns a link to the web dashboard',
   usage: 'dashboard'
 };
