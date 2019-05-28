@@ -13,7 +13,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         .setImage(json.url);
 
         message.channel.send(embed);
-      } else message.reply('You need to mention the user to hug!');
+      } else message.reply('You need to mention the user you want to hug!');
     });
   } catch (err) {
     message.channel.send('There was an error!\n' + err).catch();
@@ -30,6 +30,6 @@ exports.conf = {
 exports.help = {
   name: 'hug',
   category: 'Weeb',
-  description: 'Returns a hug',
+  description: 'Returns a hug GIF',
   usage: 'hug <user>'
 };
