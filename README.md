@@ -35,8 +35,4 @@ PREBOOT='/*JavaScript Code*/'
 [Visit](https://discord.gg/VfTE9GH)
 
 ## What's new?
-Fixed a bunch of typos
-​
-Added a few aliases
-​
-Added this section to the README
+Fixed a bunch of typos, added a few aliases and added this section to the README.
