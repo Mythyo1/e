@@ -90,6 +90,6 @@ exports.conf = {
 exports.help = {
   name: 'github',
   category: 'General',
-  description: 'Searches GitHub for your search query.',
+  description: 'Searches GitHub for your query.',
   usage: 'github <query>'
 };
