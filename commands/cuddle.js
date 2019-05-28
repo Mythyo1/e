@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (!message.mentions.members.first()) return message.reply('You need to mention the user you want to cuddle with!');
+    if (!message.mentions.members.first()) return message.reply('You need to mention the user you want to cuddle!');
     let cuddle = await client.nekoslife.sfw.cuddle();
     
     let embed = new client.Embed('blend', {
