@@ -2,13 +2,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     client.generateInvite(['ADMINISTRATOR']).then(link => message.channel.send('Bot Invite: ' + link));
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: ['ri', 'botinvite', 'bi', 'returninvite'],
+  aliases: ['ri', 'botinvite', 'bi', 'returninvite','cyinv'],
   guildOnly: true,
   permLevel: 'User'
 };
@@ -16,6 +16,6 @@ exports.conf = {
 exports.help = {
   name: 'botinv',
   category: 'General',
-  description: 'Sends the invite for Cytrus',
+  description: 'Sends the invite link for Cytrus.',
   usage: 'botinv'
 };
