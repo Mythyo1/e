@@ -27,7 +27,7 @@ exports.run = async (client, message, args, level) => {
                       message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed);
                     }
                   }).catch('There was an error!');
-                } else message.reply('I can\'t find that Role!');
+                } else message.reply('I can\'t find that role!');
               } else message.reply('That user isn\'t in this guild!');
           } else message.reply('You don\'t have the Manage Roles permission!');
         } else message.reply('The role you are trying to add is above your highest role\'s position!');
@@ -40,7 +40,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['arole', 'radd'],
   guildOnly: true,
   permLevel: 'Administrator'
 };
@@ -48,6 +48,6 @@ exports.conf = {
 exports.help = {
   name: 'addrole',
   category: 'Moderation',
-  description: 'Adds the specified role to your role list.',
+  description: 'Adds the specified role to the specified user.',
   usage: 'addrole <user> <role name/id>'
 };
