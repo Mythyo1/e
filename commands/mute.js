@@ -18,7 +18,7 @@ exports.run = async (client, message, args, level) => {
         
         
         member.addRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(async () => {
-          message.reply('**Successfully muted ${user.tag}**');
+          message.reply(`**Successfully muted ${user.tag}**`);
 
           const modLogChannel = settings.modLogChannel;
           if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
