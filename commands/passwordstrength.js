@@ -2,8 +2,8 @@ const zxcvbn = require('zxcvbn');
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (message.guild) return message.channel.send('This command is unavailable via a guild. Please run this command in DM\'s.');
-    if (!args[0]) return message.reply('You need to input the password!');
+    if (message.guild) return message.channel.send('For security reasons, this command is not available in guilds. Please run this command in DM\'s.');
+    if (!args[0]) return message.reply('You need to give the password!');
     
     let res = await zxcvbn(args.join(' '));
     let scorefr = '';
@@ -56,6 +56,6 @@ exports.conf = {
 exports.help = {
   name: 'passwordstrength',
   category: 'General',
-  description: 'Returns how long your password will take to crack, and the strength score of your password',
+  description: 'Returns how long your password will take to crack and the strength score of it.',
   usage: 'passwordstrength <password>'
 };
