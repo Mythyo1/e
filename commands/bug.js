@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         break;
       case 'remove':
         if (client.bugs.has(args[1])) {
-          if (level < 6) return message.reply(`You do not have permission to use this command exention.
+          if (level < 6) return message.reply(`You do not have permission to use this command.
 Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
 This command requires level 6 (Bot Support)`);
           msg = await message.channel.send('Deleting bug report...');
@@ -21,14 +21,14 @@ This command requires level 6 (Bot Support)`);
         } else message.reply('That is not a valid ReportID!');
         break;
       case 'clear':
-        if (level < 6) return message.reply(`You do not have permission to use this command exention.
+        if (level < 6) return message.reply(`You do not have permission to use this command.
 Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
 This command requires level 6 (Bot Support)`);
         await client.bugs.forEach((report)  => {
           client.bugs.delete(report.id);
         });
         
-        message.channel.send('Cleared the bugs reports!');
+        message.channel.send('Cleared the bug reports!');
         break;
       default:
           let output = '';
@@ -37,7 +37,7 @@ This command requires level 6 (Bot Support)`);
             output += '•' + '*' + report.id + '*\n' + report.txt + '\n\n';
           });
 
-          if (output == '') message.reply('There are no bugs reports!');
+          if (output == '') message.reply('There are no bug reports!');
           else message.channel.send(output);
         break;
     }
@@ -48,7 +48,7 @@ This command requires level 6 (Bot Support)`);
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['bugrep', 'brep', 'bugreport'],
   guildOnly: false,
   permLevel: 'User'
 };

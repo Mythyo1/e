@@ -30,6 +30,6 @@ exports.conf = {
 exports.help = {
   name: '8ball',
   category: 'General',
-  description: 'Returns the answer to your question',
+  description: 'Returns the answer to any questions you have',
   usage: '8ball <question>'
 };

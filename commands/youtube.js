@@ -5,12 +5,12 @@ const searcher = new YTSearcher(process.env.YOUTUBE_API_KEY);
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (!args[0]) return message.reply('You need to input somthing to search!');
+    if (!args[0]) return message.reply('You need to give something to search!');
     
     let msg = await message.channel.send('Searching YouTube...');
     
     searcher.search(args.join(' ')).then(info => {
-      if (!info.first) return message.reply('I couldn\'t find anything on youtube with your search term!');
+      if (!info.first) return message.reply('I couldn\'t find anything on Youtube with your query!');
       
       let embed = new Discord.RichEmbed()
       .setTitle(info.first.title)
@@ -35,6 +35,6 @@ exports.conf = {
 exports.help = {
   name: 'youtube',
   category: 'General',
-  description: 'Returns info about a youtube video',
+  description: 'Returns info about a Youtube video',
   usage: 'youtube <video name>'
 };

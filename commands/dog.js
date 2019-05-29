@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => {
     }
   });
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
@@ -25,6 +25,6 @@ exports.conf = {
 exports.help = {
   name: 'dog',
   category: 'Fun',
-  description: 'Returns a random Dog',
+  description: 'Returns a random dog pic',
   usage: 'dog'
 };

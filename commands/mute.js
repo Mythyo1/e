@@ -18,7 +18,7 @@ exports.run = async (client, message, args, level) => {
         
         
         member.addRole(message.guild.roles.find(r => r.name == settings.muteRole)).then(async () => {
-          message.reply(`Successfully muted ${user.tag}`);
+          message.reply(`**Successfully muted ${user.tag}**`);
 
           const modLogChannel = settings.modLogChannel;
           if (modLogChannel && message.guild.channels.find(c => c.name === settings.modLogChannel)) {
@@ -30,7 +30,7 @@ exports.run = async (client, message, args, level) => {
             message.guild.channels.find(c => c.name === settings.modLogChannel).send(embed).catch(console.error);
           }
         }).catch(err => {
-          message.reply('I was unable to mute the member\n' + err);
+          message.reply('I wasn\'t to mute this user.\n' + err);
         });
       } else {
         message.reply('That user isn\'t in this guild!');
@@ -39,7 +39,7 @@ exports.run = async (client, message, args, level) => {
       message.reply('You didn\'t mention the user to mute!');
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err.stack).catch();
+    message.channel.send('There was an error!\n' + err.stack).catch();
   }
 };
 
@@ -53,6 +53,6 @@ exports.conf = {
 exports.help = {
   name: 'mute',
   category: 'Moderation',
-  description: 'Mutes a member.',
+  description: 'Mutes the specified user.',
   usage: 'mute @<user>'
 };

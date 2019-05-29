@@ -31,7 +31,7 @@ exports.run = async (client, message, args, level) => {
       });
     });
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
@@ -45,6 +45,6 @@ exports.conf = {
 exports.help = {
   name: 'pvtsubgap',
   category: 'General',
-  description: 'Returns the sub gap between T-Series vs PewDiePie',
+  description: 'Shows the sub gap between T-Series and PewDiePie.',
   usage: 'pvtsubgap'
 };
