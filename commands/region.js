@@ -4,16 +4,16 @@ exports.run = async (client, message, args, level) => {
       return message.reply('You need to specify a region!');
     } else {
       message.guild.setRegion(args[0]).catch(err => message.channel.send('There was an error!\n' + err));
-      message.channel.send('Region Set');
+      message.channel.send('Region set!');
     }
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['sr'],
   guildOnly: false,
   permLevel: 'Administrator'
 };
@@ -21,6 +21,6 @@ exports.conf = {
 exports.help = {
   name: 'region',
   category: 'Moderation',
-  description: 'Changes the servers region',
+  description: 'Changes the server\'s region.',
   usage: 'region <region>'
 };
