@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-   let log = '';
+   let log = 'V2.5:\n' + 'Added changelog command.\n' + 'Fixed grammar (thanks Rexo!)';
    require('../changelog').forEach((change) => log += '\n- ' + change);
   
    message.channel.send(log);
