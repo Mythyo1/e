@@ -2,16 +2,16 @@ const request = require('request');
 
 module.exports = async client => {
   const statusList = [
-    {msg: `for commands | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
-    {msg: `with async/await errors | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `bitch lasagnia | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'LISTENING'},
-    {msg: `PewDiePie | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
-    {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `with my new web dashboard! | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `minecraft | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'PLAYING'},
-    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'},
-    {msg: `over ${client.guilds.size} servers | ${client.config.defaultSettings.prefix}help | https://app.cytrus.ga`, type: 'WATCHING'}
+    {msg: `for commands | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'WATCHING'},
+    {msg: `with async/await errors | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'PLAYING'},
+    {msg: `bitch lasagnia | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'LISTENING'},
+    {msg: `PewDiePie | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'WATCHING'},
+    {msg: `with unhandled promise rejections | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'PLAYING'},
+    {msg: `with linux permissions | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'PLAYING'},
+    {msg: `with my new web dashboard! | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'PLAYING'},
+    {msg: `minecraft | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'PLAYING'},
+    {msg: `Discord be slow | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'WATCHING'},
+    {msg: `over ${client.guilds.size} servers | ${client.config.defaultSettings.prefix}help | https://web.cytrus.ga`, type: 'WATCHING'}
   ];
 
   setInterval(async () => {
@@ -22,7 +22,7 @@ module.exports = async client => {
   }, 5000);
   
   setInterval(async () => {
-    request('https://app.cytrus.ga', (err, res, html) => {
+    request('https://web.cytrus.ga', (err, res, html) => {
       if (err) client.logger.error(err);
     });
   }, 28000);

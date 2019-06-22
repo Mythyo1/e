@@ -2,8 +2,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   try {
     let embed = new client.Embed('normal', {
       title: 'Cytrus Dashboard',
-      url: 'https://app.cytrus.ga',
-      description: 'Web Dashboard: https://app.cytrus.ga'
+      url: 'https://web.cytrus.ga',
+      description: 'Web Dashboard: https://web.cytrus.ga'
     });
 
     message.channel.send(embed);
