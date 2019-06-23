@@ -33,7 +33,3 @@ PREBOOT='/*JavaScript Code*/'
 ​
 ### Server
 [Visit](https://discord.gg/VfTE9GH)
-
-## What's new?
-### V2.4 (28/05/19)
-Fixed a bunch of typos, added a few aliases and added this section to the README.
