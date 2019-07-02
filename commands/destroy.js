@@ -8,13 +8,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     }
     else message.channel.send('Aborted.');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['botdest', 'clidest'],
   guildOnly: true,
   permLevel: 'Bot Admin'
 };
@@ -22,6 +22,6 @@ exports.conf = {
 exports.help = {
   name: 'destroy',
   category: 'System',
-  description: 'Destroys the Client and logs out of Discord',
+  description: 'Destroys the client and logs out of Discord.',
   usage: 'destroy'
 };

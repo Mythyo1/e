@@ -19,6 +19,6 @@ exports.conf = {
 exports.help = {
   name: 'changelog',
   category: 'Utility',
-  description: 'Returns the latest update to Cytrus.',
+  description: 'Returns the latest changelog for Cytrus.',
   usage: 'changelog'
 };
