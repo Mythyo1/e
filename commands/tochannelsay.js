@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, level) => {
   try {
-    if (!args[0]) return message.reply('You need to giv the channel name!');
-    if (!args[1]) return message.reply('You need to input the text to say!');
+    if (!args[0]) return message.reply('You need to give the channel name!');
+    if (!args[1]) return message.reply('You need to give the text to say!');
     
     message.delete();
     const str = args.slice(1).join(' ');
