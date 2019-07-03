@@ -23,7 +23,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['rish'],
+  aliases: [],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -31,6 +31,6 @@ exports.conf = {
 exports.help = {
   name: 'engrish',
   category: 'Fun',
-  description: 'Returns a post from r/engrish',
+  description: 'Returns a meme from r/engrish',
   usage: 'engrish'
 };
