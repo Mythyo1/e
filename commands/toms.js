@@ -10,7 +10,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['timems'],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -18,6 +18,6 @@ exports.conf = {
 exports.help = {
   name: 'toms',
   category: 'General',
-  description: 'Returns the time specified in Millisecconds',
+  description: 'Returns the time specified in millisecconds.',
   usage: 'toms <time (NOT IN MS)>'
 };

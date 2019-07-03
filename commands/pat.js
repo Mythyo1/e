@@ -7,7 +7,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     require('request')({url: 'https://nekos.life/api/pat', json: true}, (req, res, json) => {
       if (member) {
         let embed = new Discord.RichEmbed()
-        .setTitle(message.author.username + ' patts ' + member.user.username)
+        .setTitle(message.author.username + ' pats ' + member.user.username)
         .setColor('#363942')
         .setDescription(message.author.username + ' patted ' + member.user.username + '!')
         .setImage(json.url);
@@ -22,7 +22,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['upat'],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -30,6 +30,6 @@ exports.conf = {
 exports.help = {
   name: 'pat',
   category: 'Weeb',
-  description: 'Returns a pat',
+  description: 'Pats a user for you.',
   usage: 'pat <user>'
 };
