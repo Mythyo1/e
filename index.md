@@ -11,7 +11,7 @@
   });;
 </script>
 
-[**Home**](index.md) | [**Links**](links.md) | [**Commands**](commands.md) | [**Info**](info.md) | [**API Docs**](https://app.cytrus.ga/api) | [**Dashboard**](https://web.cytrus.ga)
+[**Home**](index.md) | [**Links**](links.md) | [**Commands**](commands.md) | [**Info**](info.md) | [**API Docs**](https://web.cytrus.ga/api) | [**Dashboard**](https://web.cytrus.ga)
 
   
   
@@ -31,7 +31,7 @@ LOG_WEBHOOK_ID='`YourLogChannelWebhookID`'
 
 ## Links
 ### API
-[Visit](https://api.cytrus.ga/api/)
+[Visit](https://web.cytrus.ga/api/)
 ​
 ### Bot List
 [Visit](https://discordbotlist.com/bots/526593597118873620/)
