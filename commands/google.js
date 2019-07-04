@@ -8,7 +8,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     google(args.join(' '), async (err, res) => {
       
       if (err) return message.channel.send('There was an error!\n' + err);
-      
+      console.log(res);
       if (!res.links[0].href) return message.reply('I couldent find anything for your search term!');
       
       let output = '';
@@ -28,8 +28,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       
       let embed = new client.Embed('normal', {
         title: link.title,
-        url: link.href,
-        footer: link.href,
+        url: link.href || '',
+        footer: link.href || '',
         description: client.truncate(link.description, 2000)
       });
       

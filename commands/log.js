@@ -5,13 +5,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       message.channel.send('Message sent to the Cytrus Logs!');
     } else message.reply('You are not logged in! (Use profile login to login)');
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: ['logsend'],
+  aliases: [],
   guildOnly: false,
   permLevel: 'User'
 };

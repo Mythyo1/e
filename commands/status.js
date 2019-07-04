@@ -29,7 +29,7 @@ Voice Connections: ${client.voiceConnections.size}`)
       message.channel.send(embed);
     });
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 
@@ -43,6 +43,6 @@ exports.conf = {
 exports.help = {
   name: 'status',
   category: 'System',
-  description: 'Reuturns the bot\'s status',
+  description: 'Reuturns the bots status',
   usage: 'status'
 };

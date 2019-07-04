@@ -7,8 +7,8 @@ const encrypt = (text, key) => {
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-    if (!args[0]) return message.channel.send('You need to give a key to encrypt the text with!');
-    if (!args[1]) return message.channel.send('You need to give the text to encrypt!');
+    if (!args[0]) return message.channel.send('You need to input a key to encrypt the text with!');
+    if (!args[1]) return message.channel.send('You need to input text to encrypt!');
     
     message.channel.send(encrypt(args.slice(1).join(' '), args[0]));
   } catch (err) {

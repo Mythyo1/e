@@ -1,6 +1,6 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   try {
-   let log = 'V2.6:\n' + 'Added two commands: toycat and sync (get the link for Toycat\'s channel and, for bot mods, sync the bot instance with the Github repo).\n' + 'More grammar fixes (thanks Rexo!)\n' 'Coming soon: removal of some unused comamnds and more flippin\' grammar!';
+   let log = 'V2.5:\n' + 'Added changelog command.\n' + 'Fixed grammar (thanks Rexo!)';
    require('../changelog').forEach((change) => log += '\n- ' + change);
   
    message.channel.send(log);
@@ -19,6 +19,6 @@ exports.conf = {
 exports.help = {
   name: 'changelog',
   category: 'Utility',
-  description: 'Returns the latest changelog for Cytrus.',
+  description: 'Returns the latest update to Cytrus.',
   usage: 'changelog'
 };

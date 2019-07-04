@@ -47,7 +47,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['cursedimg', 'curse',],
+  aliases: [],
   guildOnly: false,
   permLevel: 'User',
   nsfw: true
@@ -56,6 +56,6 @@ exports.conf = {
 exports.help = {
   name: 'cursed',
   category: 'General',
-  description: 'Returns a cursed image.',
+  description: 'Returns a cursed',
   usage: 'cursed'
 };

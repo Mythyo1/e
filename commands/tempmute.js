@@ -43,9 +43,9 @@ exports.run = async (client, message, args, level) => {
           });
         } else message.reply('That user isn\'t in this guild!');
       } else message.reply('You didn\'t mention the user to mute!');
-    } else message.reply('You didn\'t specify the amount of time to mute the member or the time is invalid!');
+    } else message.reply('You didint specify the time to mute the member or the time is invalid!');
   } catch (err) {
-    message.channel.send('There was an error!\n' + err).catch();
+    message.channel.send('Their was an error!\n' + err).catch();
   }
 };
 
@@ -59,6 +59,6 @@ exports.conf = {
 exports.help = {
   name: 'tempmute',
   category: 'Moderation',
-  description: 'Temporarily mutes a member.',
+  description: 'Temporaraly Mutes a member.',
   usage: 'tempmute <time> @<user>'
 };

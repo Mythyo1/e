@@ -15,11 +15,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       });
       
       let animenum = await client.awaitReply(message, `Please choose the anime you want.${output}`);
-      if (isNaN(animenum)) return message.reply('That\'s not a number!');
+      if (isNaN(animenum)) return message.reply('Thats not a number!');
       
       let anime = JSON.parse(res).data[animenum - 1];
       
-      if (!anime) return message.reply('I couldn\'t find any anime with your search term!');
+      if (!anime) return message.reply('I couldent find any Anime with your search term!');
       let embed = new client.Embed('normal', {
         title: anime.attributes.titles.en || 'Title not found',
         url: 'https://kitsu.io/anime' + anime.id,
@@ -52,7 +52,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: ['anime', 'kitsuio', 'kit'],
+  aliases: ['anime', 'kitsuio', 'k'],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -60,6 +60,6 @@ exports.conf = {
 exports.help = {
   name: 'kitsu',
   category: 'Weeb',
-  description: 'Searches Kitsu for you.',
-  usage: 'kitsu <animetitle>'
+  description: 'Searches Kitsu for your anime',
+  usage: 'kitsu <anime>'
 };
