@@ -32,7 +32,7 @@ exports.run = async (client, message, args, level) => {
           });
         });
         
-        banmsg.edit('Ive banned all of the members on the Global Ban List!');
+        banmsg.edit("I've banned all of the members on the Global Ban List!");
       } else message.reply('Ok! Aborting...');
     }
   } catch (err) {
