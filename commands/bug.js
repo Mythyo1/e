@@ -18,7 +18,7 @@ This command requires level 6 (Bot Support)`);
 
           await client.bugs.delete(args[1]);
           msg.edit('Bug report deleted with the ID of ' + args[1]);
-        } else message.reply('That is not a valid ReportID!');
+        } else message.reply('That isn\'t a valid ReportID!');
         break;
       case 'clear':
         if (level < 6) return message.reply(`You do not have permission to use this command.
@@ -28,7 +28,7 @@ This command requires level 6 (Bot Support)`);
           client.bugs.delete(report.id);
         });
         
-        message.channel.send('Cleared the bug reports!');
+        message.channel.send('Cleared all bug reports.');
         break;
       default:
           let output = '';
@@ -56,6 +56,6 @@ exports.conf = {
 exports.help = {
   name: 'bug',
   category: 'System',
-  description: 'Generates a bug report',
+  description: 'Makes a bug report for you.',
   usage: 'bug [add [text]/remove [id]]'
 };
