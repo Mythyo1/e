@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const types = ['Psychopath', 'Depressed', 'Cheerful', 'Bright', 'Dark', 'God', 'Deceiver', 'Funny', 'Fishy', 'Cool', 'Insecure', 'Lonely', 'Optimistic', 'Brave', 'Brilliant', 'Dreamer', 'Nurturer', 'Peaceful', 'Hot', 'Sexy', 'Perfect', 'Overthinker', 'Idealist'];
 const social = ['Loser', 'The nice guy', 'The cute girl', 'Dank memer', 'Nerd', 'Kinky'];
 const relationship = ['Single', 'Married', 'Taken', 'Forever alone'];
-const hobbys = ['Art', 'Drawing', 'Painting', 'Singing', 'Writing', 'Anime', 'Memes', 'Minecraft', 'Subscribing to PewDiePie from alt accounts', 'Deleting T-Series'];
+const hobbies = ['Art', 'Drawing', 'Painting', 'Singing', 'Writing', 'Anime', 'Memes', 'Minecraft', 'Subscribing to PewDiePie from alt accounts', 'Deleting T-Series'];
 const genres = ['Nightcore', 'Heavy Metal', 'Alternative', 'Electronic', 'Classical', 'Dubstep', 'Jazz', 'Pop', 'Rap', 'Country'];
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
@@ -16,9 +16,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     .addField('Type', types.random())
     .addField('Social Status', social.random())
     .addField('Relationship Status', relationship.random())
-    .addField('Hobby', hobbys.random())
+    .addField('Hobby', hobbies.random())
     .addField('Music Genre', genres.random())
-    .setColor('#eeeeee');
+    .setColor('#37dbde');
 
     message.channel.send(embed);
   } catch (err) {
@@ -28,7 +28,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['pers'],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -36,6 +36,6 @@ exports.conf = {
 exports.help = {
   name: 'personality',
   category: 'General',
-  description: 'Returns your Personality',
+  description: 'Returns your personality.',
   usage: 'personality'
 };
