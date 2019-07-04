@@ -17,7 +17,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['tick'],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -25,6 +25,6 @@ exports.conf = {
 exports.help = {
   name: 'tickle',
   category: 'Weeb',
-  description: 'Returns a tickle',
+  description: 'Returns a tickling GIF.',
   usage: 'tickle'
 };

@@ -1,4 +1,4 @@
-exports.run = async (client, message, args, level) => {
+﻿exports.run = async (client, message, args, level) => {
   try {
     message.channel.send(new client.Embed('blend', {
       title: 'Embed System',
@@ -32,7 +32,7 @@ exports.run = async (client, message, args, level) => {
 
 exports.conf = {
   enabled: true,
-  aliases: [],
+  aliases: ['cytest'],
   guildOnly: false,
   permLevel: 'User'
 };
@@ -40,6 +40,6 @@ exports.conf = {
 exports.help = {
   name: 'test',
   category: 'General',
-  description: 'Returns the test embed',
+  description: 'Returns the test embed for Cytrus.',
   usage: 'test'
 };

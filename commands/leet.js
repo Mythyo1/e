@@ -17,10 +17,10 @@ const leet = (string) => {
 exports.run = async (client, message, args, level) => {
   try {
     if (!args[0]) {
-      message.channel.send('You must provide a message to Leetify!');
+      message.channel.send('You must provide a message to leetify!');
     } else message.channel.send(leet(args.join(' ')));
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
@@ -34,6 +34,6 @@ exports.conf = {
 exports.help = {
   name: 'leet',
   category: 'Fun',
-  description: 'Leetifys your message',
+  description: 'Leetifies your message.',
   usage: 'leet <message>'
 };
