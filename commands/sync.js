@@ -15,13 +15,13 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
     execute('sync-glitch');
   } catch (err) {
-    message.channel.send('Their was an error!\n' + err).catch();
+    message.channel.send('There was an error!\n' + err).catch();
   }
 };
 
 exports.conf = {
   enabled: true,
-  aliases: ['glsync'],
+  aliases: ['glsync', 'upgli'],
   guildOnly: false,
   permLevel: 'Bot Moderator'
 };
@@ -29,6 +29,6 @@ exports.conf = {
 exports.help = {
   name: 'sync',
   category: 'System',
-  description: 'Syncs the Github Repo with Cytrus Bot',
+  description: 'Syncs the Github repo with Cytrus\'s Glitch instance.',
   usage: 'sync'
 };
